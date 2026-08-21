@@ -14,7 +14,7 @@ function AnimatedStat({ value, label, delay }: { value: string; label: string; d
   const isDecimal = match ? match[1].includes(".") : false;
 
   const motionVal = useMotionValue(0);
-  const spring = useSpring(motionVal, { stiffness: 50, damping: 18 });
+  const spring = useSpring(motionVal, { stiffness: 35, damping: 20 });
   const displayRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {

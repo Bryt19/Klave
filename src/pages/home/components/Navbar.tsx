@@ -111,7 +111,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer — capsule style */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out mt-2 ${
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out mt-2 pointer-events-auto ${
           mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >

@@ -69,7 +69,7 @@ export default function ScrollToTop() {
                 strokeLinecap="round"
                 strokeDasharray={circumference}
                 strokeDashoffset={circumference * (1 - progress / 100)}
-                style={{ transition: "stroke-dashoffset 0.18s ease-out" }}
+                style={{ transition: "stroke-dashoffset 0.08s linear" }}
               />
             </svg>
 

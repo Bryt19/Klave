@@ -5,6 +5,9 @@ const Home = lazy(() => import("../pages/home/page"));
 const Login = lazy(() => import("../pages/Login"));
 const SignUp = lazy(() => import("../pages/SignUp"));
 const NotFound = lazy(() => import("../pages/NotFound"));
+const Privacy = lazy(() => import("../pages/Privacy"));
+const Terms = lazy(() => import("../pages/Terms"));
+const Hipaa = lazy(() => import("../pages/Hipaa"));
 
 function PageLoader() {
   return (
@@ -37,6 +40,18 @@ const routes: RouteObject[] = [
   {
     path: "/signup",
     element: withSuspense(SignUp),
+  },
+  {
+    path: "/privacy",
+    element: withSuspense(Privacy),
+  },
+  {
+    path: "/terms",
+    element: withSuspense(Terms),
+  },
+  {
+    path: "/hipaa",
+    element: withSuspense(Hipaa),
   },
   {
     path: "*",

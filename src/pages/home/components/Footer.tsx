@@ -26,7 +26,6 @@ const companyLinks = [
   { label: "About Klavora", href: "#about" },
   { label: "Contact Sales", href: "mailto:info.klavora@gmail.com" },
   { label: "Careers", href: "#" },
-  { label: "Privacy Policy", href: "#" },
 ];
 
 export default function Footer() {
@@ -127,6 +126,11 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              <li>
+                <Link to="/privacy" className="hover:text-white transition-colors duration-150">
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -139,9 +143,9 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-400 transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-slate-400 transition-colors">HIPAA Compliance</a>
+            <Link to="/privacy" className="hover:text-slate-400 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-slate-400 transition-colors">Terms of Service</Link>
+            <Link to="/hipaa" className="hover:text-slate-400 transition-colors">HIPAA Compliance</Link>
           </div>
         </div>
 
