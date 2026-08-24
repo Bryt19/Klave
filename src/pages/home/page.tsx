@@ -9,6 +9,7 @@ const ClinicalWorkflows = lazy(() => import("./components/ClinicalWorkflows"));
 const EveryLayer = lazy(() => import("./components/EveryLayer"));
 const BuiltForTeams = lazy(() => import("./components/BuiltForTeams"));
 const OperationalOutcomes = lazy(() => import("./components/OperationalOutcomes"));
+const Testimonials = lazy(() => import("./components/Testimonials"));
 const Pricing = lazy(() => import("./components/Pricing"));
 const About = lazy(() => import("./components/About"));
 const Faq = lazy(() => import("./components/Faq"));
@@ -28,6 +29,7 @@ export default function Home() {
           <EveryLayer />
           <BuiltForTeams />
           <OperationalOutcomes />
+          <Testimonials />
           <Pricing />
           <About />
           <Faq />
