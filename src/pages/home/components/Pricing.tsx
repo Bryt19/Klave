@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "./Reveal";
 
 const plans = [
   {
     name: "Dispensary Starter",
-    badge: "Independent Counters",
-    description: "Essential POS terminal, batch tracking, and offline dispensing for single-counter pharmacies.",
-    priceMonthly: "GH₵180",
-    priceAnnual: "GH₵144",
+    badge: "Independent",
+    description: "Essential POS, batch tracking, and offline dispensing for single-counter pharmacies.",
+    priceMonthly: "GH\u20B5180",
+    priceAnnual: "GH\u20B5144",
     highlight: false,
     cta: "Start Free Pilot",
     ctaLink: "https://app.klavora.com/signup",
@@ -26,209 +26,218 @@ const plans = [
     name: "Clinical Pro",
     badge: "Most Popular",
     description: "Full clinical safety engine, OCR intake, telepharmacy verification, and live queue orchestration.",
-    priceMonthly: "GH₵250",
-    priceAnnual: "GH₵200",
+    priceMonthly: "GH\u20B5250",
+    priceAnnual: "GH\u20B5200",
     highlight: true,
     cta: "Get Started with Pro",
     ctaLink: "https://app.klavora.com/signup",
     features: [
       "Everything in Starter, plus:",
-      "OCR Script Scanner & Parser (99.4% confidence)",
-      "Real-Time Drug Interaction Warning Engine",
-      "Telepharmacy Pharmacist Sign-Off Console",
-      "Multi-Station Live Dispensary Kanban",
-      "Cryptographic Immutable Audit Trail",
-      "Unlimited Staff Accounts & Roles",
-      "Automated SMS & WhatsApp Pickup Alerts",
-      "Priority 24/7 Support & Fast Onboarding",
+      "OCR Script Scanner (99.4% confidence)",
+      "Drug Interaction Warning Engine",
+      "Telepharmacy Sign-Off Console",
+      "Multi-Station Live Kanban",
+      "Cryptographic Audit Trail",
+      "Unlimited Staff & Roles",
+      "SMS & WhatsApp Pickup Alerts",
+      "Priority 24/7 Support",
     ],
   },
   {
-    name: "Health System Enterprise",
-    badge: "Multi-Branch & Networks",
-    description: "Direct EHR integration, multi-warehouse routing, custom SLA, and clinical consortium oversight.",
+    name: "Health System",
+    badge: "Enterprise",
+    description: "Direct EHR integration, multi-warehouse routing, custom SLA, and clinical oversight.",
     priceMonthly: "Custom",
     priceAnnual: "Custom",
     highlight: false,
-    cta: "Contact Enterprise Team",
+    cta: "Contact Enterprise",
     ctaLink: "mailto:info.klavora@gmail.com",
     features: [
       "Everything in Clinical Pro, plus:",
-      "Bi-directional EHR Sync (FHIR R4 / HL7 REST)",
-      "Multi-Location & Warehouse Inventory Routing",
-      "Enterprise Single Sign-On (SAML / OAuth2)",
-      "Custom Clinical Formulary & Rule Configuration",
-      "Dedicated Clinical Account Strategist",
-      "99.99% Guaranteed SLA Uptime",
-      "Custom On-Site Training & Data Migration",
+      "Bi-directional EHR Sync (FHIR/HL7)",
+      "Multi-Location Inventory Routing",
+      "Enterprise SSO (SAML/OAuth2)",
+      "Custom Clinical Formulary Rules",
+      "Dedicated Account Strategist",
+      "99.99% SLA Uptime Guarantee",
+      "On-Site Training & Data Migration",
     ],
   },
 ];
+
+function AnimatedPrice({ price, isAnnual }: { price: string; isAnnual: boolean }) {
+  return (
+    <div className="relative h-[3rem] overflow-hidden">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={price}
+          initial={{ y: 20, opacity: 0, scale: 0.95, filter: "blur(6px)" }}
+          animate={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
+          exit={{ y: -20, opacity: 0, scale: 0.95, filter: "blur(6px)" }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute inset-0 flex items-baseline"
+        >
+          <span className="text-4xl font-extrabold text-slate-900 tracking-tight">{price}</span>
+          {price !== "Custom" && (
+            <motion.span
+              initial={{ opacity: 0, x: -8 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.15, duration: 0.3 }}
+              className="ml-1.5 text-xs font-medium text-emerald-500"
+            >
+              {isAnnual ? "/mo" : "/mo"}
+            </motion.span>
+          )}
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function Pricing() {
   const [isAnnual, setIsAnnual] = useState(true);
 
   return (
-    <section id="pricing" className="relative py-24 md:py-32 bg-slate-50/50 transition-colors duration-200">
+    <section id="pricing" className="relative py-14 sm:py-20 lg:py-28 bg-slate-50/50 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <Reveal className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-medium mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
+
+        {/* Header */}
+        <Reveal className="max-w-2xl mx-auto text-center mb-8 md:mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-[11px] font-medium mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
             <span>Transparent Pricing</span>
           </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-4">
-            Predictable Plans. <br />
-            No Hidden Add-Ons.
+          <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-5">
+            Predictable plans. <br />
+            <span className="gradient-text-emerald">No hidden add-ons.</span>
           </h2>
-
-          <p className="text-base text-slate-600 font-normal leading-relaxed max-w-lg mx-auto mb-8">
-            Start with our assisted 14-day free pilot. Scale seamlessly from community pharmacies to nationwide hospital networks.
+          <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-lg mx-auto mb-8">
+            Start with our assisted 14-day free pilot. Scale from community pharmacies to nationwide hospital networks.
           </p>
 
-          {/* Billing Toggle */}
-          <div className="inline-flex items-center gap-3 p-1.5 rounded-full bg-slate-200/60 border border-slate-300/60 text-xs font-semibold select-none">
-            <button
-              type="button"
-              onClick={() => setIsAnnual(false)}
-              className={`px-4 py-2 rounded-full transition-all duration-200 cursor-pointer ${
-                !isAnnual
-                  ? "bg-white text-slate-900 shadow-xs font-bold"
-                  : "text-slate-600 hover:text-slate-900"
+          {/* Billing toggle */}
+          <div className="inline-flex items-center gap-1 p-1 rounded-full bg-slate-100 border border-slate-200/60 text-xs font-semibold select-none">            <motion.button type="button" onClick={() => setIsAnnual(false)} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+              className={`px-4 py-2 rounded-full transition-colors duration-200 cursor-pointer ${
+                !isAnnual ? "bg-white text-slate-900 shadow-sm font-bold" : "text-slate-500 hover:text-slate-800"
               }`}
             >
-              Monthly Billing
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setIsAnnual(true)}
-              className={`px-4 py-2 rounded-full transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
-                isAnnual
-                  ? "bg-emerald-950 text-white shadow-xs font-bold"
-                  : "text-slate-600 hover:text-slate-900"
+              Monthly
+            </motion.button>
+            <motion.button type="button" onClick={() => setIsAnnual(true)} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+              className={`px-4 py-2 rounded-full transition-colors duration-200 cursor-pointer flex items-center gap-1.5 ${
+                isAnnual ? "bg-emerald-950 text-white shadow-sm font-bold" : "text-slate-500 hover:text-slate-800"
               }`}
             >
-              <span>Annual Billing</span>
-              <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
-                isAnnual ? "bg-emerald-400 text-emerald-950" : "bg-emerald-100 text-emerald-800"
-              }`}>
+              <span>Annual</span>
+              <span
+                className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
+                  isAnnual ? "bg-emerald-400 text-emerald-950" : "bg-emerald-100 text-emerald-700"
+                }`}
+              >
                 Save 20%
               </span>
-            </button>
+            </motion.button>
           </div>
         </Reveal>
 
-        {/* 3 Tiered Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 items-stretch">
+        {/* Plan cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch max-w-5xl mx-auto">
           {plans.map((plan, idx) => (
             <Reveal key={plan.name} delay={idx * 0.08}>
               <motion.div
                 whileHover={{ y: -4 }}
-                className={`rounded-2xl sm:rounded-3xl p-6 sm:p-7 lg:p-8 h-full flex flex-col justify-between transition-all duration-200 relative ${
+                className={`rounded-2xl sm:rounded-3xl p-6 sm:p-7 h-full flex flex-col justify-between transition-all duration-200 relative card-hover-glow ${
                   plan.highlight
-                    ? "bg-white border-2 border-emerald-600 shadow-xl shadow-emerald-950/5 ring-2 sm:ring-4 ring-emerald-500/10"
-                    : "subtle-card bg-white border border-slate-200/90 shadow-md"
+                    ? "bg-white border-2 border-emerald-500 shadow-xl ring-2 sm:ring-4 ring-emerald-500/10"
+                    : "bg-white border border-slate-200/90 shadow-md"
                 }`}
               >
-                {/* Top Popular Badge */}
                 {plan.highlight && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span className="px-3.5 py-1 rounded-full bg-emerald-600 text-white text-[11px] font-bold tracking-wide uppercase shadow-sm">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="px-3.5 py-1 rounded-full bg-emerald-600 text-white text-[11px] font-bold uppercase shadow-sm">
                       {plan.badge}
                     </span>
                   </div>
                 )}
-
                 <div>
-                  {/* Plan Name & Tag */}
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <h3 className="text-lg font-bold text-slate-900">
-                      {plan.name}
-                    </h3>
+                    <h3 className="text-lg font-bold text-slate-900">{plan.name}</h3>
                     {!plan.highlight && (
                       <span className="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
                         {plan.badge}
                       </span>
                     )}
                   </div>
-
-                  <p className="text-xs text-slate-500 leading-relaxed mb-6">
-                    {plan.description}
-                  </p>
-
-                  {/* Price display */}
+                  <p className="text-xs text-slate-500 leading-relaxed mb-6">{plan.description}</p>
                   <div className="pb-6 mb-6 border-b border-slate-100">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-4xl font-extrabold text-slate-900 tracking-tight">
-                        {isAnnual ? plan.priceAnnual : plan.priceMonthly}
-                      </span>
-                      {plan.priceMonthly !== "Custom" && (
-                        <span className="text-xs font-medium text-slate-500">
-                          / month {isAnnual ? "(billed annually)" : ""}
-                        </span>
-                      )}
-                    </div>
+                    <AnimatedPrice price={isAnnual ? plan.priceAnnual : plan.priceMonthly} isAnnual={isAnnual} />
+                    {plan.priceMonthly !== "Custom" && (
+                      <motion.div
+                        key={isAnnual ? "annual" : "monthly"}
+                        initial={{ opacity: 0, y: 4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.1 }}
+                        className="text-xs font-medium text-slate-500 mt-0.5"
+                      >
+                        {isAnnual ? (
+                          <span className="flex items-center gap-1.5">
+                            <span>per month</span>
+                            <span className="text-emerald-600 font-semibold">billed annually</span>
+                            <span className="inline-flex items-center px-1.5 py-0.5 rounded-full bg-emerald-50 text-[9px] font-bold text-emerald-700 border border-emerald-100">
+                              Save {Math.round(((parseInt(plan.priceMonthly.replace(/[^0-9]/g, '')) - parseInt(plan.priceAnnual.replace(/[^0-9]/g, ''))) / parseInt(plan.priceMonthly.replace(/[^0-9]/g, ''))) * 100)}%
+                            </span>
+                          </span>
+                        ) : (
+                          <span>billed monthly</span>
+                        )}
+                      </motion.div>
+                    )}
                   </div>
-
-                  {/* Feature Checklist */}
-                  <div className="space-y-3 mb-8">
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3">
-                      Included Capabilities
-                    </div>
-
+                  <div className="space-y-2.5">
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3">Included</div>
                     <ul className="space-y-2.5">
                       {plan.features.map((feat, fIdx) => (
-                        <li
-                          key={fIdx}
-                          className="flex items-start gap-2.5 text-xs text-slate-700"
-                        >
-                          <i className="ri-checkbox-circle-fill text-emerald-600 text-sm shrink-0 mt-0.5" />
+                        <li key={fIdx} className="flex items-start gap-2.5 text-xs text-slate-700">
+                          <i className="ri-checkbox-circle-fill text-emerald-500 text-sm shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
-
-                {/* Card CTA */}
-                <div>
-                  <a
+                <div className="mt-8">
+                  <motion.a
                     href={plan.ctaLink}
-                    className={`block w-full py-3 text-xs font-bold text-center rounded-full transition-all duration-200 shadow-sm ${
+                    whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+                    className={`block w-full py-3 text-xs font-bold text-center rounded-full transition-all duration-200 ${
                       plan.highlight
-                        ? "bg-emerald-950 hover:bg-emerald-900 text-white shadow-emerald-950/20"
+                        ? "bg-emerald-950 hover:bg-emerald-900 text-white shadow-sm"
                         : "bg-slate-100 hover:bg-slate-200 text-slate-900 border border-slate-200"
                     }`}
                   >
                     {plan.cta}
-                  </a>
+                  </motion.a>
                 </div>
-
               </motion.div>
             </Reveal>
           ))}
         </div>
 
-        {/* Pilot Assurance Banner */}
-        <div className="mt-16 p-6 rounded-3xl bg-emerald-50/60 border border-emerald-200/80 max-w-3xl mx-auto text-center">
-          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-emerald-900 font-medium">
+        {/* Trust banner */}
+        <div className="mt-14 p-5 rounded-2xl bg-emerald-50/60 border border-emerald-100 max-w-3xl mx-auto text-center">
+          <div className="flex flex-wrap items-center justify-center gap-5 text-xs text-emerald-800 font-medium">
             <span className="flex items-center gap-1.5">
-              <i className="ri-shield-check-fill text-emerald-600 text-base" /> Free 14-day assisted trial
+              <i className="ri-shield-check-fill text-emerald-500" /> Free 14-day assisted trial
             </span>
             <span className="flex items-center gap-1.5">
-              <i className="ri-database-2-fill text-emerald-600 text-base" /> Automatic CSV drug list import
+              <i className="ri-database-2-fill text-emerald-500" /> Automatic CSV import
             </span>
             <span className="flex items-center gap-1.5">
-              <i className="ri-customer-service-2-fill text-emerald-600 text-base" /> 24/7 dedicated pharmacist support
+              <i className="ri-customer-service-2-fill text-emerald-500" /> 24/7 pharmacist support
             </span>
           </div>
         </div>
-
       </div>
     </section>
   );
 }
-

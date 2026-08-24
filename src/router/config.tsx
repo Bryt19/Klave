@@ -4,6 +4,7 @@ import { lazy, Suspense } from "react";
 const Home = lazy(() => import("../pages/home/page"));
 const Login = lazy(() => import("../pages/Login"));
 const SignUp = lazy(() => import("../pages/SignUp"));
+const Contact = lazy(() => import("../pages/Contact"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 const Privacy = lazy(() => import("../pages/Privacy"));
 const Terms = lazy(() => import("../pages/Terms"));
@@ -40,6 +41,10 @@ const routes: RouteObject[] = [
   {
     path: "/signup",
     element: withSuspense(SignUp),
+  },
+  {
+    path: "/contact",
+    element: withSuspense(Contact),
   },
   {
     path: "/privacy",

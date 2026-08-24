@@ -418,7 +418,8 @@ export default function Terms() {
           <div className="flex items-center gap-4">
             <Link to="/privacy" className="hover:text-slate-600 transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-slate-600 transition-colors">Terms of Service</Link>
-            <Link to="/hipaa" className="hover:text-slate-600 transition-colors">HIPAA Compliance</Link>
+            <Link to="/hipaa" className="hover:text-slate-600 transition-colors">HIPAA</Link>
+            <Link to="/contact" className="hover:text-slate-600 transition-colors">Contact</Link>
           </div>
         </div>
       </footer>

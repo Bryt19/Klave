@@ -1,156 +1,165 @@
 import { Link } from "react-router-dom";
 
-const productLinks = [
-  { label: "Prescription Intake", href: "#three-systems" },
-  { label: "Inventory & FEFO Sync", href: "#three-systems" },
-  { label: "Clinical Safety Engine", href: "#solutions" },
-  { label: "EHR Interoperability", href: "#integrations" },
-  { label: "Pricing Plans", href: "#pricing" },
-];
+const DEMO_URL = "https://app.klavora.com/signup";
 
-const solutionsLinks = [
-  { label: "Hospital Health Systems", href: "#features" },
-  { label: "Dispensary Chains", href: "#features" },
-  { label: "Independent Pharmacies", href: "#features" },
-  { label: "Telepharmacy Networks", href: "#features" },
+const footerProduct = [
+  { label: "Features", href: "#features" },
+  { label: "Analytics", href: "#analytics" },
+  { label: "Ecosystem", href: "#ecosystem" },
+  { label: "Security", href: "#security" },
 ];
-
-const resourcesLinks = [
+const footerCompany = [
+  { label: "About", href: "#about" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
+];
+const footerResources = [
   { label: "Documentation", href: "#" },
-  { label: "API Reference (FHIR / REST)", href: "#" },
-  { label: "Security & HIPAA Whitepaper", href: "#" },
-  { label: "Release Notes", href: "#" },
+  { label: "Help Center", href: "#" },
 ];
-
-const companyLinks = [
-  { label: "About Klavora", href: "#about" },
-  { label: "Contact Sales", href: "mailto:info.klavora@gmail.com" },
-  { label: "Careers", href: "#" },
+const footerLegal = [
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+  { label: "HIPAA", href: "/hipaa" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="relative footer-dark-bg text-white border-t border-slate-900 pt-20 pb-12">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Large Brand Typography Header */}
-        <div className="pb-10 sm:pb-16 mb-10 sm:mb-16 border-b border-slate-800/60">
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white/95">
-            The pharmacy <br />
-            operations layer<span className="text-emerald-500">.</span>
-          </h2>
-        </div>
+    <footer className="relative bg-slate-950 text-white overflow-hidden">
+      {/* Subtle top glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-emerald-500/[0.04] blur-[100px] pointer-events-none" />
 
-        {/* Multi-Column Links */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 md:gap-8 mb-12 sm:mb-16">
-          
-          {/* Brand Col */}
-          <div className="col-span-2 md:col-span-1 space-y-4">
-            <Link to="/" className="flex items-center gap-2.5">
-              <svg className="w-7 h-7" viewBox="0 0 32 32" fill="none">
-                <rect x="10" y="2" width="12" height="28" rx="4" fill="#10B981"/>
-                <rect x="2" y="10" width="28" height="12" rx="4" fill="#3B82F6"/>
-                <rect x="10" y="10" width="12" height="12" rx="2" fill="#0EA5E9" opacity="0.85"/>
-              </svg>
-              <span className="text-lg font-bold tracking-tight text-white">Klavora</span>
-            </Link>
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <p className="text-xs text-slate-400 leading-relaxed max-w-xs">
-              Unified queue management, inventory intelligence, and dispensing at scale.
-            </p>
+        {/* Newsletter / CTA bar */}
+        <div className="pt-14 sm:pt-16 pb-10 sm:pb-12 border-b border-white/[0.06]">
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden">
+            {/* Card background with gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/40 via-slate-900/60 to-slate-900/80" />
+            <div className="absolute inset-0 opacity-[0.03]" style={{
+              backgroundImage: "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
+              backgroundSize: "32px 32px",
+            }} />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/[0.06] blur-[80px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-400/[0.04] blur-[60px] rounded-full pointer-events-none" />
 
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-[11px] text-emerald-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>All Systems Operational</span>
+            <div className="relative px-6 sm:px-10 py-8 sm:py-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+                {/* Left: copy */}
+                <div className="lg:col-span-5 text-center lg:text-left">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-[10px] font-semibold uppercase tracking-wider mb-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    Newsletter
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-2">
+                    Never miss an update.
+                  </h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    Join 2,000+ pharmacy leaders getting monthly insights on inventory intelligence, dispensing trends, and platform updates.
+                  </p>
+                </div>
+
+                {/* Right: form */}
+                <div className="lg:col-span-7">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="relative flex-1">
+                      <i className="ri-mail-line absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm" />
+                      <input type="email" placeholder="Enter your email"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.06] border border-white/[0.08] text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500/40 focus:ring-1 focus:ring-emerald-500/20 transition-all" />
+                    </div>
+                    <a href={DEMO_URL} className="shrink-0 px-7 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-bold transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 flex items-center justify-center gap-2">
+                      Subscribe
+                      <i className="ri-arrow-right-line text-xs" />
+                    </a>
+                  </div>
+                  <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-3 text-[10px] text-slate-500">
+                    <span className="flex items-center gap-1.5"><i className="ri-shield-check-line text-emerald-400/60" /> No spam, ever</span>
+                    <span className="flex items-center gap-1.5"><i className="ri-time-line text-emerald-400/60" /> Delivered monthly</span>
+                    <span className="flex items-center gap-1.5"><i className="ri-close-circle-line text-emerald-400/60" /> One-click unsubscribe</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          {/* Product Col */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">
-              Product
-            </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
-              {productLinks.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="hover:text-white transition-colors duration-150">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Solutions Col */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">
-              Solutions
-            </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
-              {solutionsLinks.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="hover:text-white transition-colors duration-150">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources Col */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">
-              Resources
-            </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
-              {resourcesLinks.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="hover:text-white transition-colors duration-150">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company Col */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">
-              Company
-            </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
-              {companyLinks.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="hover:text-white transition-colors duration-150">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-              <li>
-                <Link to="/privacy" className="hover:text-white transition-colors duration-150">
-                  Privacy Policy
-                </Link>
-              </li>
-            </ul>
-          </div>
-
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-6 sm:pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-[11px] sm:text-xs text-slate-500">
-          <div>
-            &copy; {new Date().getFullYear()} Klavora (EliTech CreaTives Limited). All rights reserved.
-          </div>
+        {/* Main footer content */}
+        <div className="py-12 sm:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
 
-          <div className="flex items-center gap-6">
-            <Link to="/privacy" className="hover:text-slate-400 transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-slate-400 transition-colors">Terms of Service</Link>
-            <Link to="/hipaa" className="hover:text-slate-400 transition-colors">HIPAA Compliance</Link>
+            {/* Brand column */}
+            <div className="lg:col-span-4">
+              <Link to="/" className="flex items-center gap-2.5 mb-5 group">
+                <svg className="w-7 h-7 transition-transform duration-200 group-hover:scale-105" viewBox="0 0 32 32" fill="none">
+                  <rect x="10" y="2" width="12" height="28" rx="4" fill="#10B981"/>
+                  <rect x="2" y="10" width="28" height="12" rx="4" fill="#3B82F6"/>
+                  <rect x="10" y="10" width="12" height="12" rx="2" fill="#0EA5E9" opacity="0.85"/>
+                </svg>
+                <span className="text-lg font-bold tracking-tight text-white">Klavora</span>
+              </Link>
+              <p className="text-sm text-slate-500 leading-relaxed max-w-xs mb-6">
+                Unified pharmacy management for modern health systems. Inventory, dispensing, sales, and analytics — in one platform.
+              </p>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-[11px] text-emerald-400 w-fit mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>All Systems Operational</span>
+              </div>
+              <div className="flex items-center gap-3">
+                {[ { icon: "ri-twitter-x-line", label: "Twitter" }, { icon: "ri-linkedin-fill", label: "LinkedIn" }, { icon: "ri-github-fill", label: "GitHub" } ].map((s) => (
+                  <a key={s.label} href="#" aria-label={s.label}
+                    className="w-9 h-9 rounded-full bg-white/[0.05] border border-white/[0.06] flex items-center justify-center text-slate-500 hover:text-white hover:bg-white/[0.1] hover:border-white/[0.12] transition-all duration-200">
+                    <i className={`${s.icon} text-sm`} />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Link columns */}
+            <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
+              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 mb-5">Product</h4>
+                <ul className="space-y-3">
+                  {footerProduct.map((l) => (<li key={l.label}><a href={l.href} className="text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-150">{l.label}</a></li>))}
+                </ul>
+              </div>
+              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 mb-5">Company</h4>
+                <ul className="space-y-3">
+                  {footerCompany.map((l) => (<li key={l.label}><a href={l.href} className="text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-150">{l.label}</a></li>))}
+                </ul>
+              </div>
+              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 mb-5">Resources</h4>
+                <ul className="space-y-3">
+                  {footerResources.map((l) => (<li key={l.label}><a href={l.href} className="text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-150">{l.label}</a></li>))}
+                </ul>
+              </div>
+              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 mb-5">Legal</h4>
+                <ul className="space-y-3">
+                  {footerLegal.map((l) => (<li key={l.label}><a href={l.href} className="text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-150">{l.label}</a></li>))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
+        {/* KLAVORA watermark */}
+        <div className="pt-6 pb-2 overflow-hidden">
+          <div className="text-center select-none pointer-events-none">
+            <span className="text-[3.5rem] sm:text-[6rem] lg:text-[8rem] font-black tracking-tighter leading-none" style={{ color: 'rgba(16, 185, 129, 0.06)' }}>
+              KLAVORA
+            </span>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="py-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-600">
+          <div>&copy; {new Date().getFullYear()} Klavora (EliTech CreaTives Limited). All rights reserved.</div>
+          <div className="flex items-center gap-5">
+            <Link to="/privacy" className="hover:text-slate-400 transition-colors">Privacy</Link>
+            <Link to="/terms" className="hover:text-slate-400 transition-colors">Terms</Link>
+            <Link to="/hipaa" className="hover:text-slate-400 transition-colors">HIPAA</Link>
+          </div>
+        </div>
       </div>
     </footer>
   );
 }
-

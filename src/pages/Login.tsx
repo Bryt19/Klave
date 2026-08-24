@@ -23,42 +23,35 @@ export default function Login() {
     }, 800);
   };
 
-  const statCards = [
-    { label: "Active Queues", value: "12", icon: "ri-stack-line", color: "bg-emerald-50 text-emerald-700 border-emerald-200" },
-    { label: "Rx Processed Today", value: "2,847", icon: "ri-capsule-line", color: "bg-sky-50 text-sky-700 border-sky-200" },
-    { label: "Avg. Dispense Time", value: "22s", icon: "ri-timer-flash-line", color: "bg-violet-50 text-violet-700 border-violet-200" },
-  ];
-
-  const recentActivity = [
-    { rx: "RX-9488", drug: "Amoxicillin 500mg", status: "Verified", time: "just now", dot: "bg-emerald-500" },
-    { rx: "RX-9487", drug: "Lisinopril 20mg", status: "Dispensed", time: "2m ago", dot: "bg-sky-500" },
-    { rx: "RX-9485", drug: "Metformin 850mg", status: "In Review", time: "4m ago", dot: "bg-amber-400" },
-    { rx: "RX-9483", drug: "Atorvastatin 40mg", status: "Completed", time: "6m ago", dot: "bg-slate-300" },
-  ];
-
   return (
     <div className="h-screen overflow-hidden flex bg-white">
 
-      {/* ── Left Panel: Visual Showcase ─────────────────────────────── */}
-      <div className="hidden lg:flex lg:w-[52%] xl:w-[55%] flex-col bg-slate-950 relative overflow-hidden">
+      {/* ── Left Panel ──────────────────────────────────────────── */}
+      <div className="hidden lg:flex lg:w-[48%] xl:w-[50%] flex-col relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950">
 
-        {/* Subtle mesh background */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(16,185,129,0.12),transparent_60%),radial-gradient(ellipse_at_80%_80%,rgba(16,185,129,0.08),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom_right,rgba(255,255,255,0.02)_0%,transparent_100%)]" />
+        {/* Subtle gradient accents */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-emerald-500/[0.06] blur-[120px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-emerald-400/[0.04] blur-[100px] pointer-events-none" />
+        </div>
 
-        {/* Grid dots pattern */}
-        <div className="absolute inset-0 opacity-[0.035]"
-          style={{ backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "28px 28px" }}
+        {/* Fine grid dots */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }}
         />
 
-        <div className="relative z-10 flex flex-col h-full p-10 xl:p-14 overflow-y-auto">
+        <div className="relative z-10 flex flex-col h-full p-10 xl:p-14">
 
           {/* Brand */}
           <Link to="/" className="flex items-center gap-2.5 group w-fit">
             <svg className="w-8 h-8 transition-transform duration-200 group-hover:scale-105" viewBox="0 0 32 32" fill="none">
-              <rect x="10" y="2" width="12" height="28" rx="4" fill="#10B981"/>
-              <rect x="2" y="10" width="28" height="12" rx="4" fill="#3B82F6"/>
-              <rect x="10" y="10" width="12" height="12" rx="2" fill="#0EA5E9" opacity="0.85"/>
+              <rect x="10" y="2" width="12" height="28" rx="4" fill="#10B981" />
+              <rect x="2" y="10" width="28" height="12" rx="4" fill="#3B82F6" />
+              <rect x="10" y="10" width="12" height="12" rx="2" fill="#0EA5E9" opacity="0.85" />
             </svg>
             <span className="text-lg font-bold tracking-tight text-white">
               Klavora<span className="text-blue-400">.</span>
@@ -66,84 +59,59 @@ export default function Login() {
           </Link>
 
           {/* Hero Copy */}
-          <div className="mt-16 mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-semibold mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Live Dispensary Dashboard
-            </div>
-            <h1 className="text-3xl xl:text-4xl font-bold text-white leading-tight tracking-tight mb-3">
-              Your pharmacy <br />
-              command center.
-            </h1>
-            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-              Real-time queue visibility, instant prescription verification, and zero-friction dispensing — all in one workspace.
-            </p>
+          <div className="flex-1 flex flex-col justify-center max-w-md">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-semibold mb-6">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" style={{ animationDuration: "2s" }} />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                </span>
+                Live Dispensary Dashboard
+              </div>
+
+              <h1 className="text-3xl xl:text-[2.5rem] font-bold text-white leading-tight tracking-tight mb-4">
+                Your pharmacy
+                <br />
+                command center.
+              </h1>
+
+              <p className="text-sm text-slate-400 leading-relaxed max-w-sm mb-10">
+                Real-time queue visibility, instant prescription verification, and zero-friction dispensing — all in one workspace.
+              </p>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { value: "10M+", label: "Rx Processed" },
+                  { value: "22s", label: "Avg Dispense" },
+                  { value: "99.9%", label: "Accuracy" },
+                ].map((stat, i) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
+                    className="text-center"
+                  >
+                    <div className="text-xl font-bold text-white">{stat.value}</div>
+                    <div className="text-[10px] text-slate-500 mt-0.5">{stat.label}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
 
-          {/* Live Stats Row */}
-          <div className="grid grid-cols-3 gap-3 mb-6">
-            {statCards.map((card, i) => (
-              <motion.div
-                key={card.label}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 + i * 0.1, duration: 0.4 }}
-                className="bg-white/5 border border-white/8 rounded-2xl p-3.5"
-              >
-                <div className={`w-7 h-7 rounded-lg flex items-center justify-center text-sm mb-2.5 border ${card.color}`}>
-                  <i className={card.icon} />
-                </div>
-                <div className="text-xl font-bold text-white">{card.value}</div>
-                <div className="text-[11px] text-slate-500 mt-0.5">{card.label}</div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Live Activity Feed */}
+          {/* Compliance */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.45 }}
-            className="flex-1 bg-white/4 border border-white/8 rounded-2xl p-4 overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="flex items-center gap-5 text-[11px] text-slate-600"
           >
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2 text-xs font-semibold text-white">
-                <i className="ri-pulse-line text-emerald-400" />
-                Live Activity Feed
-              </div>
-              <div className="flex items-center gap-1.5 text-[11px] text-emerald-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                4 stations online
-              </div>
-            </div>
-
-            <div className="space-y-2.5">
-              {recentActivity.map((item, i) => (
-                <motion.div
-                  key={item.rx}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.65 + i * 0.08 }}
-                  className="flex items-center justify-between p-3 rounded-xl bg-white/4 border border-white/6"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <div className={`w-2 h-2 rounded-full ${item.dot} shrink-0`} />
-                    <div>
-                      <div className="text-[11px] font-bold text-white">{item.rx}</div>
-                      <div className="text-[10px] text-slate-500">{item.drug}</div>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-[10px] font-semibold text-slate-300">{item.status}</div>
-                    <div className="text-[10px] text-slate-600">{item.time}</div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Bottom Compliance Row */}
-          <div className="mt-6 flex items-center gap-5 text-[11px] text-slate-600">
             <span className="flex items-center gap-1.5">
               <i className="ri-shield-check-fill text-emerald-600" />
               HIPAA Compliant
@@ -156,24 +124,24 @@ export default function Login() {
               <i className="ri-fingerprint-line text-emerald-600" />
               2FA Enforced
             </span>
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* ── Right Panel: Login Form ──────────────────────────────────── */}
+      {/* ── Right Panel: Login Form ──────────────────────────────── */}
       <div className="flex-1 flex flex-col">
 
-        {/* Mobile top bar */}
+        {/* Mobile header */}
         <header className="lg:hidden flex items-center justify-between px-6 py-5 border-b border-slate-100">
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2">
             <svg className="w-7 h-7" viewBox="0 0 32 32" fill="none">
-              <rect x="10" y="2" width="12" height="28" rx="4" fill="#10B981"/>
-              <rect x="2" y="10" width="28" height="12" rx="4" fill="#3B82F6"/>
-              <rect x="10" y="10" width="12" height="12" rx="2" fill="#0EA5E9" opacity="0.85"/>
+              <rect x="10" y="2" width="12" height="28" rx="4" fill="#10B981" />
+              <rect x="2" y="10" width="28" height="12" rx="4" fill="#3B82F6" />
+              <rect x="10" y="10" width="12" height="12" rx="2" fill="#0EA5E9" opacity="0.85" />
             </svg>
             <span className="text-base font-bold text-slate-900">Klavora<span className="text-blue-500">.</span></span>
           </Link>
-          <Link to="/" className="text-xs font-medium text-slate-500 hover:text-slate-800 flex items-center gap-1">
+          <Link to="/" className="text-xs font-medium text-slate-400 hover:text-slate-700 flex items-center gap-1 transition-colors">
             <i className="ri-arrow-left-line" />
             Back
           </Link>
@@ -187,7 +155,7 @@ export default function Login() {
             transition={{ duration: 0.45, ease: "easeOut" }}
             className="w-full max-w-sm"
           >
-            {/* Back link — desktop only */}
+            {/* Back link — desktop */}
             <Link
               to="/"
               className="hidden lg:inline-flex items-center gap-1.5 text-[11px] font-medium text-slate-400 hover:text-slate-700 mb-10 transition-colors"
@@ -216,12 +184,9 @@ export default function Login() {
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
-
               {/* Email */}
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                  Email address
-                </label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Email address</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-sm">
                     <i className="ri-mail-line" />
@@ -244,7 +209,7 @@ export default function Login() {
                   <label className="text-xs font-semibold text-slate-700">Password</label>
                   <a
                     href="https://app.klavora.com/forgot-password"
-                    className="text-[11px] font-medium text-emerald-700 hover:underline"
+                    className="text-[11px] font-medium text-emerald-600 hover:text-emerald-700 hover:underline transition-colors"
                   >
                     Forgot password?
                   </a>
@@ -265,7 +230,7 @@ export default function Login() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 text-sm"
+                    className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 text-sm transition-colors"
                   >
                     <i className={showPassword ? "ri-eye-off-line" : "ri-eye-line"} />
                   </button>
@@ -288,7 +253,7 @@ export default function Login() {
                 id="login-submit"
                 type="submit"
                 disabled={isLoading}
-                className="w-full py-3 px-4 rounded-full bg-emerald-950 hover:bg-emerald-900 text-white font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/15 mt-2 cursor-pointer disabled:opacity-70"
+                className="w-full py-3 px-4 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-md shadow-emerald-500/15 hover:shadow-lg hover:shadow-emerald-500/20 mt-2 cursor-pointer disabled:opacity-70"
               >
                 {isLoading ? (
                   <>
@@ -298,11 +263,10 @@ export default function Login() {
                 ) : (
                   <>
                     <span>Sign in to Workspace</span>
-                    <i className="ri-arrow-right-line text-xs text-emerald-400" />
+                    <i className="ri-arrow-right-line text-xs text-emerald-200" />
                   </>
                 )}
               </button>
-
             </form>
 
             {/* Sign Up Link */}
@@ -310,21 +274,19 @@ export default function Login() {
               New dispensary team?{" "}
               <Link
                 to="/signup"
-                className="font-bold text-blue-600 hover:underline"
+                className="font-bold text-emerald-600 hover:text-emerald-700 hover:underline transition-colors"
               >
                 Create pharmacy profile →
               </Link>
             </p>
-
           </motion.div>
         </div>
 
-        {/* Bottom Footer */}
+        {/* Footer */}
         <footer className="px-6 py-5 text-center text-[11px] text-slate-400 border-t border-slate-100">
           © {new Date().getFullYear()} Klavora · EliTech CreaTives Limited · All rights reserved
         </footer>
       </div>
-
     </div>
   );
 }

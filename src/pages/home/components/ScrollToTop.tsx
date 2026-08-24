@@ -13,6 +13,14 @@ export default function ScrollToTop() {
     setVisible(scrollTop > 320);
   }, []);
 
+  // Scroll to top on mount to prevent stale scroll position from browser history
+  useEffect(() => {
+    if (window.history.scrollRestoration) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);

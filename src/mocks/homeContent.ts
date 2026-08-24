@@ -1,18 +1,85 @@
 export const navLinks = [
-  { label: "Platform", href: "#three-systems" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Integrations", href: "#integrations" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Features", href: "#features" },
+  { label: "Analytics", href: "#analytics" },
   { label: "About", href: "#about" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export const heroStats = [
   { value: "10M+", label: "Prescriptions Processed" },
   { value: "99.9%", label: "Dispensing Accuracy" },
   { value: "40%", label: "Reduction in Queue Times" },
-  { value: "18 ms", label: "Real-Time Sync Latency" },
+  { value: "18ms", label: "Real-Time Sync Latency" },
 ];
 
+/* ── Dashboard floating metrics ────────────────────────────── */
+export const floatingMetrics = [
+  {
+    label: "Low Stock",
+    medicine: "Amoxicillin",
+    detail: "12 units remaining",
+    icon: "ri-alert-line",
+    color: "amber",
+  },
+  {
+    label: "Expiring Soon",
+    medicine: "Cefuroxime",
+    detail: "18 days remaining",
+    icon: "ri-time-line",
+    color: "red",
+  },
+  {
+    label: "Today's Sales",
+    medicine: "GH₵ 8,420",
+    detail: "+12% from yesterday",
+    icon: "ri-line-chart-line",
+    color: "emerald",
+  },
+  {
+    label: "Total Medicines",
+    medicine: "1,284",
+    detail: "Across 48 categories",
+    icon: "ri-capsule-line",
+    color: "blue",
+  },
+];
+
+/* ── Problem pain points ───────────────────────────────────── */
+export const painPoints = [
+  {
+    icon: "ri-file-paper-2-line",
+    title: "Manual inventory tracking",
+    description: "Paper logs, spreadsheets, and guesswork replace accurate stock data.",
+  },
+  {
+    icon: "ri-alarm-warning-line",
+    title: "Expired medicines piling up",
+    description: "No systematic tracking means wasted stock and potential patient harm.",
+  },
+  {
+    icon: "ri-error-warning-line",
+    title: "Stock shortages going unnoticed",
+    description: "Critical medicines run out without warning, disrupting patient care.",
+  },
+  {
+    icon: "ri-links-line",
+    title: "Disconnected records",
+    description: "Sales, dispensing, and inventory live in separate, unsynchronized systems.",
+  },
+  {
+    icon: "ri-bar-chart-grouped-line",
+    title: "Difficult reporting",
+    description: "Generating meaningful insights requires hours of manual data compilation.",
+  },
+  {
+    icon: "ri-user-unfollow-line",
+    title: "No visibility across branches",
+    description: "Multi-location pharmacies have no unified view of stock, sales, or staff performance.",
+  },
+];
+
+/* ── Three systems ─────────────────────────────────────────── */
 export const threeSystems = [
   {
     number: "1",
@@ -40,6 +107,184 @@ export const threeSystems = [
   },
 ];
 
+/* ── Inventory medicines ───────────────────────────────────── */
+export const inventoryMedicines = [
+  { name: "Amoxicillin 500mg", batch: "BT-8841-A", stock: 142, maxStock: 500, expiry: "Dec 2026", category: "Antibiotics", status: "normal" },
+  { name: "Paracetamol 500mg", batch: "BT-9204-B", stock: 890, maxStock: 1000, expiry: "Mar 2027", category: "Analgesics", status: "normal" },
+  { name: "Lisinopril 20mg", batch: "BT-7712-C", stock: 18, maxStock: 200, expiry: "Sep 2026", category: "Cardiovascular", status: "low" },
+  { name: "Metformin 850mg", batch: "BT-6603-D", stock: 256, maxStock: 400, expiry: "Jan 2027", category: "Antidiabetics", status: "normal" },
+  { name: "Omeprazole 20mg", batch: "BT-5519-E", stock: 8, maxStock: 300, expiry: "Nov 2026", category: "Gastrointestinal", status: "low" },
+  { name: "Artemether/Lumefantrine", batch: "BT-4428-F", stock: 0, maxStock: 200, expiry: "Aug 2026", category: "Antimalarials", status: "out" },
+  { name: "Cefuroxime 250mg", batch: "BT-3317-G", stock: 67, maxStock: 150, expiry: "Jul 2026", category: "Antibiotics", status: "expiring" },
+  { name: "Losartan 50mg", batch: "BT-2206-H", stock: 312, maxStock: 400, expiry: "Feb 2027", category: "Cardiovascular", status: "normal" },
+];
+
+/* ── Expiry timeline data ──────────────────────────────────── */
+export const expiryItems = [
+  { medicine: "Cefuroxime 250mg", batch: "BT-3317-G", daysLeft: 12, severity: "critical" },
+  { medicine: "Artemether/Lumefantrine", batch: "BT-4428-F", daysLeft: 30, severity: "warning" },
+  { medicine: "Omeprazole 20mg", batch: "BT-5519-E", daysLeft: 68, severity: "warning" },
+  { medicine: "Lisinopril 20mg", batch: "BT-7712-C", daysLeft: 112, severity: "normal" },
+  { medicine: "Amoxicillin 500mg", batch: "BT-8841-A", daysLeft: 245, severity: "normal" },
+];
+
+/* ── Analytics data ────────────────────────────────────────── */
+export const analyticsData = {
+  revenue: { current: 142800, previous: 118400, currency: "GH₵" },
+  dailySales: [
+    { day: "Mon", value: 8420 },
+    { day: "Tue", value: 7890 },
+    { day: "Wed", value: 9340 },
+    { day: "Thu", value: 8100 },
+    { day: "Fri", value: 11200 },
+    { day: "Sat", value: 12800 },
+    { day: "Sun", value: 6400 },
+  ],
+  topMedicines: [
+    { name: "Paracetamol 500mg", units: 1240, revenue: 18600 },
+    { name: "Amoxicillin 500mg", units: 890, revenue: 35600 },
+    { name: "Metformin 850mg", units: 720, revenue: 28800 },
+    { name: "Omeprazole 20mg", units: 650, revenue: 19500 },
+  ],
+  transactions: { today: 342, average: 285 },
+};
+
+/* ── Role switcher data ────────────────────────────────────── */
+export const roles = [
+  {
+    id: "admin",
+    name: "Administrator",
+    icon: "ri-shield-user-line",
+    description: "Complete system oversight with role management, audit logs, and branch-wide analytics.",
+    features: [
+      "Multi-branch inventory overview",
+      "Staff management & permissions",
+      "Revenue & performance analytics",
+      "System configuration & settings",
+    ],
+  },
+  {
+    id: "pharmacist",
+    name: "Pharmacist",
+    icon: "ri-stethoscope-line",
+    description: "Clinical verification, prescription management, and patient safety oversight.",
+    features: [
+      "Prescription verification console",
+      "Drug interaction alerts",
+      "Patient medication history",
+      "Clinical decision support",
+    ],
+  },
+  {
+    id: "assistant",
+    name: "Physician Assistant",
+    icon: "ri-heart-pulse-line",
+    description: "Patient consultation support and medication dispensing coordination.",
+    features: [
+      "Patient profile management",
+      "Medication counselling notes",
+      "Prescription intake support",
+      "Referral tracking",
+    ],
+  },
+  {
+    id: "inventory",
+    name: "Inventory Manager",
+    icon: "ri-archive-line",
+    description: "Stock management, supplier coordination, and expiry prevention.",
+    features: [
+      "Real-time stock monitoring",
+      "Supplier order management",
+      "Expiry tracking & alerts",
+      "FEFO batch optimization",
+    ],
+  },
+  {
+    id: "cashier",
+    name: "Cashier",
+    icon: "ri-bank-card-line",
+    description: "Point-of-sale operations, payment processing, and receipt generation.",
+    features: [
+      "Rapid POS checkout",
+      "Multi-tender payment support",
+      "Receipt printing",
+      "Daily sales reconciliation",
+    ],
+  },
+];
+
+/* ── Ecosystem nodes ───────────────────────────────────────── */
+export const ecosystemNodes = [
+  { label: "Inventory", icon: "ri-archive-line", description: "Real-time stock levels across all branches with batch tracking and automatic reorder suggestions." },
+  { label: "Sales", icon: "ri-shopping-cart-2-line", description: "Point-of-sale processing with multi-tender support, receipt generation, and daily reconciliation." },
+  { label: "Prescriptions", icon: "ri-file-list-3-line", description: "OCR-powered script scanning, clinical verification, and dispensing workflow management." },
+  { label: "Suppliers", icon: "ri-truck-line", description: "Supplier directory, purchase order management, and automated stock replenishment coordination." },
+  { label: "Reports", icon: "ri-bar-chart-2-line", description: "Revenue analytics, inventory reports, staff performance metrics, and custom export tools." },
+  { label: "Staff", icon: "ri-team-line", description: "Role-based access control, shift scheduling, activity logs, and performance tracking." },
+  { label: "Patients", icon: "ri-user-heart-line", description: "Patient profiles, medication history, allergy records, and prescription refill tracking." },
+];
+
+/* ── Testimonials ──────────────────────────────────────────── */
+export const testimonials = [
+  {
+    quote: "Klavora gave us absolute clarity over our multi-branch inventory. The automated FEFO routing alone saved us over GH₵120,000 in expired drug write-offs in our first two quarters.",
+    name: "Sarah Antwi",
+    role: "Director of Operations",
+    company: "CityMed Pharmacy Group",
+    initials: "SA",
+    metrics: { label: "Stock Waste Reduction", value: "74% Less Loss" },
+  },
+  {
+    quote: "The dispensing cycle dropped from 3 minutes to 22 seconds. Our patients wait less, and our pharmacists can focus on what actually matters — clinical care.",
+    name: "Dr. Kofi Appiah, PharmD",
+    role: "Chief Pharmacist",
+    company: "Apex Clinical Alliance",
+    initials: "KA",
+    metrics: { label: "Turnaround Time", value: "88% Faster" },
+  },
+  {
+    quote: "We went from paper logs and phone calls to a fully synchronized operation across 40 branches. Klavora is the backbone of our growth strategy.",
+    name: "Nana Agyeman",
+    role: "CEO",
+    company: "AfriMed Health Systems",
+    initials: "NA",
+    metrics: { label: "Branches Connected", value: "40 Locations" },
+  },
+];
+
+/* ── Marquee pharmacies ────────────────────────────────────── */
+export const marqueePharmacies = [
+  "MedPlus Pharmacy Group",
+  "HealthCare Alliance",
+  "CityMed Dispensaries",
+  "Apex Clinical Pharmacy",
+  "QuickCure Networks",
+  "AfriMed Health Systems",
+];
+
+/* ── Operational outcomes ──────────────────────────────────── */
+export const operationalOutcomes = [
+  {
+    from: "3 min",
+    to: "22 sec",
+    metric: "Turnaround Time",
+    label: "Average dispensing and verification cycle reduced by 88%",
+  },
+  {
+    from: "14%",
+    to: "0.2%",
+    metric: "Stock Expiry Loss",
+    label: "Batch-level FEFO logic virtually eliminated expired stock write-offs",
+  },
+  {
+    from: "Manual",
+    to: "18 ms",
+    metric: "Sync Latency",
+    label: "Real-time prescription synchronization across all branch registers",
+  },
+];
+
+/* ── Features grid ─────────────────────────────────────────── */
 export const everyLayerFeatures = [
   {
     icon: "ri-time-line",
@@ -83,6 +328,7 @@ export const everyLayerFeatures = [
   },
 ];
 
+/* ── Built for teams ───────────────────────────────────────── */
 export const builtForTeams = [
   {
     icon: "ri-capsule-line",
@@ -114,34 +360,26 @@ export const builtForTeams = [
   },
 ];
 
-export const operationalOutcomes = [
+/* ── Pricing ───────────────────────────────────────────────── */
+export const howItWorksSteps = [
   {
-    from: "3 min",
-    to: "22 sec",
-    metric: "Turnaround Time",
-    label: "Average dispensing and verification cycle reduced by 88%",
+    icon: "ri-store-2-line",
+    step: "Step 01",
+    title: "Set up your pharmacy in minutes",
+    description: "Create your pharmacy profile, add your staff, and set up your counter.",
   },
   {
-    from: "14%",
-    to: "0.2%",
-    metric: "Stock Expiry Loss",
-    label: "Batch-level FEFO logic virtually eliminated expired stock write-offs",
+    icon: "ri-file-upload-line",
+    step: "Step 02",
+    title: "Add your inventory via CSV or manually",
+    description: "Upload your entire drug list with our smart CSV importer.",
   },
   {
-    from: "Manual",
-    to: "18 ms",
-    metric: "Sync Latency",
-    label: "Real-time prescription synchronization across all branch registers",
+    icon: "ri-line-chart-line",
+    step: "Step 03",
+    title: "Start selling, tracking, and growing",
+    description: "Process sales with the POS, dispense by FEFO, and watch your KPIs.",
   },
-];
-
-export const marqueePharmacies = [
-  "MedPlus Pharmacy Group",
-  "HealthCare Alliance",
-  "CityMed Dispensaries",
-  "Apex Clinical Pharmacy",
-  "QuickCure Networks",
-  "AfriMed Health Systems",
 ];
 
 export const pricingFeatures = [
@@ -159,30 +397,7 @@ export const pricingFeatures = [
   "Dedicated 24/7 Support & Onboarding",
 ];
 
-export const howItWorksSteps = [
-  {
-    icon: "ri-store-2-line",
-    step: "Step 01",
-    title: "Set up your pharmacy in minutes",
-    description:
-      "Create your pharmacy profile, add your staff, and set up your counter. Klave runs on any device — phone, tablet, or desktop — with nothing to install.",
-  },
-  {
-    icon: "ri-file-upload-line",
-    step: "Step 02",
-    title: "Add your inventory via CSV or manually",
-    description:
-      "Upload your entire drug list with our smart CSV importer, or add medicines one by one. Batch numbers and expiry dates are captured automatically.",
-  },
-  {
-    icon: "ri-line-chart-line",
-    step: "Step 03",
-    title: "Start selling, tracking, and growing",
-    description:
-      "Process sales with the POS, dispense by FEFO, and watch your KPIs in plain language. Your whole pharmacy, finally under one roof.",
-  },
-];
-
+/* ── FAQs ──────────────────────────────────────────────────── */
 export const faqs = [
   {
     question: "Does Klavora work reliably during internet outages?",
@@ -204,5 +419,35 @@ export const faqs = [
     answer:
       "All data is encrypted in transit (TLS 1.3) and at rest (AES-256). Role-based access ensures only authorized clinical staff can review patient records and audit trails.",
   },
+  {
+    question: "How many pharmacy branches can Klavora support?",
+    answer:
+      "Klavora supports unlimited branches with centralized inventory routing, branch-level analytics, and role-based access that scales from single-counter pharmacies to nationwide hospital networks.",
+  },
 ];
 
+/* ── Footer links ──────────────────────────────────────────── */
+export const footerProduct = [
+  { label: "Features", href: "#features" },
+  { label: "Analytics", href: "#analytics" },
+  { label: "Ecosystem", href: "#ecosystem" },
+  { label: "Security", href: "#security" },
+];
+
+export const footerCompany = [
+  { label: "About", href: "#about" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
+];
+
+export const footerResources = [
+  { label: "Documentation", href: "#" },
+  { label: "Help Center", href: "#" },
+];
+
+export const footerLegal = [
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+  { label: "HIPAA", href: "/hipaa" },
+  { label: "Contact", href: "/contact" },
+];
