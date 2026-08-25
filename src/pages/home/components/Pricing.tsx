@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "./Reveal";
 
@@ -65,28 +65,68 @@ const plans = [
   },
 ];
 
+function useCountUp(target: number, duration = 350) {
+  const [value, setValue] = useState(target);
+  const prevRef = useRef(target);
+  const rafRef = useRef<number>(0);
+
+  useEffect(() => {
+    const from = prevRef.current;
+    const to = target;
+    if (from === to) return;
+
+    const start = performance.now();
+    const diff = to - from;
+
+    // fast exponential ease-out — big initial burst, quick settle
+    const ease = (t: number) => 1 - Math.pow(4, -8 * t);
+
+    const tick = (now: number) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      setValue(Math.round(from + diff * ease(progress)));
+      if (progress < 1) {
+        rafRef.current = requestAnimationFrame(tick);
+      } else {
+        prevRef.current = to;
+      }
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [target, duration]);
+
+  return value;
+}
+
 function AnimatedPrice({ price, isAnnual }: { price: string; isAnnual: boolean }) {
+  const numericStr = price.replace(/[^0-9]/g, "");
+  const isCustom = price === "Custom" || numericStr === "";
+  const targetNum = isCustom ? 0 : parseInt(numericStr, 10);
+  const currency = isCustom ? "" : price.split(numericStr)[0];
+  const counted = useCountUp(targetNum, 350);
+
   return (
     <div className="relative h-[3rem] overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
-          key={price}
-          initial={{ y: 20, opacity: 0, scale: 0.95, filter: "blur(6px)" }}
-          animate={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
-          exit={{ y: -20, opacity: 0, scale: 0.95, filter: "blur(6px)" }}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          key={isAnnual ? "annual" : "monthly"}
+          initial={{ y: 12, opacity: 0, scale: 0.97 }}
+          animate={{ y: 0, opacity: 1, scale: 1 }}
+          exit={{ y: -12, opacity: 0, scale: 0.97 }}
+          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className="absolute inset-0 flex items-baseline"
         >
-          <span className="text-4xl font-extrabold text-slate-900 tracking-tight">{price}</span>
-          {price !== "Custom" && (
+          <span className="text-4xl font-extrabold text-slate-900 tracking-tight tabular-nums">
+            {isCustom ? price : `${currency}${counted}`}
+          </span>
+          {!isCustom && (
             <motion.span
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.15, duration: 0.3 }}
+              transition={{ delay: 0.12, duration: 0.3 }}
               className="ml-1.5 text-xs font-medium text-emerald-500"
-            >
-              {isAnnual ? "/mo" : "/mo"}
-            </motion.span>
+            >/mo</motion.span>
           )}
         </motion.div>
       </AnimatePresence>
