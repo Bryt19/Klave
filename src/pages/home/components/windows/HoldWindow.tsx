@@ -58,7 +58,7 @@ export default function HoldWindow() {
               </span>
               <div>
                 <p className="text-xs text-foreground-100 font-medium">
-                  {serving ? "Customer A — Walk-in" : "Customer A (paused)"}
+                  {serving ? "Customer A, Walk-in" : "Customer A (paused)"}
                 </p>
                 <p className="text-[10px] text-foreground-600">
                   {serving ? "Adding items to cart" : "Cart saved, step aside"}

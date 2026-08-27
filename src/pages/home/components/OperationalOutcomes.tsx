@@ -8,14 +8,10 @@ export default function OperationalOutcomes() {
         {/* Section Header */}
         <div className="max-w-3xl mb-14 md:mb-16 text-left">
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-medium mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-              <span>Proven Performance</span>
-            </div>
-
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-4">
-              Operational outcomes — <br />
-              from teams currently using Klavora.
+              Operational outcomes from teams
+              <br />
+              currently using Klavora.
             </h2>
 
             <p className="text-base text-slate-600 font-normal leading-relaxed max-w-xl">
@@ -70,11 +66,6 @@ export default function OperationalOutcomes() {
               <div className="glass-panel-clean rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 h-full flex flex-col justify-between border border-slate-200/90 shadow-md bg-white">
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-5">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-medium border border-blue-200">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-                      Verified Health Network Deployment
-                    </span>
-                    
                     <div className="flex text-amber-400 text-xs">
                       {[...Array(5)].map((_, i) => (
                         <i key={i} className="ri-star-fill" />

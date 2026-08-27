@@ -8,13 +8,7 @@ export default function ThreeSystems() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
           {/* Left Column - Sticky Headline & Context */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28">
-            <Reveal>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-medium mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-                <span>Unified Platform Flow</span>
-              </div>
-
+          <div className="lg:col-span-5 lg:sticky lg:top-28">              <Reveal>
               <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15] sm:leading-[1.12] mb-5 sm:mb-6">
                 Three systems, <br className="hidden sm:block" />
                 one confident <br className="hidden sm:block" />
@@ -54,9 +48,6 @@ export default function ThreeSystems() {
                       Prescription Intake &amp; OCR
                     </h3>
                   </div>
-                  <span className="text-[10px] sm:text-[11px] font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-emerald-100/90 text-emerald-800 border border-emerald-200 w-fit">
-                    99.4% OCR Confidence
-                  </span>
                 </div>
 
                 <p className="text-[13px] sm:text-sm text-slate-600 leading-relaxed mb-4 sm:mb-6">
@@ -114,9 +105,6 @@ export default function ThreeSystems() {
                       Dispensing &amp; Inventory Sync
                     </h3>
                   </div>
-                  <span className="text-[10px] sm:text-[11px] font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-emerald-600 text-white w-fit">
-                    FEFO Automated
-                  </span>
                 </div>
 
                 <p className="text-[13px] sm:text-sm text-slate-600 leading-relaxed mb-4 sm:mb-6">
@@ -170,9 +158,6 @@ export default function ThreeSystems() {
                       Telepharmacy &amp; Verification
                     </h3>
                   </div>
-                  <span className="text-[10px] sm:text-[11px] font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-slate-900 text-white w-fit">
-                    Audit-Ready Logs
-                  </span>
                 </div>
 
                 <p className="text-[13px] sm:text-sm text-slate-600 leading-relaxed mb-4 sm:mb-6">

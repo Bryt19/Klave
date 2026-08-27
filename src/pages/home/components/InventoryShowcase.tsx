@@ -41,16 +41,12 @@ export default function InventoryShowcase() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div style={{ opacity: headerOpacity, y: headerY }} className="max-w-3xl mb-8 sm:mb-10">
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-[11px] font-medium mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>Inventory Intelligence</span>
-            </div>
             <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-5">
               Track every medicine, <br className="hidden sm:block" />
               <span className="gradient-text-emerald">batch by batch.</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-xl">
-              Real-time stock levels, batch tracking, expiry monitoring, and reorder alerts — all in one clean interface.
+              Real-time stock levels, batch tracking, expiry monitoring, and reorder alerts, all in one clean interface.
             </p>
           </Reveal>
         </motion.div>
@@ -177,8 +173,8 @@ export default function InventoryShowcase() {
               {[
                 { step: "01", icon: "ri-upload-2-line", title: "Stock Intake", desc: "Import your entire drug catalogue via smart CSV or add medicines manually. Klavora auto-maps batch numbers, expiry dates, supplier codes, and reorder thresholds.", color: "bg-blue-50 text-blue-500 border-blue-100", accent: "border-blue-200/60" },
                 { step: "02", icon: "ri-radar-line", title: "FEFO Batch Tracking", desc: "Every dispensation automatically decrements the batch expiring soonest. Real-time stock levels update across all branches within 18ms of any transaction.", color: "bg-emerald-50 text-emerald-500 border-emerald-100", accent: "border-emerald-200/60" },
-                { step: "03", icon: "ri-alarm-warning-line", title: "Smart Alerts", desc: "Proactive notifications for low-stock thresholds, approaching expiry dates, and unusual consumption patterns — delivered via dashboard, email, or SMS.", color: "bg-amber-50 text-amber-500 border-amber-100", accent: "border-amber-200/60" },
-                { step: "04", icon: "ri-line-chart-line", title: "Analytics & Reorder", desc: "Demand forecasting, turnover rates, and supplier performance insights drive automated reorder suggestions — eliminating stockouts and overstock.", color: "bg-violet-50 text-violet-500 border-violet-100", accent: "border-violet-200/60" },
+                { step: "03", icon: "ri-alarm-warning-line", title: "Smart Alerts", desc: "Proactive notifications for low-stock thresholds, approaching expiry dates, and unusual consumption patterns, delivered via dashboard, email, or SMS.", color: "bg-amber-50 text-amber-500 border-amber-100", accent: "border-amber-200/60" },
+                { step: "04", icon: "ri-line-chart-line", title: "Analytics & Reorder", desc: "Demand forecasting, turnover rates, and supplier performance insights drive automated reorder suggestions, eliminating stockouts and overstock.", color: "bg-violet-50 text-violet-500 border-violet-100", accent: "border-violet-200/60" },
               ].map((item) => (
                 <div key={item.step} className={`group p-5 rounded-2xl bg-white border ${item.accent} card-hover-glow cursor-default`}>
                   <div className="flex items-center gap-3 mb-3">

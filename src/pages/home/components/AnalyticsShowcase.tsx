@@ -262,16 +262,12 @@ export default function AnalyticsShowcase() {
         {/* Header */}
         <div className="max-w-3xl mb-8 sm:mb-10 text-center mx-auto">
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/60 border border-emerald-700/40 text-emerald-300 text-[11px] font-medium mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Real-Time Analytics</span>
-            </div>
             <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1] mb-5">
               Numbers that actually{" "}
               <span className="text-emerald-400">mean something.</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-xl mx-auto">
-              Revenue tracking, sales patterns, and inventory analytics — presented in plain language for pharmacists, not accountants.
+              Revenue tracking, sales patterns, and inventory analytics, presented in plain language for pharmacists, not accountants.
             </p>
           </Reveal>
         </div>

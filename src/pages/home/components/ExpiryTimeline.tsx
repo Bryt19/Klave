@@ -15,18 +15,13 @@ export default function ExpiryTimeline() {
           {/* Left: Text */}
           <div className="lg:col-span-5 lg:sticky lg:top-28">
             <Reveal>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-100 text-amber-700 text-[11px] font-medium mb-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                <span>Expiry Management</span>
-              </div>
-
               <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-5">
                 Never let a medicine{" "}
                 <span className="bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">expire unnoticed.</span>
               </h2>
 
               <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-md mb-6">
-                Klavora continuously monitors batch expiry dates and surfaces alerts before medicines become unsellable — preventing waste and protecting patients.
+                Klavora continuously monitors batch expiry dates and surfaces alerts before medicines become unsellable, preventing waste and protecting patients.
               </p>
 
               <div className="space-y-3 pt-4 border-t border-slate-100">

@@ -48,10 +48,6 @@ export default function Footer() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
                 {/* Left: copy */}
                 <div className="lg:col-span-5 text-center lg:text-left">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-[10px] font-semibold uppercase tracking-wider mb-4">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Newsletter
-                  </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-2">
                     Never miss an update.
                   </h3>
@@ -99,7 +95,7 @@ export default function Footer() {
                 <span className="text-lg font-bold tracking-tight text-white">Klavora</span>
               </Link>
               <p className="text-sm text-slate-500 leading-relaxed max-w-xs mb-6">
-                Unified pharmacy management for modern health systems. Inventory, dispensing, sales, and analytics — in one platform.
+                Unified pharmacy management for modern health systems. Inventory, dispensing, sales, and analytics, all in one platform.
               </p>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-[11px] text-emerald-400 w-fit mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />

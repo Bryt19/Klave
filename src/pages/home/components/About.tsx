@@ -9,11 +9,6 @@ export default function About() {
           {/* Left Text */}
           <div className="lg:col-span-6">
             <Reveal>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-medium mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
-                <span>Our Mission</span>
-              </div>
-              
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-6">
                 Built by engineers who <br />
                 watch pharmacies work.

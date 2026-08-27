@@ -10,11 +10,6 @@ export default function BuiltForTeams() {
         {/* Section Header */}
         <div className="max-w-3xl mb-16 md:mb-24 text-left">
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-medium mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-              <span>Engineered for Flow</span>
-            </div>
-
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-4">
               Built for the way pharmacy <br />
               teams actually work.

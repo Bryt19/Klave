@@ -82,7 +82,7 @@ export default function SignUp() {
               </h1>
 
               <p className="text-sm text-slate-400 leading-relaxed max-w-sm mb-10">
-                Create your profile, import your drug catalogue, and start dispensing with intelligent batch tracking — no hardware lock-in.
+                Create your profile, import your drug catalogue, and start dispensing with intelligent batch tracking. No hardware lock-in.
               </p>
 
               {/* Steps */}
@@ -177,7 +177,7 @@ export default function SignUp() {
                 Create your account
               </h2>
               <p className="text-sm text-slate-500">
-                Start your 14-day free pilot — no credit card required
+                Start your 14-day free pilot. No credit card required.
               </p>
             </div>
 

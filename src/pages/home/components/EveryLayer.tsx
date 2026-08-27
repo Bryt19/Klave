@@ -10,14 +10,9 @@ export default function EveryLayer() {
         {/* Section Header */}
         <div className="max-w-3xl mb-14 md:mb-16 text-left">
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-medium mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-              <span>Full Stack Capabilities</span>
-            </div>
-
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15] mb-4">
               Every layer of pharmacy <br />
-              operations — in one platform.
+              operations, all in one platform.
             </h2>
 
             <p className="text-base text-slate-600 font-normal leading-relaxed max-w-xl">

@@ -13,16 +13,12 @@ export default function RoleSwitcher() {
 
         <div className="max-w-3xl mb-8 sm:mb-10 text-center mx-auto">
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-[11px] font-medium mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-              <span>Role-Based Experience</span>
-            </div>
             <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-5">
               Built for every role{" "}
               <span className="gradient-text-emerald">in your pharmacy.</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-xl mx-auto">
-              Each team member sees exactly what they need — nothing more, nothing less. Select a role to see their workspace.
+              Each team member sees exactly what they need, nothing more, nothing less. Select a role to see their workspace.
             </p>
           </Reveal>
         </div>

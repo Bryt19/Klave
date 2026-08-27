@@ -40,7 +40,7 @@ const securityFeatures = [
     icon: "ri-key-2-line",
     title: "TLS 1.3 In Transit",
     description:
-      "Every API call, WebSocket connection, and data sync uses TLS 1.3 — the fastest and most secure transport protocol available.",
+      "Every API call, WebSocket connection, and data sync uses TLS 1.3, the fastest and most secure transport protocol available.",
   },
   {
     icon: "ri-fingerprint-line",
@@ -82,10 +82,6 @@ export default function SecuritySection() {
         {/* Header */}
         <div className="max-w-3xl mb-10 sm:mb-14">
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-[11px] font-medium mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-              <span>Security & Compliance</span>
-            </div>
             <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-5">
               Your patients' data is{" "}
               <span className="gradient-text-emerald">sacred.</span>

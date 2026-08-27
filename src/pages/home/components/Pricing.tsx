@@ -5,7 +5,6 @@ import Reveal from "./Reveal";
 const plans = [
   {
     name: "Dispensary Starter",
-    badge: "Independent",
     description: "Essential POS, batch tracking, and offline dispensing for single-counter pharmacies.",
     priceMonthly: "GH\u20B5180",
     priceAnnual: "GH\u20B5144",
@@ -24,7 +23,6 @@ const plans = [
   },
   {
     name: "Clinical Pro",
-    badge: "Most Popular",
     description: "Full clinical safety engine, OCR intake, telepharmacy verification, and live queue orchestration.",
     priceMonthly: "GH\u20B5250",
     priceAnnual: "GH\u20B5200",
@@ -45,7 +43,6 @@ const plans = [
   },
   {
     name: "Health System",
-    badge: "Enterprise",
     description: "Direct EHR integration, multi-warehouse routing, custom SLA, and clinical oversight.",
     priceMonthly: "Custom",
     priceAnnual: "Custom",
@@ -143,10 +140,6 @@ export default function Pricing() {
 
         {/* Header */}
         <Reveal className="max-w-2xl mx-auto text-center mb-8 md:mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-[11px] font-medium mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-            <span>Transparent Pricing</span>
-          </div>
           <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-5">
             Predictable plans. <br />
             <span className="gradient-text-emerald">No hidden add-ons.</span>
@@ -192,21 +185,9 @@ export default function Pricing() {
                     : "bg-white border border-slate-200/90 shadow-md"
                 }`}
               >
-                {plan.highlight && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="px-3.5 py-1 rounded-full bg-emerald-600 text-white text-[11px] font-bold uppercase shadow-sm">
-                      {plan.badge}
-                    </span>
-                  </div>
-                )}
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <h3 className="text-lg font-bold text-slate-900">{plan.name}</h3>
-                    {!plan.highlight && (
-                      <span className="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
-                        {plan.badge}
-                      </span>
-                    )}
                   </div>
                   <p className="text-xs text-slate-500 leading-relaxed mb-6">{plan.description}</p>
                   <div className="pb-6 mb-6 border-b border-slate-100">

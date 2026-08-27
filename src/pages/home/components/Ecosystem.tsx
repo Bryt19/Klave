@@ -74,10 +74,6 @@ export default function Ecosystem() {
         {/* Header */}
         <motion.div style={{ y: headerY }} className="max-w-3xl mb-14 sm:mb-16 text-center mx-auto">
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-[11px] font-medium mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>Connected Platform</span>
-            </div>
             <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-5">
               The Klavora{" "}
               <span className="text-emerald-600">ecosystem.</span>

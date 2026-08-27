@@ -80,7 +80,7 @@ export default function Login() {
               </h1>
 
               <p className="text-sm text-slate-400 leading-relaxed max-w-sm mb-10">
-                Real-time queue visibility, instant prescription verification, and zero-friction dispensing — all in one workspace.
+                Real-time queue visibility, instant prescription verification, and zero-friction dispensing, all in one workspace.
               </p>
 
               {/* Stats */}

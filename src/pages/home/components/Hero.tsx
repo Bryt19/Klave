@@ -469,20 +469,6 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-4 text-left"
           >
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-[11px] font-medium mb-6"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" style={{ animationDuration: '2s' }} />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-              </span>
-              <span>Pharmacy Operations Platform</span>
-            </motion.div>
-
             {/* Headline */}
             <h1 className="text-[2.25rem] sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-5">
               <motion.span
@@ -517,7 +503,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
               className="text-sm sm:text-base lg:text-lg text-slate-600 font-normal leading-relaxed max-w-md mb-7"
             >
-              Inventory intelligence, prescription verification, and real-time dispensing — unified in one platform built for modern pharmacies.
+              Inventory intelligence, prescription verification, and real-time dispensing, all unified in one platform built for modern pharmacies.
             </motion.p>
 
             {/* CTAs */}

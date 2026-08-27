@@ -14,11 +14,6 @@ export default function ProblemSection() {
         {/* Section Header */}
         <div className="max-w-3xl mb-8 sm:mb-12">
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-100 text-red-600 text-[11px] font-medium mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
-              <span>The Problem</span>
-            </div>
-
             <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-5">
               Pharmacy operations{" "}
               <span className="text-slate-400">shouldn't feel</span>{" "}
@@ -26,7 +21,7 @@ export default function ProblemSection() {
             </h2>
 
             <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-xl">
-              Most pharmacies still run on disconnected systems — paper logs, spreadsheet inventory, and manual dispensing workflows that create blind spots at every step.
+              Most pharmacies still run on disconnected systems: paper logs, spreadsheet inventory, and manual dispensing workflows that create blind spots at every step.
             </p>
           </Reveal>
         </div>

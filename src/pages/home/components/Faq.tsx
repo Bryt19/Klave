@@ -11,10 +11,6 @@ export default function Faq() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
           <Reveal className="text-center mb-8 md:mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-[11px] font-medium mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>Questions &amp; Answers</span>
-            </div>
             <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-5">
               Frequently asked questions.
             </h2>

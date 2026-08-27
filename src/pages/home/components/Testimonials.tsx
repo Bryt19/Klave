@@ -13,11 +13,6 @@ export default function Testimonials() {
         {/* Header */}
         <div className="max-w-3xl mb-8 sm:mb-10 text-center mx-auto">
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-[11px] font-medium mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>What Our Customers Say</span>
-            </div>
-
             <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]">
               Trusted by pharmacy <br className="hidden sm:block" />
               <span className="gradient-text-emerald">leaders across Africa.</span>

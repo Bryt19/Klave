@@ -87,7 +87,7 @@ export const threeSystems = [
     title: "Prescription Intake & OCR",
     description:
       "Instant optical character recognition maps handwritten and digital doctor scripts into validated FHIR structures with 99.4% confidence rating.",
-    badge: "99.4% OCR Confidence",
+    badge: "",
   },
   {
     number: "2",
@@ -95,7 +95,7 @@ export const threeSystems = [
     title: "Dispensing & Inventory Sync",
     description:
       "FEFO (First-Expired, First-Out) algorithms assign precise batch IDs, verify cold-chain compliance, and decrement inventory in real-time across branches.",
-    badge: "FEFO Automated",
+    badge: "",
   },
   {
     number: "3",
@@ -103,7 +103,7 @@ export const threeSystems = [
     title: "Telepharmacy & Clinical Sign-Off",
     description:
       "Pharmacists verify scripts with integrated drug-interaction alerts, allergy cross-referencing, digital signatures, and automated label dispensing.",
-    badge: "Audit-Ready Logs",
+    badge: "",
   },
 ];
 
@@ -235,7 +235,7 @@ export const testimonials = [
     metrics: { label: "Stock Waste Reduction", value: "74% Less Loss" },
   },
   {
-    quote: "The dispensing cycle dropped from 3 minutes to 22 seconds. Our patients wait less, and our pharmacists can focus on what actually matters — clinical care.",
+    quote: "The dispensing cycle dropped from 3 minutes to 22 seconds. Our patients wait less, and our pharmacists can focus on what actually matters: clinical care.",
     name: "Dr. Kofi Appiah, PharmD",
     role: "Chief Pharmacist",
     company: "Apex Clinical Alliance",
