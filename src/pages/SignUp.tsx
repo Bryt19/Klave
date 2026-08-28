@@ -72,7 +72,7 @@ export default function SignUp() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-semibold mb-6">
                 <i className="ri-rocket-2-line text-xs" />
-                Start Your Free Pilot
+                Start Your Free Trial
               </div>
 
               <h1 className="text-3xl xl:text-[2.5rem] font-bold text-white leading-tight tracking-tight mb-4">
@@ -177,7 +177,7 @@ export default function SignUp() {
                 Create your account
               </h2>
               <p className="text-sm text-slate-500">
-                Start your 14-day free pilot. No credit card required.
+                Start your 30-day free trial. No credit card required.
               </p>
             </div>
 

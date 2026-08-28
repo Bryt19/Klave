@@ -35,7 +35,7 @@ export default function StickyCtaBar() {
                     Ready to modernize your pharmacy?
                   </div>
                   <div className="text-[10px] text-slate-400">
-                    Free 14-day pilot · No credit card required
+                    Free 30-day trial · No credit card required
                   </div>
                 </div>
               </div>

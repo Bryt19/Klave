@@ -2,71 +2,104 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Reveal from "./Reveal";
 
-const complianceBadges = [
+const securityFeatures = [
   {
-    icon: "ri-shield-check-fill",
-    title: "HIPAA Compliant",
-    desc: "Full administrative, physical, and technical safeguards for Protected Health Information (PHI).",
+    icon: "ri-fingerprint-line",
+    title: "Role-Based Access Control (RBAC)",
+    description:
+      "Cashiers only see the POS. Pharmacists access clinical data and dispensing records. Admins manage settings and user permissions. Every role sees exactly what it needs — nothing more.",
     color: "emerald",
   },
   {
-    icon: "ri-lock-2-fill",
-    title: "SOC 2 Type II",
-    desc: "Audited controls for security, availability, and confidentiality of customer data.",
+    icon: "ri-file-shield-line",
+    title: "Immutable Audit Logs",
+    description:
+      "Every dispensed pill, void, stock adjustment, and system change is permanently timestamped and tied to a user. Tamper-proof logs for complete accountability.",
     color: "blue",
   },
   {
-    icon: "ri-shield-keyhole-fill",
-    title: "GDPR Ready",
-    desc: "Data processing agreements, right to erasure, and privacy-by-design architecture.",
+    icon: "ri-lock-password-line",
+    title: "Bank-Grade Encryption",
+    description:
+      "AES-256 encryption at rest protects all patient records and inventory data. TLS 1.3 secures every API call, WebSocket connection, and data sync in transit.",
     color: "violet",
   },
   {
-    icon: "ri-verified-badge-fill",
-    title: "ISO 27001",
-    desc: "International standard for information security management systems (ISMS).",
+    icon: "ri-government-line",
+    title: "Ghana DPA Aligned",
+    description:
+      "Fully aligned with the Ghana Data Protection Act of 2012. Your pharmacy's data residency, consent management, and processing meet national regulatory standards.",
     color: "amber",
-  },
-];
-
-const securityFeatures = [
-  {
-    icon: "ri-lock-password-line",
-    title: "AES-256 Encryption at Rest",
-    description:
-      "All patient records, prescription data, and inventory logs are encrypted with military-grade AES-256 bit encryption on disk.",
-  },
-  {
-    icon: "ri-key-2-line",
-    title: "TLS 1.3 In Transit",
-    description:
-      "Every API call, WebSocket connection, and data sync uses TLS 1.3, the fastest and most secure transport protocol available.",
-  },
-  {
-    icon: "ri-fingerprint-line",
-    title: "Role-Based Access Control",
-    description:
-      "Granular permissions ensure pharmacists, cashiers, and admins only see what they're authorized to access.",
-  },
-  {
-    icon: "ri-file-shield-line",
-    title: "Immutable Audit Trail",
-    description:
-      "Cryptographically signed, timestamped logs of every dispensing action, prescription review, and system change.",
   },
   {
     icon: "ri-cloud-line",
-    title: "Encrypted Backups",
+    title: "Automated Cloud Backups",
     description:
-      "Automated encrypted backups with point-in-time recovery. Your data is safe even in catastrophic failure scenarios.",
+      "Continuous encrypted backups with point-in-time recovery. Disaster-ready infrastructure ensures your pharmacy stays online even during catastrophic failures.",
+    color: "rose",
   },
   {
-    icon: "ri-device-line",
-    title: "Session Management",
+    icon: "ri-shield-check-line",
+    title: "Cybersecurity Act 2020 Compliant",
     description:
-      "Automatic session timeout, device tracking, and remote logout capabilities for lost or stolen devices.",
+      "Compliant with Ghana's Cybersecurity Act, 2020 (Act 1038). Mandatory incident reporting, infrastructure protection, and periodic audits under the Cyber Security Authority.",
+    color: "cyan",
   },
 ];
+
+const colorMap: Record<
+  string,
+  {
+    bg: string;
+    border: string;
+    icon: string;
+    ring: string;
+    glow: string;
+  }
+> = {
+  emerald: {
+    bg: "bg-emerald-50",
+    border: "border-emerald-100",
+    icon: "text-emerald-500",
+    ring: "ring-emerald-500/10",
+    glow: "hover:shadow-emerald-500/5",
+  },
+  blue: {
+    bg: "bg-blue-50",
+    border: "border-blue-100",
+    icon: "text-blue-500",
+    ring: "ring-blue-500/10",
+    glow: "hover:shadow-blue-500/5",
+  },
+  violet: {
+    bg: "bg-violet-50",
+    border: "border-violet-100",
+    icon: "text-violet-500",
+    ring: "ring-violet-500/10",
+    glow: "hover:shadow-violet-500/5",
+  },
+  amber: {
+    bg: "bg-amber-50",
+    border: "border-amber-100",
+    icon: "text-amber-500",
+    ring: "ring-amber-500/10",
+    glow: "hover:shadow-amber-500/5",
+  },
+  rose: {
+    bg: "bg-rose-50",
+    border: "border-rose-100",
+    icon: "text-rose-500",
+    ring: "ring-rose-500/10",
+    glow: "hover:shadow-rose-500/5",
+  },
+  cyan: {
+    bg: "bg-cyan-50",
+    border: "border-cyan-100",
+    icon: "text-cyan-500",
+    ring: "ring-cyan-500/10",
+    glow: "hover:shadow-cyan-500/5",
+  },
+};
 
 export default function SecuritySection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -83,107 +116,54 @@ export default function SecuritySection() {
         <div className="max-w-3xl mb-10 sm:mb-14">
           <Reveal>
             <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-5">
-              Your patients' data is{" "}
+              Your data is{" "}
               <span className="gradient-text-emerald">sacred.</span>
               <br />
               We treat it that way.
             </h2>
             <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-xl">
               Healthcare data demands the highest security standards. Klavora is
-              built from the ground up with encryption, compliance, and clinical
-              privacy at its core.
+              built from the ground up with encryption, access control, and
+              regulatory compliance at its core.
             </p>
           </Reveal>
         </div>
 
-        {/* Compliance badges */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12 sm:mb-16">
-          {complianceBadges.map((badge, i) => {
-            const colorMap: Record<
-              string,
-              {
-                bg: string;
-                border: string;
-                icon: string;
-                ring: string;
-              }
-            > = {
-              emerald: {
-                bg: "bg-emerald-50",
-                border: "border-emerald-100",
-                icon: "text-emerald-500",
-                ring: "ring-emerald-500/10",
-              },
-              blue: {
-                bg: "bg-blue-50",
-                border: "border-blue-100",
-                icon: "text-blue-500",
-                ring: "ring-blue-500/10",
-              },
-              violet: {
-                bg: "bg-violet-50",
-                border: "border-violet-100",
-                icon: "text-violet-500",
-                ring: "ring-violet-500/10",
-              },
-              amber: {
-                bg: "bg-amber-50",
-                border: "border-amber-100",
-                icon: "text-amber-500",
-                ring: "ring-amber-500/10",
-              },
-            };
-            const c = colorMap[badge.color] || colorMap.emerald;
+        {/* Security features grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-10 sm:mb-14">
+          {securityFeatures.map((feature, i) => {
+            const c = colorMap[feature.color] || colorMap.emerald;
 
             return (
-              <Reveal key={badge.title} delay={i * 0.08}>
+              <Reveal key={feature.title} delay={i * 0.08}>
                 <motion.div
                   whileHover={{ y: -4 }}
-                  className={`p-5 sm:p-6 rounded-2xl bg-white border ${c.border} card-hover-glow transition-all duration-300`}
+                  className={`p-5 sm:p-6 rounded-2xl bg-white border ${c.border} card-hover-glow transition-all duration-300 shadow-sm hover:shadow-md ${c.glow}`}
                 >
-                  <div
-                    className={`w-12 h-12 rounded-xl ${c.bg} flex items-center justify-center mb-4 ring-1 ${c.ring}`}
-                  >
-                    <i className={`${badge.icon} ${c.icon} text-xl`} />
+                  <div className="flex items-start gap-4">
+                    <div
+                      className={`w-11 h-11 rounded-xl ${c.bg} flex items-center justify-center shrink-0 ring-1 ${c.ring}`}
+                    >
+                      <i className={`${feature.icon} ${c.icon} text-lg`} />
+                    </div>
+                    <div>
+                      <div className="text-sm font-bold text-slate-900 mb-1">
+                        {feature.title}
+                      </div>
+                      <p className="text-xs text-slate-500 leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
                   </div>
-                  <div className="text-sm font-bold text-slate-900 mb-1.5">
-                    {badge.title}
-                  </div>
-                  <p className="text-xs text-slate-500 leading-relaxed">
-                    {badge.desc}
-                  </p>
                 </motion.div>
               </Reveal>
             );
           })}
         </div>
 
-        {/* Security features grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {securityFeatures.map((feature, i) => (
-            <Reveal key={feature.title} delay={i * 0.06}>
-              <div className="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-slate-200 transition-colors card-hover-glow">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-white border border-slate-200/60 flex items-center justify-center shrink-0">
-                    <i className={`${feature.icon} text-slate-600 text-lg`} />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-slate-900 mb-1">
-                      {feature.title}
-                    </div>
-                    <p className="text-xs text-slate-500 leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
         {/* Bottom trust strip */}
         <Reveal delay={0.3}>
-          <div className="mt-10 sm:mt-14 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-slate-50 to-emerald-50/30 border border-slate-100">
+          <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-slate-50 to-emerald-50/30 border border-slate-100">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">

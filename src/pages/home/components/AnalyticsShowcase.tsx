@@ -24,7 +24,7 @@ function StatCounter({ value, suffix, label, change, delay }: {
   }, [spring, suffix]);
 
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }} className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.04]">
+    <motion.div ref={ref} initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }} className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.05]">
       <div className="text-[9px] text-slate-500 uppercase tracking-wider mb-1">{label}</div>
       <div className="text-xl sm:text-2xl font-bold text-white"><span ref={displayRef}>0{suffix}</span></div>
       <div className="text-[10px] font-medium text-emerald-400 mt-0.5">{change}</div>
@@ -54,7 +54,7 @@ function SalesChart({ data }: { data: typeof analyticsData.dailySales }) {
   const areaPath = `${linePath} L ${points[points.length - 1].x} ${padY + innerH} L ${points[0].x} ${padY + innerH} Z`;
 
   return (
-    <div ref={ref} className="h-full flex flex-col p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.06]">
+    <div ref={ref} className="h-full flex flex-col p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.05]">
       <div className="flex items-center justify-between mb-4">
         <div>
           <div className="text-xs font-bold text-white">Daily Sales</div>
@@ -190,7 +190,7 @@ function BestSellingDrugs() {
   const maxUnits = Math.max(...drugs.map((d) => d.units));
 
   return (
-    <div ref={ref} className="p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.06]">
+    <div ref={ref} className="p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.05]">
       <div className="mb-4">
         <div className="text-xs font-bold text-white">Best Selling Drugs</div>
         <div className="text-[10px] text-slate-500">Units sold this month</div>
@@ -244,7 +244,7 @@ export default function AnalyticsShowcase() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5">
           {/* Revenue */}
           <Reveal className="lg:col-span-4">
-            <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.06] h-full flex flex-col">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.05] h-full flex flex-col">
               <div className="text-[10px] text-slate-500 font-medium uppercase tracking-wider mb-3">Monthly Revenue</div>
               <div className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-1">GH&#x20B5;{(analyticsData.revenue.current / 1000).toFixed(1)}k</div>
               <div className="flex items-center gap-2 mb-4">
@@ -256,7 +256,7 @@ export default function AnalyticsShowcase() {
                   <div key={i} className="flex-1 flex items-end"><div className="w-full rounded-sm bg-emerald-500/25" style={{ height: `${h}%` }} /></div>
                 ))}
               </div>
-              <div className="mt-auto pt-4 border-t border-white/[0.06]">
+              <div className="mt-auto pt-4 border-t border-white/[0.05]">
                 <div className="grid grid-cols-2 gap-3 mb-3">
                   <div><div className="text-[10px] text-slate-500">Last Month</div><div className="text-sm font-bold text-slate-300">GH&#x20B5;{(analyticsData.revenue.previous / 1000).toFixed(1)}k</div></div>
                   <div><div className="text-[10px] text-slate-500">Growth</div><div className="text-sm font-bold text-emerald-400">+GH&#x20B5;{((analyticsData.revenue.current - analyticsData.revenue.previous) / 1000).toFixed(1)}k</div></div>
@@ -287,7 +287,7 @@ export default function AnalyticsShowcase() {
 
           {/* Transactions + Top medicines */}
           <Reveal delay={0.2} className="lg:col-span-3 flex flex-col gap-4 sm:gap-5">
-            <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/[0.06]">
+            <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/[0.05]">
               <div className="text-[10px] text-slate-500 font-medium uppercase tracking-wider mb-2">Today's Transactions</div>
               <div className="text-2xl font-bold text-white">{analyticsData.transactions.today}</div>
               <div className="text-[11px] text-slate-500 mt-1">Avg: {analyticsData.transactions.average}/day</div>
@@ -297,7 +297,7 @@ export default function AnalyticsShowcase() {
                 ))}
               </div>
             </div>
-            <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/[0.06] flex-1">
+            <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/[0.05] flex-1">
               <div className="text-[10px] text-slate-500 font-medium uppercase tracking-wider mb-3">Top Medicines</div>
               <div className="space-y-2.5">
                 {analyticsData.topMedicines.map((med, i) => (
@@ -320,7 +320,7 @@ export default function AnalyticsShowcase() {
             <BestSellingDrugs />
           </Reveal>
           <Reveal delay={0.4} className="lg:col-span-7">
-            <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.06] h-full">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.05] h-full">
               <div className="mb-5">
                 <div className="text-xs font-bold text-white">Performance Summary</div>
                 <div className="text-[10px] text-slate-500">Key operational metrics</div>
