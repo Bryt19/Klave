@@ -38,7 +38,7 @@ export default function About() {
                 <div className="flex items-center gap-4 mb-6">
                   <span className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-emerald-500/40 shrink-0">
                     <img
-                      src="https://readdy.ai/api/search-image?query=Professional%20corporate%20headshot%20of%20a%20confident%20Ghanaian%20man%20in%20his%20early%2030s%20wearing%20a%20navy%20suit%20and%20white%20shirt%2C%20friendly%20warm%20smile%2C%20clean%20soft%20studio%20lighting%2C%20dark%20blue%20neutral%20background%2C%20sharp%20focus%2C%20executive%20portrait%20photography&width=600&height=720&seq=founder-richard&orientation=portrait"
+                      src="/team_richard.png"
                       alt="Richard Elikem Amenorpe"
                       className="w-full h-full object-cover object-top"
                       loading="lazy"
@@ -56,7 +56,7 @@ export default function About() {
                     </p>
                   </div>
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/in/richard-elikem-292107309/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-slate-300 hover:text-[#0A66C2] transition-colors duration-200 shrink-0"
@@ -87,7 +87,7 @@ export default function About() {
               <div className="flex items-start gap-4">
                 <span className="w-14 h-14 rounded-full overflow-hidden ring-2 ring-emerald-500/20 shrink-0">
                   <img
-                    src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20Ghanaian%20software%20engineer%20in%20his%20late%2020s%20wearing%20a%20smart%20casual%20navy%20blazer%20over%20a%20light%20shirt%2C%20approachable%20confident%20expression%2C%20clean%20studio%20lighting%2C%20soft%20dark%20blue%20background%2C%20corporate%20portrait%20photography&width=600&height=720&seq=founder-bright&orientation=portrait"
+                    src="/team_bright.png"
                     alt="Bright Akoto"
                     className="w-full h-full object-cover object-top"
                     loading="lazy"
@@ -102,7 +102,7 @@ export default function About() {
                       Bright Akoto
                     </h4>
                     <a
-                      href="#"
+                      href="https://www.linkedin.com/in/bright-akoto19/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-slate-300 hover:text-[#0A66C2] transition-colors duration-200 shrink-0"
@@ -129,7 +129,7 @@ export default function About() {
               <div className="flex items-start gap-4">
                 <span className="w-14 h-14 rounded-full overflow-hidden ring-2 ring-emerald-500/20 shrink-0">
                   <img
-                    src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20Ghanaian%20business%20professional%20in%20his%20early%2030s%20wearing%20a%20charcoal%20suit%20with%20a%20teal%20tie%2C%20warm%20genuine%20smile%2C%20clean%20soft%20studio%20lighting%2C%20dark%20navy%20neutral%20background%2C%20executive%20portrait%20photography&width=600&height=720&seq=founder-andy&orientation=portrait"
+                    src="/team_andy.png"
                     alt="Andy Nkrumah"
                     className="w-full h-full object-cover object-top"
                     loading="lazy"
@@ -144,7 +144,7 @@ export default function About() {
                       Andy Nkrumah
                     </h4>
                     <a
-                      href="#"
+                      href="https://www.linkedin.com/in/andy-nkrumah-939b3a322/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-slate-300 hover:text-[#0A66C2] transition-colors duration-200 shrink-0"
