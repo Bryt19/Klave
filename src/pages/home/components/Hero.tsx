@@ -537,9 +537,7 @@ export default function Hero() {
               className="flex flex-wrap items-center gap-3 sm:gap-4 mt-6 sm:mt-8"
             >
               {[
-                { icon: "ri-shield-check-fill", text: "HIPAA & GDPR Ready", color: "text-emerald-400" },
                 { icon: "ri-time-line", text: "Sub-20ms Sync", color: "text-emerald-400" },
-                { icon: "ri-lock-2-fill", text: "SOC 2 Type II", color: "text-emerald-400" },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/60 border border-slate-100 text-[11px] text-slate-500 font-medium">
                   <i className={`${item.icon} ${item.color} text-xs`} />

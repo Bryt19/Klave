@@ -17,7 +17,7 @@ export default function ExpiryTimeline() {
             <Reveal>
               <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-5">
                 Never let a medicine{" "}
-                <span className="bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">expire unnoticed.</span>
+                <span className="bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent">expire unnoticed.</span>
               </h2>
 
               <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-md mb-6">
@@ -26,7 +26,7 @@ export default function ExpiryTimeline() {
 
               <div className="space-y-3 pt-4 border-t border-slate-100">
                 {[
-                  { icon: "ri-alarm-warning-fill", text: "Automatic expiry detection", color: "text-amber-500" },
+                  { icon: "ri-alarm-warning-fill", text: "Automatic expiry detection", color: "text-blue-500" },
                   { icon: "ri-notification-3-fill", text: "Configurable alert thresholds", color: "text-emerald-500" },
                   { icon: "ri-arrow-left-right-fill", text: "FEFO batch auto-routing", color: "text-blue-500" },
                 ].map((item) => (
@@ -44,8 +44,8 @@ export default function ExpiryTimeline() {
                   { value: "100%", label: "Batch traced" },
                   { value: "24/7", label: "Monitoring" },
                 ].map((stat) => (
-                  <div key={stat.label} className="text-center p-3 rounded-xl bg-amber-50/50 border border-amber-100/60">
-                    <div className="text-base font-bold text-amber-600">{stat.value}</div>
+                  <div key={stat.label} className="text-center p-3 rounded-xl bg-blue-50/50 border border-blue-100/60">
+                    <div className="text-base font-bold text-blue-600">{stat.value}</div>
                     <div className="text-[10px] text-slate-500 font-medium mt-0.5">{stat.label}</div>
                   </div>
                 ))}

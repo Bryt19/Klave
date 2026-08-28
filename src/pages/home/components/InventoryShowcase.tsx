@@ -35,7 +35,7 @@ export default function InventoryShowcase() {
   const headerY = useTransform(scrollYProgress, [0.1, 0.2], [40, 0]);
 
   return (
-    <section ref={containerRef} id="features" className="relative py-14 sm:py-20 lg:py-28 bg-slate-50/50 overflow-hidden">
+    <section ref={containerRef} id="features" className="relative mt-12 pt-20 sm:pt-28 lg:pt-36 pb-14 sm:pb-20 lg:pb-28 bg-slate-50/50 overflow-hidden">
       <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-emerald-300/[0.04] blur-[100px] pointer-events-none" />
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -142,7 +142,7 @@ export default function InventoryShowcase() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
           {[
             { icon: "ri-alarm-warning-line", title: "Expiry Alerts", desc: "Automatic warnings before medicines expire", bg: "bg-red-50", ic: "text-red-500" },
-            { icon: "ri-shopping-cart-2-line", title: "Auto-Reorder", desc: "Smart reorder suggestions at threshold levels", bg: "bg-emerald-50", ic: "text-emerald-500" },
+            { icon: "ri-alarm-warning-line", title: "Low Stock Alerts", desc: "Instant notifications when inventory hits minimum levels", bg: "bg-amber-50", ic: "text-amber-500" },
             { icon: "ri-bar-chart-grouped-line", title: "Stock Reports", desc: "Real-time analytics across all branches", bg: "bg-blue-50", ic: "text-blue-500" },
           ].map((item) => (
             <Reveal key={item.title} delay={0.3}>
@@ -174,7 +174,7 @@ export default function InventoryShowcase() {
                 { step: "01", icon: "ri-upload-2-line", title: "Stock Intake", desc: "Import your entire drug catalogue via smart CSV or add medicines manually. Klavora auto-maps batch numbers, expiry dates, supplier codes, and reorder thresholds.", color: "bg-blue-50 text-blue-500 border-blue-100", accent: "border-blue-200/60" },
                 { step: "02", icon: "ri-radar-line", title: "FEFO Batch Tracking", desc: "Every dispensation automatically decrements the batch expiring soonest. Real-time stock levels update across all branches within 18ms of any transaction.", color: "bg-emerald-50 text-emerald-500 border-emerald-100", accent: "border-emerald-200/60" },
                 { step: "03", icon: "ri-alarm-warning-line", title: "Smart Alerts", desc: "Proactive notifications for low-stock thresholds, approaching expiry dates, and unusual consumption patterns, delivered via dashboard, email, or SMS.", color: "bg-amber-50 text-amber-500 border-amber-100", accent: "border-amber-200/60" },
-                { step: "04", icon: "ri-line-chart-line", title: "Analytics & Reorder", desc: "Demand forecasting, turnover rates, and supplier performance insights drive automated reorder suggestions, eliminating stockouts and overstock.", color: "bg-violet-50 text-violet-500 border-violet-100", accent: "border-violet-200/60" },
+                { step: "04", icon: "ri-line-chart-line", title: "Business Analytics", desc: "Real-time KPI dashboards with revenue tracking, turnover rates, and supplier performance insights to drive data-informed decisions across all branches.", color: "bg-violet-50 text-violet-500 border-violet-100", accent: "border-violet-200/60" },
               ].map((item) => (
                 <div key={item.step} className={`group p-5 rounded-2xl bg-white border ${item.accent} card-hover-glow cursor-default`}>
                   <div className="flex items-center gap-3 mb-3">

@@ -12,7 +12,7 @@ export default function Navbar() {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -48,10 +48,10 @@ export default function Navbar() {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-          className={`mx-auto max-w-5xl rounded-full transition-all duration-500 pointer-events-auto ${
+          className={`mx-auto max-w-5xl rounded-full pointer-events-auto transition-all duration-[450ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
             scrolled
-              ? "bg-white/85 backdrop-blur-xl border border-slate-200/60 shadow-[0_2px_24px_rgba(0,0,0,0.06),0_0_0_1px_rgba(0,0,0,0.02)]"
-              : "bg-white/55 backdrop-blur-lg border border-white/40 shadow-[0_1px_10px_rgba(0,0,0,0.04)]"
+              ? "bg-white/90 backdrop-blur-xl border border-slate-200/60 shadow-[0_4px_32px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.02)]"
+              : "bg-transparent border border-transparent shadow-none"
           }`}
         >
           <div className="flex items-center justify-between h-13 px-4 sm:px-5">

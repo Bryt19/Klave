@@ -9,10 +9,16 @@ export default function About() {
           {/* Left Text */}
           <div className="lg:col-span-6">
             <Reveal>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-6">
+              <div className="text-[11px] font-semibold uppercase tracking-wider text-emerald-600 mb-4">
+                Our Story
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-4">
                 Built by engineers who <br />
                 watch pharmacies work.
               </h2>
+              <p className="text-sm text-slate-500 leading-relaxed max-w-xl mb-6">
+                We started with a simple observation: pharmacy teams deserve better tools. Here’s how Klavora came to be.
+              </p>
               
               <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
                 <p>

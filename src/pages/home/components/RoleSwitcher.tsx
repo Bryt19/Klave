@@ -3,9 +3,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { roles } from "@/mocks/homeContent";
 import Reveal from "./Reveal";
 
+const roleColors: Record<string, { bg: string; text: string; border: string; ring: string; activeBg: string }> = {
+  owner: { bg: "bg-violet-50", text: "text-violet-600", border: "border-violet-200", ring: "ring-violet-100", activeBg: "bg-violet-600" },
+  pharmacist: { bg: "bg-blue-50", text: "text-blue-600", border: "border-blue-200", ring: "ring-blue-100", activeBg: "bg-blue-600" },
+  cashier: { bg: "bg-emerald-50", text: "text-emerald-600", border: "border-emerald-200", ring: "ring-emerald-100", activeBg: "bg-emerald-600" },
+  manager: { bg: "bg-amber-50", text: "text-amber-600", border: "border-amber-200", ring: "ring-amber-100", activeBg: "bg-amber-600" },
+  staff: { bg: "bg-sky-50", text: "text-sky-600", border: "border-sky-200", ring: "ring-sky-100", activeBg: "bg-sky-600" },
+};
+
 export default function RoleSwitcher() {
-  const [activeRole, setActiveRole] = useState(roles[1].id);
-  const currentRole = roles.find((r) => r.id === activeRole) || roles[1];
+  const [activeRole, setActiveRole] = useState(roles[0].id);
+  const currentRole = roles.find((r) => r.id === activeRole) || roles[0];
+  const colors = roleColors[activeRole] || roleColors.staff;
 
   return (
     <section id="platform" className="relative py-14 sm:py-20 lg:py-28 bg-slate-50/50 overflow-hidden">
@@ -25,21 +34,25 @@ export default function RoleSwitcher() {
 
         <Reveal delay={0.1}>
           <div className="flex flex-wrap items-center justify-center gap-2 mb-10 sm:mb-14">
-            {roles.map((role) => (
-              <motion.button
-                key={role.id}
-                onClick={() => setActiveRole(role.id)}
-                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}
-                className={`relative flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium transition-colors duration-200 cursor-pointer ${
-                  activeRole === role.id
-                    ? "bg-slate-900 text-white shadow-sm"
-                    : "bg-white border border-slate-200 text-slate-500 hover:text-slate-800 hover:border-slate-300"
-                }`}
-              >
-                <i className={`${role.icon} text-sm`} />
-                <span className="hidden sm:inline">{role.name}</span>
-              </motion.button>
-            ))}
+            {roles.map((role) => {
+              const rc = roleColors[role.id] || roleColors.staff;
+              const isActive = activeRole === role.id;
+              return (
+                <motion.button
+                  key={role.id}
+                  onClick={() => setActiveRole(role.id)}
+                  whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}
+                  className={`relative flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
+                    isActive
+                      ? `${rc.activeBg} text-white shadow-sm`
+                      : `bg-white border border-slate-200 text-slate-500 hover:${rc.text} hover:${rc.border}`
+                  }`}
+                >
+                  <i className={`${role.icon} text-sm`} />
+                  <span className="hidden sm:inline">{role.name}</span>
+                </motion.button>
+              );
+            })}
           </div>
         </Reveal>
 
@@ -53,8 +66,8 @@ export default function RoleSwitcher() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
               <div className="lg:col-span-4 p-6 sm:p-8 rounded-3xl bg-white border border-slate-100 shadow-sm card-hover-glow">
-                <div className="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center mb-5">
-                  <i className={`${currentRole.icon} text-slate-700 text-xl`} />
+                <div className={`w-12 h-12 rounded-2xl ${colors.bg} flex items-center justify-center mb-5`}>
+                  <i className={`${currentRole.icon} ${colors.text} text-xl`} />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">{currentRole.name}</h3>
                 <p className="text-sm text-slate-500 leading-relaxed mb-6">{currentRole.description}</p>
@@ -63,7 +76,7 @@ export default function RoleSwitcher() {
                   <div className="space-y-2.5">
                     {currentRole.features.map((feat) => (
                       <div key={feat} className="flex items-start gap-2.5 text-xs text-slate-600">
-                        <i className="ri-check-line text-emerald-500 text-sm mt-0.5 shrink-0" />
+                        <i className={`ri-check-line ${colors.text} text-sm mt-0.5 shrink-0`} />
                         <span>{feat}</span>
                       </div>
                     ))}
@@ -74,8 +87,8 @@ export default function RoleSwitcher() {
               <div className="lg:col-span-8 p-5 sm:p-6 rounded-3xl bg-white border border-slate-100 shadow-sm dashboard-shadow min-h-[360px]">
                 <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center">
-                      <i className={`${currentRole.icon} text-emerald-600 text-sm`} />
+                    <div className={`w-8 h-8 rounded-lg ${colors.bg} flex items-center justify-center`}>
+                      <i className={`${currentRole.icon} ${colors.text} text-sm`} />
                     </div>
                     <div>
                       <div className="text-xs font-bold text-slate-800">{currentRole.name} Dashboard</div>
@@ -87,6 +100,32 @@ export default function RoleSwitcher() {
                     <span className="text-[10px] text-slate-400">Live</span>
                   </div>
                 </div>
+
+                {activeRole === "owner" && (
+                  <div className="space-y-3">
+                    {[
+                      { branch: "Accra Central", rx: 142, revenue: "GH₵ 8,420", status: "Operational" },
+                      { branch: "East Legon", rx: 98, revenue: "GH₵ 6,210", status: "Operational" },
+                      { branch: "Kumasi Main", rx: 76, revenue: "GH₵ 4,890", status: "Low Stock Alert" },
+                      { branch: "Tema Medical", rx: 63, revenue: "GH₵ 3,740", status: "Operational" },
+                      { branch: "Takoradi Hub", rx: 54, revenue: "GH₵ 2,960", status: "Operational" },
+                    ].map((b) => (
+                      <div key={b.branch} className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-violet-400" />
+                          <div>
+                            <div className="text-[11px] font-semibold text-slate-800">{b.branch}</div>
+                            <div className="text-[10px] text-slate-400">{b.rx} prescriptions today</div>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-[11px] font-bold text-slate-700">{b.revenue}</div>
+                          <div className={`text-[9px] font-medium ${b.status.includes("Alert") ? "text-amber-600" : "text-emerald-600"}`}>{b.status}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {activeRole === "pharmacist" && (
                   <div className="space-y-3">
@@ -115,60 +154,6 @@ export default function RoleSwitcher() {
                   </div>
                 )}
 
-                {activeRole === "admin" && (
-                  <div className="space-y-3">
-                    {[
-                      { branch: "Accra Central", rx: 142, revenue: "GH₵ 8,420", status: "Operational" },
-                      { branch: "East Legon", rx: 98, revenue: "GH₵ 6,210", status: "Operational" },
-                      { branch: "Kumasi Main", rx: 76, revenue: "GH₵ 4,890", status: "Low Stock Alert" },
-                      { branch: "Tema Medical", rx: 63, revenue: "GH₵ 3,740", status: "Operational" },
-                      { branch: "Takoradi Hub", rx: 54, revenue: "GH₵ 2,960", status: "Operational" },
-                    ].map((b) => (
-                      <div key={b.branch} className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 rounded-full bg-emerald-400" />
-                          <div>
-                            <div className="text-[11px] font-semibold text-slate-800">{b.branch}</div>
-                            <div className="text-[10px] text-slate-400">{b.rx} prescriptions today</div>
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <div className="text-[11px] font-bold text-slate-700">{b.revenue}</div>
-                          <div className={`text-[9px] font-medium ${b.status.includes("Alert") ? "text-amber-600" : "text-emerald-600"}`}>{b.status}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {activeRole === "inventory" && (
-                  <div className="space-y-3">
-                    {[
-                      { name: "Cefuroxime 250mg", stock: 8, max: 200, alert: "Reorder Now" },
-                      { name: "Amoxicillin 500mg", stock: 142, max: 500, alert: "Monitor" },
-                      { name: "Paracetamol 500mg", stock: 890, max: 1000, alert: "OK" },
-                    ].map((item) => (
-                      <div key={item.name} className="p-3 rounded-xl bg-slate-50 border border-slate-100">
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="text-[11px] font-semibold text-slate-800">{item.name}</div>
-                          <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${
-                            item.alert === "Reorder Now" ? "bg-red-50 text-red-600 border border-red-100" :
-                            item.alert === "Monitor" ? "bg-amber-50 text-amber-600 border border-amber-100" :
-                            "bg-emerald-50 text-emerald-600 border border-emerald-100"
-                          }`}>{item.alert}</span>
-                        </div>
-                        <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden">
-                          <div className={`h-full rounded-full ${
-                            item.alert === "Reorder Now" ? "bg-red-400" :
-                            item.alert === "Monitor" ? "bg-amber-400" : "bg-emerald-400"
-                          }`} style={{ width: `${(item.stock / item.max) * 100}%` }} />
-                        </div>
-                        <div className="text-[10px] text-slate-400 mt-1">{item.stock} / {item.max} units</div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
                 {activeRole === "cashier" && (
                   <div className="space-y-3">
                     {[
@@ -189,26 +174,63 @@ export default function RoleSwitcher() {
                   </div>
                 )}
 
-                {activeRole === "assistant" && (
+                {activeRole === "manager" && (
                   <div className="space-y-3">
                     {[
-                      { patient: "Eleanor Vance", age: 42, condition: "Hypertension", lastVisit: "2 days ago" },
-                      { patient: "Marcus Sterling", age: 58, condition: "Type 2 Diabetes", lastVisit: "1 week ago" },
-                      { patient: "Sarah Okonjo", age: 35, condition: "Malaria", lastVisit: "Today" },
-                      { patient: "Kwame Asante", age: 67, condition: "Arthritis", lastVisit: "3 days ago" },
-                      { patient: "Akosua Boateng", age: 29, condition: "Asthma", lastVisit: "Today" },
-                    ].map((p) => (
-                      <div key={p.patient} className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-[10px] font-bold text-slate-600">
-                            {p.patient.split(" ").map((n) => n[0]).join("")}
-                          </div>
-                          <div>
-                            <div className="text-[11px] font-semibold text-slate-800">{p.patient}</div>
-                            <div className="text-[10px] text-slate-400">Age {p.age} · {p.condition}</div>
-                          </div>
+                      { name: "Amoxicillin 500mg", stock: 142, max: 500, alert: "Monitor" },
+                      { name: "Paracetamol 500mg", stock: 890, max: 1000, alert: "OK" },
+                      { name: "Cefuroxime 250mg", stock: 8, max: 200, alert: "Reorder Now" },
+                      { name: "Metformin 850mg", stock: 312, max: 400, alert: "OK" },
+                      { name: "Amlodipine 5mg", stock: 45, max: 300, alert: "Low Stock" },
+                    ].map((item) => (
+                      <div key={item.name} className="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="text-[11px] font-semibold text-slate-800">{item.name}</div>
+                          <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${
+                            item.alert === "Reorder Now" ? "bg-red-50 text-red-600 border border-red-100" :
+                            item.alert === "Monitor" || item.alert === "Low Stock" ? "bg-amber-50 text-amber-600 border border-amber-100" :
+                            "bg-emerald-50 text-emerald-600 border border-emerald-100"
+                          }`}>{item.alert}</span>
                         </div>
-                        <div className="text-[10px] text-slate-500">{p.lastVisit}</div>
+                        <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                          <div className={`h-full rounded-full ${
+                            item.alert === "Reorder Now" ? "bg-red-400" :
+                            item.alert === "Monitor" || item.alert === "Low Stock" ? "bg-amber-400" : "bg-emerald-400"
+                          }`} style={{ width: `${(item.stock / item.max) * 100}%` }} />
+                        </div>
+                        <div className="text-[10px] text-slate-400 mt-1">{item.stock} / {item.max} units</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {activeRole === "staff" && (
+                  <div className="space-y-3">
+                    {[
+                      { action: "Dispensed Amoxicillin 500mg to Eleanor Vance", time: "3m ago", icon: "ri-check-double-line", color: "emerald" },
+                      { action: "Completed stock count for Paracetamol 500mg", time: "12m ago", icon: "ri-archive-line", color: "blue" },
+                      { action: "Flagged Cefuroxime 250mg low stock alert", time: "18m ago", icon: "ri-alarm-warning-line", color: "amber" },
+                      { action: "Assisted patient Marcus Sterling with refill", time: "25m ago", icon: "ri-user-heart-line", color: "violet" },
+                      { action: "Logged daily opening inventory check", time: "1h ago", icon: "ri-clipboard-line", color: "sky" },
+                    ].map((log) => (
+                      <div key={log.action} className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-3">
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
+                          log.color === "emerald" ? "bg-emerald-50" :
+                          log.color === "blue" ? "bg-blue-50" :
+                          log.color === "amber" ? "bg-amber-50" :
+                          log.color === "violet" ? "bg-violet-50" : "bg-sky-50"
+                        }`}>
+                          <i className={`${log.icon} text-sm ${
+                            log.color === "emerald" ? "text-emerald-600" :
+                            log.color === "blue" ? "text-blue-600" :
+                            log.color === "amber" ? "text-amber-600" :
+                            log.color === "violet" ? "text-violet-600" : "text-sky-600"
+                          }`} />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-[11px] font-semibold text-slate-800">{log.action}</div>
+                          <div className="text-[10px] text-slate-400">{log.time}</div>
+                        </div>
                       </div>
                     ))}
                   </div>

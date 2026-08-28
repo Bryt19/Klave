@@ -175,76 +175,44 @@ function SalesChart({ data }: { data: typeof analyticsData.dailySales }) {
   );
 }
 
-/* ── Donut chart with staggered circular loading ──────── */
-function DonutChart() {
+/* ── Best Selling Drugs bar chart ──────── */
+function BestSellingDrugs() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
-  const [hoveredSeg, setHoveredSeg] = useState<number | null>(null);
-  const segments = [
-    { label: "Antibiotics", pct: 32, color: "#059669" },
-    { label: "Analgesics", pct: 24, color: "#10b981" },
-    { label: "Cardiovascular", pct: 18, color: "#6ee7b7" },
-    { label: "Antidiabetics", pct: 14, color: "#93c5fd" },
-    { label: "Other", pct: 12, color: "#fde68a" },
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const drugs = [
+    { name: "Amoxicillin 500mg", units: 2847, color: "#059669" },
+    { name: "Paracetamol 500mg", units: 2341, color: "#10b981" },
+    { name: "Metformin 850mg", units: 1892, color: "#34d399" },
+    { name: "Amlodipine 5mg", units: 1543, color: "#6ee7b7" },
+    { name: "Cetirizine 10mg", units: 1128, color: "#a7f3d0" },
   ];
-
-  const svgSize = 112;
-  const strokeWidth = 14;
-  const radius = (svgSize - strokeWidth) / 2;
-  const circumference = 2 * Math.PI * radius;
-  let cumulativeAngle = 0;
+  const maxUnits = Math.max(...drugs.map((d) => d.units));
 
   return (
     <div ref={ref} className="p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.06]">
       <div className="mb-4">
-        <div className="text-xs font-bold text-white">Sales by Category</div>
-        <div className="text-[10px] text-slate-500">This month</div>
+        <div className="text-xs font-bold text-white">Best Selling Drugs</div>
+        <div className="text-[10px] text-slate-500">Units sold this month</div>
       </div>
-      <div className="flex items-center gap-6">
-        <div
-          className="relative w-24 h-24 sm:w-28 sm:h-28 shrink-0 transition-transform duration-300"
-          style={{ transform: hoveredSeg !== null ? "scale(1.05)" : "scale(1)" }}
-        >
-          <svg viewBox={`0 0 ${svgSize} ${svgSize}`} className="w-full h-full -rotate-90">
-            {segments.map((seg, i) => {
-              const dashLength = (seg.pct / 100) * circumference;
-              const gapLength = circumference - dashLength;
-              const rotation = cumulativeAngle * (360 / 100);
-              cumulativeAngle += seg.pct;
-              return (
-                <motion.circle
-                  key={seg.label}
-                  cx={svgSize / 2}
-                  cy={svgSize / 2}
-                  r={radius}
-                  fill="none"
-                  stroke={seg.color}
-                  strokeWidth={strokeWidth}
-                  strokeDasharray={`${dashLength} ${gapLength}`}
-                  strokeLinecap="round"
-                  transform={`rotate(${rotation} ${svgSize / 2} ${svgSize / 2})`}
-                  initial={{ strokeDashoffset: dashLength }}
-                  animate={inView ? { strokeDashoffset: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.3 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                />
-              );
-            })}
-          </svg>
-          <div className="absolute inset-3 rounded-full bg-slate-900 flex items-center justify-center">
-            <div className="text-center"><div className="text-sm font-bold text-white">1,284</div><div className="text-[8px] text-slate-500">medicines</div></div>
-          </div>
-        </div>
-        <div className="space-y-2 flex-1">
-          {segments.map((seg, i) => (
-            <div key={seg.label} className="flex items-center justify-between cursor-default" onMouseEnter={() => setHoveredSeg(i)} onMouseLeave={() => setHoveredSeg(null)}>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full transition-transform duration-200" style={{ backgroundColor: seg.color, transform: hoveredSeg === i ? "scale(1.5)" : "scale(1)" }} />
-                <span className={`text-[11px] transition-colors ${hoveredSeg === i ? "text-white" : "text-slate-300"}`}>{seg.label}</span>
-              </div>
-              <span className={`text-[11px] font-semibold transition-colors ${hoveredSeg === i ? "text-emerald-400" : "text-slate-400"}`}>{seg.pct}%</span>
+      <div className="space-y-3">
+        {drugs.map((drug, i) => (
+          <div key={drug.name} className="group cursor-default" onMouseEnter={() => setHoveredIdx(i)} onMouseLeave={() => setHoveredIdx(null)}>
+            <div className="flex items-center justify-between mb-1">
+              <span className={`text-[11px] transition-colors ${hoveredIdx === i ? "text-white" : "text-slate-300"}`}>{drug.name}</span>
+              <span className={`text-[11px] font-semibold transition-colors ${hoveredIdx === i ? "text-emerald-400" : "text-slate-400"}`}>{drug.units.toLocaleString()}</span>
             </div>
-          ))}
-        </div>
+            <div className="h-2 rounded-full bg-white/[0.06] overflow-hidden">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={inView ? { width: `${(drug.units / maxUnits) * 100}%` } : {}}
+                transition={{ duration: 0.8, delay: 0.2 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="h-full rounded-full transition-transform duration-200"
+                style={{ backgroundColor: drug.color, transform: hoveredIdx === i ? "scaleY(1.3)" : "scaleY(1)" }}
+              />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -346,10 +314,10 @@ export default function AnalyticsShowcase() {
           </Reveal>
         </div>
 
-        {/* Row 2: Donut + Performance stats */}
+        {/* Row 2: Best Selling Drugs + Performance stats */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 mt-4 sm:mt-5">
           <Reveal delay={0.3} className="lg:col-span-5">
-            <DonutChart />
+            <BestSellingDrugs />
           </Reveal>
           <Reveal delay={0.4} className="lg:col-span-7">
             <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.06] h-full">

@@ -118,10 +118,10 @@ export default function ProblemSection() {
                   { label: "Dispensing", value: "FEFO-automated", icon: "ri-capsule-line" },
                   { label: "Sales", value: "Live tracking", icon: "ri-line-chart-line" },
                   { label: "Analytics", value: "Instant reports", icon: "ri-bar-chart-2-line" },
-                  { label: "Prescriptions", value: "OCR-powered", icon: "ri-file-list-3-line" },
-                  { label: "Suppliers", value: "Auto-reorder", icon: "ri-truck-line" },
+                  { label: "Mobile", value: "Mobile Compatible", icon: "ri-smartphone-line" },
+                  { label: "Suppliers", value: "Supplier Listing", icon: "ri-truck-line" },
                   { label: "Staff", value: "Role-based", icon: "ri-team-line" },
-                  { label: "Patients", value: "Full history", icon: "ri-user-heart-line" },
+                  { label: "Offline", value: "Offline First", icon: "ri-wifi-off-line" },
                 ].map((item) => (
                   <div key={item.label} className="p-3 rounded-xl bg-white border border-emerald-100 text-center">
                     <i className={`${item.icon} text-emerald-500 text-lg mb-2 block`} />

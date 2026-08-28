@@ -152,10 +152,10 @@ export const analyticsData = {
 /* ── Role switcher data ────────────────────────────────────── */
 export const roles = [
   {
-    id: "admin",
-    name: "Administrator",
+    id: "owner",
+    name: "Owner",
     icon: "ri-shield-user-line",
-    description: "Complete system oversight with role management, audit logs, and branch-wide analytics.",
+    description: "Complete system oversight with full access to all branches, staff management, and business analytics.",
     features: [
       "Multi-branch inventory overview",
       "Staff management & permissions",
@@ -176,30 +176,6 @@ export const roles = [
     ],
   },
   {
-    id: "assistant",
-    name: "Physician Assistant",
-    icon: "ri-heart-pulse-line",
-    description: "Patient consultation support and medication dispensing coordination.",
-    features: [
-      "Patient profile management",
-      "Medication counselling notes",
-      "Prescription intake support",
-      "Referral tracking",
-    ],
-  },
-  {
-    id: "inventory",
-    name: "Inventory Manager",
-    icon: "ri-archive-line",
-    description: "Stock management, supplier coordination, and expiry prevention.",
-    features: [
-      "Real-time stock monitoring",
-      "Supplier order management",
-      "Expiry tracking & alerts",
-      "FEFO batch optimization",
-    ],
-  },
-  {
     id: "cashier",
     name: "Cashier",
     icon: "ri-bank-card-line",
@@ -211,17 +187,41 @@ export const roles = [
       "Daily sales reconciliation",
     ],
   },
+  {
+    id: "manager",
+    name: "Manager",
+    icon: "ri-user-settings-line",
+    description: "Branch operations management, staff scheduling, and performance tracking.",
+    features: [
+      "Branch-level inventory control",
+      "Staff scheduling & shifts",
+      "Performance dashboards",
+      "Order approvals & oversight",
+    ],
+  },
+  {
+    id: "staff",
+    name: "Staff",
+    icon: "ri-team-line",
+    description: "Daily operations support including dispensing, stock checks, and customer service.",
+    features: [
+      "Dispensing workflow",
+      "Stock check & counting",
+      "Customer service queue",
+      "Activity logging",
+    ],
+  },
 ];
 
 /* ── Ecosystem nodes ───────────────────────────────────────── */
 export const ecosystemNodes = [
-  { label: "Inventory", icon: "ri-archive-line", description: "Real-time stock levels across all branches with batch tracking and automatic reorder suggestions." },
+  { label: "Inventory", icon: "ri-archive-line", description: "Real-time stock levels across all branches with batch tracking and expiry monitoring." },
   { label: "Sales", icon: "ri-shopping-cart-2-line", description: "Point-of-sale processing with multi-tender support, receipt generation, and daily reconciliation." },
-  { label: "Prescriptions", icon: "ri-file-list-3-line", description: "OCR-powered script scanning, clinical verification, and dispensing workflow management." },
-  { label: "Suppliers", icon: "ri-truck-line", description: "Supplier directory, purchase order management, and automated stock replenishment coordination." },
+  { label: "Suppliers", icon: "ri-truck-line", description: "Supplier directory, purchase order management, and stock replenishment coordination." },
   { label: "Reports", icon: "ri-bar-chart-2-line", description: "Revenue analytics, inventory reports, staff performance metrics, and custom export tools." },
   { label: "Staff", icon: "ri-team-line", description: "Role-based access control, shift scheduling, activity logs, and performance tracking." },
-  { label: "Patients", icon: "ri-user-heart-line", description: "Patient profiles, medication history, allergy records, and prescription refill tracking." },
+  { label: "Owner", icon: "ri-shield-user-line", description: "Multi-branch oversight, business analytics, and system-wide configuration management." },
+  { label: "Drug Finder", icon: "ri-search-eye-line", description: "Quick drug lookup by name, batch number, or therapeutic category with stock availability." },
 ];
 
 /* ── Testimonials ──────────────────────────────────────────── */
