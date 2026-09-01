@@ -54,18 +54,17 @@ export default function Features() {
               <p className="text-sm text-slate-600 mb-4">
                 The Klavora POS terminal is your pharmacy's counter system. It lets any authorised staff member search for drugs, build a sale basket, collect payment, and generate a receipt — all in under a minute. The terminal is designed to be fast, accurate, and usable by staff with minimal training.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600">
-                <li><strong>Drug search</strong> — Search by drug name or category. Results show available stock and expiry status at a glance.</li>
-                <li><strong>Multi-item baskets</strong> — Add multiple drugs to a single sale before confirming. Adjust quantities inline.</li>
-                <li><strong>Payment methods</strong> — Cash, Mobile Money (MoMo), card, and insurance are all supported. Each sale records which payment method was used.</li>
-                <li><strong>Change calculation</strong> — For cash sales, enter the amount tendered and the system calculates change automatically.</li>
-                <li><strong>Payment reference</strong> — MoMo and card payments can record a transaction reference for reconciliation.</li>
-                <li><strong>Insurance sales</strong> — Record the insurance provider and policy number at the point of sale.</li>
-                <li><strong>Receipt generation</strong> — A printed or on-screen receipt is generated for every sale, showing the pharmacy name, drug items, quantities, prices, payment method, and a unique reference number.</li>
-                <li><strong>Controlled substance logging</strong> — When a controlled drug is dispensed, the system prompts for the patient name, prescriber name, and prescriber licence number before confirming the sale.</li>
-                <li><strong>Offline selling</strong> — Sales can be completed even when there is no internet connection.</li>
-                <li><strong>Keyboard shortcuts</strong> — Power users can navigate the POS with keyboard shortcuts: search, confirm, hold cart, and more.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600">
+                {["Drug search — Search by drug name or category. Results show available stock and expiry status at a glance.", "Multi-item baskets — Add multiple drugs to a single sale before confirming. Adjust quantities inline.", "Payment methods — Cash, Mobile Money (MoMo), card, and insurance are all supported. Each sale records which payment method was used.", "Change calculation — For cash sales, enter the amount tendered and the system calculates change automatically.", "Payment reference — MoMo and card payments can record a transaction reference for reconciliation.", "Insurance sales — Record the insurance provider and policy number at the point of sale.", "Receipt generation — A printed or on-screen receipt is generated for every sale, showing the pharmacy name, drug items, quantities, prices, payment method, and a unique reference number.", "Controlled substance logging — When a controlled drug is dispensed, the system prompts for the patient name, prescriber name, and prescriber licence number before confirming the sale.", "Offline selling — Sales can be completed even when there is no internet connection.", "Keyboard shortcuts — Power users can navigate the POS with keyboard shortcuts: search, confirm, hold cart, and more."].map((item) => {
+                  const [name, ...rest] = item.split(' — ');
+                  return (
+                    <div key={name} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                      <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <p><strong className="text-slate-900">{name}:</strong> {rest.join(' — ')}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.section>
 
             {/* Inventory Management */}
@@ -78,19 +77,17 @@ export default function Features() {
               <p className="text-sm text-slate-600 mb-4">
                 Inventory management is the heart of Klavora. Every drug in your pharmacy is tracked at the batch level, meaning you always know exactly how much stock you have, when it expires, and what it cost. The system enforces pharmacy best practices automatically.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600">
-                <li><strong>Drug catalogue</strong> — Every drug is stored with its name, category, dosage form, strength, manufacturer, and description.</li>
-                <li><strong>Batch-level tracking</strong> — Each drug can have multiple batches. Every batch has its own quantity, cost price, selling price, and expiry date.</li>
-                <li><strong>Expiry colour coding</strong> — Inventory cards are colour-coded at a glance: green for healthy stock, amber for stock expiring within 30 days, and red for expired stock.</li>
-                <li><strong>FEFO dispensing</strong> — When a sale is confirmed, the system automatically sells from the batch with the nearest expiry date first.</li>
-                <li><strong>Low stock alerts</strong> — Each drug has a configurable low stock threshold (default: 10 units).</li>
-                <li><strong>Out-of-stock alerts</strong> — When a drug's stock reaches zero, a critical notification is generated immediately.</li>
-                <li><strong>Expiry alerts</strong> — When any batch reaches within 30 days of its expiry date, an automatic notification is generated.</li>
-                <li><strong>Controlled drug flag</strong> — Drugs flagged as controlled substances display a visual indicator and require prescriber details at the point of sale.</li>
-                <li><strong>Bulk CSV import</strong> — Upload a spreadsheet to add your entire catalogue at once. Imports can be undone within 24 hours.</li>
-                <li><strong>Write-off and purge</strong> — Expired batches can be individually deleted or bulk-purged. Each write-off is recorded in the audit log.</li>
-                <li><strong>Supervised dispensing</strong> — Dispense post-expiry stock under supervision if authorised.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600">
+                {["Drug catalogue — Every drug is stored with its name, category, dosage form, strength, manufacturer, and description.", "Batch-level tracking — Each drug can have multiple batches. Every batch has its own quantity, cost price, selling price, and expiry date.", "Expiry colour coding — Inventory cards are colour-coded at a glance: green for healthy stock, amber for stock expiring within 30 days, and red for expired stock.", "FEFO dispensing — When a sale is confirmed, the system automatically sells from the batch with the nearest expiry date first.", "Low stock alerts — Each drug has a configurable low stock threshold (default: 10 units).", "Out-of-stock alerts — When a drug's stock reaches zero, a critical notification is generated immediately.", "Expiry alerts — When any batch reaches within 30 days of its expiry date, an automatic notification is generated.", "Controlled drug flag — Drugs flagged as controlled substances display a visual indicator and require prescriber details at the point of sale.", "Bulk CSV import — Upload a spreadsheet to add your entire catalogue at once. Imports can be undone within 24 hours.", "Write-off and purge — Expired batches can be individually deleted or bulk-purged. Each write-off is recorded in the audit log.", "Supervised dispensing — Dispense post-expiry stock under supervision if authorised."].map((item) => {
+                  const [name, ...rest] = item.split(' — ');
+                  return (
+                    <div key={name} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                      <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <p><strong className="text-slate-900">{name}:</strong> {rest.join(' — ')}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.section>
 
             {/* Restock Management */}
@@ -103,13 +100,17 @@ export default function Features() {
               <p className="text-sm text-slate-600 mb-4">
                 When new stock arrives at your pharmacy, the Restock page is where you record it. Klavora links every restock to a specific batch and staff member, creating a permanent, auditable record of every stock addition.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600">
-                <li><strong>New batch restocking</strong> — Add a new batch to any existing drug.</li>
-                <li><strong>Existing batch restocking</strong> — Top up the quantity on an existing batch rather than creating a duplicate.</li>
-                <li><strong>Automatic audit entry</strong> — Every restock creates an automatic audit log entry recording who restocked, what drug, how many units, and when.</li>
-                <li><strong>Sortable view</strong> — Sort by drug name, current stock level, or nearest expiry date.</li>
-                <li><strong>Stock movement history</strong> — Every quantity change is recorded in the stock movement log.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600">
+                {["New batch restocking — Add a new batch to any existing drug.", "Existing batch restocking — Top up the quantity on an existing batch rather than creating a duplicate.", "Automatic audit entry — Every restock creates an automatic audit log entry recording who restocked, what drug, how many units, and when.", "Sortable view — Sort by drug name, current stock level, or nearest expiry date.", "Stock movement history — Every quantity change is recorded in the stock movement log."].map((item) => {
+                  const [name, ...rest] = item.split(' — ');
+                  return (
+                    <div key={name} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                      <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <p><strong className="text-slate-900">{name}:</strong> {rest.join(' — ')}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.section>
 
             {/* KPI Dashboard */}
@@ -122,14 +123,17 @@ export default function Features() {
               <p className="text-sm text-slate-600 mb-4">
                 The KPI Dashboard gives pharmacy owners and managers a real-time financial picture of their business. All figures are drawn live from actual transaction data — nothing is estimated. This page is only visible to Owners and Managers.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600">
-                <li><strong>Total inventory value</strong> — The total cost value of all stock currently on the shelves, broken down into healthy stock, stock expiring within 30 days, and already-expired stock.</li>
-                <li><strong>Gross margin</strong> — The difference between the price you sold drugs for and the price you paid for them, expressed as both a monetary value and a percentage.</li>
-                <li><strong>Revenue tracking</strong> — Total sales revenue over any selected date range, alongside units sold and number of transactions.</li>
-                <li><strong>Loss tracking</strong> — The value of stock that was written off due to expiry.</li>
-                <li><strong>Staff performance</strong> — A ranked table showing each staff member's total sales, revenue generated, and units dispensed over any selected period.</li>
-                <li><strong>Stock movement summary</strong> — How many units were sold, restocked, and written off in any given period.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600">
+                {["Total inventory value — The total cost value of all stock currently on the shelves, broken down into healthy stock, stock expiring within 30 days, and already-expired stock.", "Gross margin — The difference between the price you sold drugs for and the price you paid for them, expressed as both a monetary value and a percentage.", "Revenue tracking — Total sales revenue over any selected date range, alongside units sold and number of transactions.", "Loss tracking — The value of stock that was written off due to expiry.", "Staff performance — A ranked table showing each staff member's total sales, revenue generated, and units dispensed over any selected period.", "Stock movement summary — How many units were sold, restocked, and written off in any given period."].map((item) => {
+                  const [name, ...rest] = item.split(' — ');
+                  return (
+                    <div key={name} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                      <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <p><strong className="text-slate-900">{name}:</strong> {rest.join(' — ')}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.section>
 
             {/* Sales Metrics */}
@@ -142,13 +146,17 @@ export default function Features() {
               <p className="text-sm text-slate-600 mb-4">
                 The Sales Metrics page provides detailed revenue analytics and transaction history. It is designed for owners and managers who want to understand sales patterns and trends. This page is only visible to Owners and Managers.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600">
-                <li><strong>Revenue chart</strong> — A visual chart showing revenue over time, filterable by date range.</li>
-                <li><strong>Top-selling drugs</strong> — A ranked list of the drugs that generate the most revenue.</li>
-                <li><strong>Transaction history</strong> — A full, scrollable list of every transaction, showing the date, staff member, items sold, quantities, total value, and payment method.</li>
-                <li><strong>Payment method breakdown</strong> — See what percentage of your sales are cash, MoMo, card, or insurance.</li>
-                <li><strong>Transaction detail</strong> — Expand any transaction to see exactly which drugs were sold, from which batch, at what price.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600">
+                {["Revenue chart — A visual chart showing revenue over time, filterable by date range.", "Top-selling drugs — A ranked list of the drugs that generate the most revenue.", "Transaction history — A full, scrollable list of every transaction, showing the date, staff member, items sold, quantities, total value, and payment method.", "Payment method breakdown — See what percentage of your sales are cash, MoMo, card, or insurance.", "Transaction detail — Expand any transaction to see exactly which drugs were sold, from which batch, at what price."].map((item) => {
+                  const [name, ...rest] = item.split(' — ');
+                  return (
+                    <div key={name} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                      <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <p><strong className="text-slate-900">{name}:</strong> {rest.join(' — ')}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.section>
 
             {/* Offline Selling */}
@@ -161,14 +169,17 @@ export default function Features() {
               <p className="text-sm text-slate-600 mb-4">
                 Klavora is built to work without an internet connection. This is not a limited mode — it is the full pharmacy terminal running on locally cached data.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600">
-                <li><strong>Automatic offline detection</strong> — The terminal detects when connectivity is lost and displays a clear offline indicator.</li>
-                <li><strong>Manual offline mode</strong> — Staff can manually switch to offline mode at any time.</li>
-                <li><strong>Full POS functionality offline</strong> — Search drugs, build baskets, confirm sales, and generate receipts all work without connectivity.</li>
-                <li><strong>Automatic sync on reconnection</strong> — Offline sales sync automatically when connectivity returns.</li>
-                <li><strong>Conflict resolution</strong> — Detects and presents resolution options if conflicts occur.</li>
-                <li><strong>Offline session logging</strong> — Every offline session is recorded for audit purposes.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600">
+                {["Automatic offline detection — The terminal detects when connectivity is lost and displays a clear offline indicator.", "Manual offline mode — Staff can manually switch to offline mode at any time.", "Full POS functionality offline — Search drugs, build baskets, confirm sales, and generate receipts all work without connectivity.", "Automatic sync on reconnection — Offline sales sync automatically when connectivity returns.", "Conflict resolution — Detects and presents resolution options if conflicts occur.", "Offline session logging — Every offline session is recorded for audit purposes."].map((item) => {
+                  const [name, ...rest] = item.split(' — ');
+                  return (
+                    <div key={name} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                      <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <p><strong className="text-slate-900">{name}:</strong> {rest.join(' — ')}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.section>
 
             {/* Hold Feature */}
@@ -181,12 +192,17 @@ export default function Features() {
               <p className="text-sm text-slate-600 mb-4">
                 The Hold Feature allows a cashier to pause a sale mid-way and serve another customer, then return to the paused sale.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600">
-                <li><strong>Multiple held carts</strong> — The terminal can hold several carts simultaneously.</li>
-                <li><strong>Held cart queue</strong> — A clear display shows all currently held carts and how long they have been waiting.</li>
-                <li><strong>Resume or discard</strong> — Held carts can be resumed or discarded at any time.</li>
-                <li><strong>No data loss</strong> — Held carts persist across page refreshes.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600">
+                {["Multiple held carts — The terminal can hold several carts simultaneously.", "Held cart queue — A clear display shows all currently held carts and how long they have been waiting.", "Resume or discard — Held carts can be resumed or discarded at any time.", "No data loss — Held carts persist across page refreshes."].map((item) => {
+                  const [name, ...rest] = item.split(' — ');
+                  return (
+                    <div key={name} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                      <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <p><strong className="text-slate-900">{name}:</strong> {rest.join(' — ')}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.section>
 
             {/* Staff Management */}
@@ -199,13 +215,17 @@ export default function Features() {
               <p className="text-sm text-slate-600 mb-4">
                 Klavora supports multi-staff pharmacies with a structured role system. Each staff member gets their own login, and their access is precisely controlled by their role. This page is only visible to Owners and Managers.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600">
-                <li><strong>Add staff</strong> — Create a new staff account with a name, email, role, and temporary password. An invitation email is sent automatically.</li>
-                <li><strong>PIN login</strong> — Staff can log in using a numeric PIN instead of typing a full email and password.</li>
-                <li><strong>Force password change</strong> — New staff are required to set their own password on first login.</li>
-                <li><strong>Deactivate staff</strong> — Remove access for staff who have left without deleting their transaction history.</li>
-                <li><strong>Edit staff details</strong> — Update names, roles, and contact details.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600">
+                {["Add staff — Create a new staff account with a name, email, role, and temporary password. An invitation email is sent automatically.", "PIN login — Staff can log in using a numeric PIN instead of typing a full email and password.", "Force password change — New staff are required to set their own password on first login.", "Deactivate staff — Remove access for staff who have left without deleting their transaction history.", "Edit staff details — Update names, roles, and contact details."].map((item) => {
+                  const [name, ...rest] = item.split(' — ');
+                  return (
+                    <div key={name} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                      <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <p><strong className="text-slate-900">{name}:</strong> {rest.join(' — ')}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.section>
 
             {/* Audit Log */}
@@ -218,15 +238,17 @@ export default function Features() {
               <p className="text-sm text-slate-600 mb-4">
                 The Audit Log is a permanent, tamper-proof record of every significant action taken in the pharmacy system. Every sale, restock, drug edit, batch deletion, login, staff change, and setting update is recorded automatically. The audit log cannot be edited or deleted by anyone — not even the Owner.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600">
-                <li><strong>Every transaction recorded</strong> — Sales, restocks, reconciliations, and edits each appear as a separate log entry.</li>
-                <li><strong>Staff attribution</strong> — Every entry shows which staff member performed the action, by name and role.</li>
-                <li><strong>Timestamps</strong> — Every entry shows the exact date and time the action was taken.</li>
-                <li><strong>Transaction detail</strong> — Sales entries show which drugs were sold, from which batch, at what price.</li>
-                <li><strong>Write-off logging</strong> — Every batch deletion or expiry purge is recorded, including the quantity written off and the value lost.</li>
-                <li><strong>CSV export</strong> — The full audit log can be exported as a CSV file for compliance, accounting, or external reporting.</li>
-                <li><strong>Access restricted</strong> — Only Owners and Managers can view the audit log.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600">
+                {["Every transaction recorded — Sales, restocks, reconciliations, and edits each appear as a separate log entry.", "Staff attribution — Every entry shows which staff member performed the action, by name and role.", "Timestamps — Every entry shows the exact date and time the action was taken.", "Transaction detail — Sales entries show which drugs were sold, from which batch, at what price.", "Write-off logging — Every batch deletion or expiry purge is recorded, including the quantity written off and the value lost.", "CSV export — The full audit log can be exported as a CSV file for compliance, accounting, or external reporting.", "Access restricted — Only Owners and Managers can view the audit log."].map((item) => {
+                  const [name, ...rest] = item.split(' — ');
+                  return (
+                    <div key={name} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                      <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <p><strong className="text-slate-900">{name}:</strong> {rest.join(' — ')}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.section>
 
             {/* Shift Management */}
@@ -239,11 +261,17 @@ export default function Features() {
               <p className="text-sm text-slate-600 mb-4">
                 Klavora's shift management system was designed around three operating modes suited to different pharmacy types:
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600">
-                <li><strong>Self-managed</strong> — Staff are responsible for their own session. No formal float tracking.</li>
-                <li><strong>Cashier-managed</strong> — A designated cashier opens and closes the shift, manages the float, and is accountable for the cash in the till at the end of each shift.</li>
-                <li><strong>Manager-supervised</strong> — A manager opens and closes shifts for individual staff members, with full float tracking and reconciliation reports.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600">
+                {["Self-managed — Staff are responsible for their own session. No formal float tracking.", "Cashier-managed — A designated cashier opens and closes the shift, manages the float, and is accountable for the cash in the till at the end of each shift.", "Manager-supervised — A manager opens and closes shifts for individual staff members, with full float tracking and reconciliation reports."].map((item) => {
+                  const [name, ...rest] = item.split(' — ');
+                  return (
+                    <div key={name} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                      <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <p><strong className="text-slate-900">{name}:</strong> {rest.join(' — ')}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.section>
 
             {/* Backup and Restore */}
@@ -256,11 +284,17 @@ export default function Features() {
               <p className="text-sm text-slate-600 mb-4">
                 Klavora keeps a comprehensive, encrypted backup of all your pharmacy data. Backups protect you against accidental deletion, data corruption, or any other unexpected loss of records.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600">
-                <li><strong>Owner-initiated backups:</strong> Generate an encrypted backup of your complete pharmacy data at any time.</li>
-                <li><strong>Automated server-side backups:</strong> Taken on a configurable schedule (daily, weekly, or monthly).</li>
-                <li><strong>Easy Restore:</strong> Upload your backup file to decrypt and restore atomicaly.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600">
+                {["Owner-initiated backups — Generate an encrypted backup of your complete pharmacy data at any time.", "Automated server-side backups — Taken on a configurable schedule (daily, weekly, or monthly).", "Easy Restore — Upload your backup file to decrypt and restore atomically."].map((item) => {
+                  const [name, ...rest] = item.split(' — ');
+                  return (
+                    <div key={name} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                      <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <p><strong className="text-slate-900">{name}:</strong> {rest.join(' — ')}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.section>
 
             {/* Drug Finder */}
@@ -309,11 +343,17 @@ export default function Features() {
               <p className="text-sm text-slate-600 mb-4">
                 Klavora is a Progressive Web App, which means it is designed to work on any device — phone, tablet, or desktop computer — without any software installation.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600">
-                <li><strong>Desktop experience:</strong> Full-width layout on desktop and large screens.</li>
-                <li><strong>Mobile experience:</strong> Layout adapts to a single-column, touch-friendly design.</li>
-                <li><strong>Install as an app:</strong> Can be installed directly from the browser on Android and iOS as a Progressive Web App.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600">
+                {["Desktop experience — Full-width layout on desktop and large screens.", "Mobile experience — Layout adapts to a single-column, touch-friendly design.", "Install as an app — Can be installed directly from the browser on Android and iOS as a Progressive Web App."].map((item) => {
+                  const [name, ...rest] = item.split(' — ');
+                  return (
+                    <div key={name} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                      <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <p><strong className="text-slate-900">{name}:</strong> {rest.join(' — ')}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.section>
 
             {/* Onboarding Tour */}

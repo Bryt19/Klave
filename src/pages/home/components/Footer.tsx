@@ -99,10 +99,7 @@ export default function Footer() {
               <p className="text-sm text-slate-500 leading-relaxed max-w-xs mb-6">
                 Unified pharmacy management for modern health systems. Inventory, dispensing, sales, and analytics, all in one platform.
               </p>
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-[11px] text-emerald-400 w-fit mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>All Systems Operational</span>
-              </div>
+
               <div className="flex items-center gap-3">
                 {[ { icon: "ri-twitter-x-line", label: "Twitter" }, { icon: "ri-linkedin-fill", label: "LinkedIn" }, { icon: "ri-github-fill", label: "GitHub" } ].map((s) => (
                   <a key={s.label} href="#" aria-label={s.label}
@@ -140,9 +137,9 @@ export default function Footer() {
         </div>
 
         {/* KLAVORA watermark */}
-        <div className="pt-6 pb-2 overflow-hidden">
+        <div className="pt-8 pb-4 overflow-hidden">
           <div className="text-center select-none pointer-events-none">
-            <span className="text-[3.5rem] sm:text-[6rem] lg:text-[8rem] font-black tracking-tighter leading-none" style={{ color: 'rgba(16, 185, 129, 0.06)' }}>
+            <span className="text-[3.5rem] sm:text-[6rem] lg:text-[9rem] font-black tracking-[-0.04em] leading-none uppercase" style={{ color: 'rgba(16, 185, 129, 0.12)', fontFamily: 'Inter, system-ui, -apple-system, sans-serif', letterSpacing: '0.08em' }}>
               KLAVORA
             </span>
           </div>

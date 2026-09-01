@@ -46,7 +46,7 @@ export default function CtaSection() {
             deserves better tools.
           </h2>
 
-          <p className="text-sm sm:text-base lg:text-lg text-teal-100/60 font-normal leading-relaxed max-w-xl mx-auto mb-10">
+          <p className="text-sm sm:text-base lg:text-lg text-teal-100/80 font-normal leading-relaxed max-w-xl mx-auto mb-10">
             Join leading pharmacy networks running faster, safer, and more
             profitable operations with Klavora.
           </p>
@@ -76,7 +76,7 @@ export default function CtaSection() {
           </div>
 
           {/* Trust items */}
-          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-teal-200/50 mb-12">
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-teal-200/70 mb-12">
             <span className="flex items-center gap-1.5">
               <i className="ri-check-line text-teal-300 font-bold" /> Free
               30-day trial
@@ -91,24 +91,43 @@ export default function CtaSection() {
             </span>
           </div>
 
-          {/* Feature highlights */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
-            {[
-              { icon: "ri-shield-check-line", label: "HIPAA Compliant" },
-              { icon: "ri-wifi-off-line", label: "Offline-First" },
-              { icon: "ri-speed-line", label: "Sub-20ms Sync" },
-              { icon: "ri-customer-service-2-line", label: "24/7 Support" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="flex items-center gap-2 justify-center py-3 px-4 rounded-xl bg-white/[0.04] border border-white/[0.05]"
-              >
-                <i className={`${item.icon} text-teal-300/50 text-sm`} />
-                <span className="text-[11px] font-medium text-teal-200/40">
-                  {item.label}
-                </span>
+          {/* Feature highlights — mobile: 2x2 + centered, desktop: row */}
+          <div className="max-w-3xl mx-auto">
+            {/* Mobile: 2x2 grid + centered last item */}
+            <div className="sm:hidden grid grid-cols-2 gap-4">
+              {[
+                { icon: "ri-wifi-off-line", label: "Offline-First" },
+                { icon: "ri-speed-line", label: "Sub-20ms Sync" },
+                { icon: "ri-lock-line", label: "Encrypted Data" },
+                { icon: "ri-smartphone-line", label: "PWA Ready" },
+              ].map((item) => (
+                <div key={item.label} className="flex items-center gap-2 justify-center py-3 px-4 rounded-xl bg-white/[0.06] border border-white/[0.08]">
+                  <i className={`${item.icon} text-teal-300 text-sm`} />
+                  <span className="text-[11px] font-semibold text-teal-200/70">{item.label}</span>
+                </div>
+              ))}
+              <div className="col-span-2 flex justify-center">
+                <div className="w-1/2 flex items-center gap-2 justify-center py-3 px-4 rounded-xl bg-white/[0.06] border border-white/[0.08]">
+                  <i className="ri-customer-service-2-line text-teal-300 text-sm" />
+                  <span className="text-[11px] font-semibold text-teal-200/70">24/7 Support</span>
+                </div>
               </div>
-            ))}
+            </div>
+            {/* Desktop: single row */}
+            <div className="hidden sm:flex items-center justify-center gap-4">
+              {[
+                { icon: "ri-wifi-off-line", label: "Offline-First" },
+                { icon: "ri-speed-line", label: "Sub-20ms Sync" },
+                { icon: "ri-lock-line", label: "Encrypted Data" },
+                { icon: "ri-smartphone-line", label: "PWA Ready" },
+                { icon: "ri-customer-service-2-line", label: "24/7 Support" },
+              ].map((item) => (
+                <div key={item.label} className="flex items-center gap-2 justify-center py-3 px-4 rounded-xl bg-white/[0.06] border border-white/[0.08]">
+                  <i className={`${item.icon} text-teal-300 text-sm`} />
+                  <span className="text-[11px] font-semibold text-teal-200/70">{item.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </Reveal>
       </div>

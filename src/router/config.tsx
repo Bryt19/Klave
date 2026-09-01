@@ -8,7 +8,6 @@ const Contact = lazy(() => import("../pages/Contact"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 const Privacy = lazy(() => import("../pages/Privacy"));
 const Terms = lazy(() => import("../pages/Terms"));
-const Hipaa = lazy(() => import("../pages/Hipaa"));
 const Changelog = lazy(() => import("../pages/Changelog"));
 const DocsIndex = lazy(() => import("../pages/DocsIndex"));
 const Architecture = lazy(() => import("../pages/Architecture"));
@@ -60,10 +59,6 @@ const routes: RouteObject[] = [
   {
     path: "/terms",
     element: withSuspense(Terms),
-  },
-  {
-    path: "/hipaa",
-    element: withSuspense(Hipaa),
   },
   {
     path: "/changelog",

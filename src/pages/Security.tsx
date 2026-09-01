@@ -150,11 +150,14 @@ export default function Security() {
               <p className="text-sm text-slate-600 mb-4">
                 All communication between the Klavora application and its servers is encrypted using TLS (Transport Layer Security). This applies to:
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600 mb-4">
-                <li>All API requests from the pharmacy terminal to the backend</li>
-                <li>All webhook events from payment processors</li>
-                <li>All email transmission</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600 mb-4">
+                {["All API requests from the pharmacy terminal to the backend", "All webhook events from payment processors", "All email transmission"].map((item) => (
+                  <div key={item} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                    <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
               <p className="text-sm text-slate-600 mb-4">
                 TLS encryption means that data cannot be intercepted or read by any third party while it is in transit between your device and Klavora's servers.
               </p>
@@ -183,15 +186,14 @@ export default function Security() {
               <p className="text-sm text-slate-600 mb-4">
                 Every significant action in the Klavora system is automatically logged to a permanent audit trail. This includes:
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600 mb-4">
-                <li>Every sale (drug name, batch, quantity, price, staff member, timestamp)</li>
-                <li>Every restock (drug, batch, quantity, staff member, timestamp)</li>
-                <li>Every drug edit or deletion</li>
-                <li>Every batch write-off or expiry purge</li>
-                <li>Every staff account creation, edit, or deactivation</li>
-                <li>Every settings change</li>
-                <li>Stock reconciliations</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600 mb-4">
+                {["Every sale (drug name, batch, quantity, price, staff member, timestamp)", "Every restock (drug, batch, quantity, staff member, timestamp)", "Every drug edit or deletion", "Every batch write-off or expiry purge", "Every staff account creation, edit, or deactivation", "Every settings change", "Stock reconciliations"].map((item) => (
+                  <div key={item} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                    <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
               <p className="text-sm text-slate-600 mb-4">
                 The audit log is append-only. It cannot be edited, filtered, or deleted by anyone — not by pharmacy staff, not by managers, and not by owners. The audit log is available for export as a CSV file for compliance and accounting purposes. Only Owners and Managers can view or export the audit log.
               </p>
@@ -207,12 +209,14 @@ export default function Security() {
                 Klavora uses Paystack, a PCI-compliant payment processor, to handle all subscription payments and renewals.
               </p>
               <h3 className="text-lg font-bold text-slate-900 mt-6 mb-2">How payment security works:</h3>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600 mb-4">
-                <li>When a pharmacy owner pays, they are redirected to Paystack's own secure checkout page. Card numbers and Mobile Money credentials are entered directly on Paystack's servers, not on Klavora's.</li>
-                <li>Klavora never sees, handles, stores, or transmits card numbers, CVV codes, or Mobile Money PINs. This data never touches Klavora's servers.</li>
-                <li>After payment is completed, Paystack sends a webhook notification to Klavora to confirm the payment. Before acting on any webhook, Klavora verifies the webhook's cryptographic signature to confirm it genuinely originated from Paystack and has not been tampered with.</li>
-                <li>Payment references are stored for reconciliation purposes, but these contain no sensitive financial information.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600 mb-4">
+                {["When a pharmacy owner pays, they are redirected to Paystack's own secure checkout page. Card numbers and Mobile Money credentials are entered directly on Paystack's servers, not on Klavora's.", "Klavora never sees, handles, stores, or transmits card numbers, CVV codes, or Mobile Money PINs. This data never touches Klavora's servers.", "After payment is completed, Paystack sends a webhook notification to Klavora to confirm the payment. Before acting on any webhook, Klavora verifies the webhook's cryptographic signature to confirm it genuinely originated from Paystack and has not been tampered with.", "Payment references are stored for reconciliation purposes, but these contain no sensitive financial information."].map((item) => (
+                  <div key={item} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                    <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
             </motion.section>
 
             <motion.section
@@ -225,12 +229,14 @@ export default function Security() {
                 When the Klavora pharmacy terminal operates offline, sales and inventory data are stored temporarily in the browser's local storage on the device.
               </p>
               <h3 className="text-lg font-bold text-slate-900 mt-6 mb-2">How offline data is protected:</h3>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600 mb-4">
-                <li>Offline data is stored in the browser's sandboxed local storage, which is isolated to the Klavora web application and cannot be accessed by other websites or applications on the device.</li>
-                <li>Offline data is scoped to the authenticated pharmacy session — it cannot be read by a different pharmacy's session on the same device.</li>
-                <li>When connectivity returns, the queued offline operations are transmitted to the server over the encrypted TLS connection and processed in chronological order. Once synced successfully, the local queue is cleared.</li>
-                <li>If a conflict is detected (for example, a drug was sold online and offline simultaneously), the conflict is surfaced to the user for manual resolution rather than silently overwriting data.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600 mb-4">
+                {["Offline data is stored in the browser's sandboxed local storage, which is isolated to the Klavora web application and cannot be accessed by other websites or applications on the device.", "Offline data is scoped to the authenticated pharmacy session — it cannot be read by a different pharmacy's session on the same device.", "When connectivity returns, the queued offline operations are transmitted to the server over the encrypted TLS connection and processed in chronological order. Once synced successfully, the local queue is cleared.", "If a conflict is detected (for example, a drug was sold online and offline simultaneously), the conflict is surfaced to the user for manual resolution rather than silently overwriting data."].map((item) => (
+                  <div key={item} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                    <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
             </motion.section>
 
             <motion.section
@@ -242,11 +248,17 @@ export default function Security() {
               <p className="text-sm text-slate-600 mb-4">
                 Klavora maintains multiple backup layers to protect against data loss:
               </p>
-              <ul className="list-none pl-0 space-y-4 text-sm text-slate-600 mb-4">
-                <li><strong>Owner-initiated backups:</strong> Pharmacy owners can generate an encrypted backup of their complete pharmacy data at any time from the Settings page. These backup files are AES-256-CBC encrypted and intended to be stored by the owner in a separate, secure location (such as Google Drive or a USB drive).</li>
-                <li><strong>Automated server-side backups:</strong> The platform runs scheduled automated backups at daily, weekly, and monthly intervals, retaining multiple copies at each frequency tier. Server-side backups are encrypted and stored separately from the primary database.</li>
-                <li><strong>Data retention policy:</strong> On account deactivation, a 30-day grace period begins. The pharmacy can reactivate and restore full access at any point during this period. After 30 days without renewal, all pharmacy data is permanently and irreversibly deleted from all systems.</li>
-              </ul>
+              <div className="space-y-3 text-sm text-slate-600 mb-4">
+                {["Owner-initiated backups — Pharmacy owners can generate an encrypted backup of their complete pharmacy data at any time from the Settings page. These backup files are AES-256-CBC encrypted and intended to be stored by the owner in a separate, secure location (such as Google Drive or a USB drive).", "Automated server-side backups — The platform runs scheduled automated backups at daily, weekly, and monthly intervals, retaining multiple copies at each frequency tier. Server-side backups are encrypted and stored separately from the primary database.", "Data retention policy — On account deactivation, a 30-day grace period begins. The pharmacy can reactivate and restore full access at any point during this period. After 30 days without renewal, all pharmacy data is permanently and irreversibly deleted from all systems."].map((item) => {
+                  const [name, ...rest] = item.split(' — ');
+                  return (
+                    <div key={name} className="flex items-start gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
+                      <span className="shrink-0 w-6 h-6 rounded-md bg-emerald-50 border border-emerald-200 flex items-center justify-center text-[10px] font-bold text-emerald-700">{name[0]}</span>
+                      <p><strong className="text-slate-900">{name}:</strong> {rest.join(' — ')}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.section>
 
             <motion.section
@@ -259,12 +271,14 @@ export default function Security() {
                 Klavora is designed with compliance with the <strong>Ghana Data Protection Act, 2012 (Act 843)</strong> in mind. The Ghana Data Protection Act establishes rights for individuals whose personal data is collected and processed, and obligations for organisations that process personal data.
               </p>
               <p className="text-sm text-slate-600 mb-2">In the context of Klavora:</p>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-slate-600 mb-4">
-                <li>Pharmacy owners and staff are data subjects whose names, contact details, and login information are processed by Klavora as the data processor.</li>
-                <li>Patients' names and prescription details recorded during controlled substance dispensing are stored under the pharmacy's data controller responsibility.</li>
-                <li>Klavora collects only the minimum information necessary to operate the platform and provide the service.</li>
-                <li>Data is retained for the duration of the subscription plus the 30-day grace period, after which it is deleted.</li>
-              </ul>
+              <div className="space-y-2 text-sm text-slate-600 mb-4">
+                {["Pharmacy owners and staff are data subjects whose names, contact details, and login information are processed by Klavora as the data processor.", "Patients' names and prescription details recorded during controlled substance dispensing are stored under the pharmacy's data controller responsibility.", "Klavora collects only the minimum information necessary to operate the platform and provide the service.", "Data is retained for the duration of the subscription plus the 30-day grace period, after which it is deleted."].map((item) => (
+                  <div key={item} className="flex items-start gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                    <span className="shrink-0 mt-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
               <p className="text-sm text-slate-600 mb-4">
                 For questions about data compliance, contact <a href="mailto:support@klavora.co" className="text-emerald-600 hover:text-emerald-500">support@klavora.co</a>.
               </p>

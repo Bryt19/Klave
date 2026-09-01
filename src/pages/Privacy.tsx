@@ -245,7 +245,7 @@ export default function Privacy() {
             className="text-xs font-medium text-slate-500 hover:text-slate-800 flex items-center gap-1 transition-colors"
           >
             <i className="ri-arrow-left-line" />
-            Back
+            Back to Home
           </Link>
         </div>
       </header>

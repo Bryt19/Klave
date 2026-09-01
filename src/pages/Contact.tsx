@@ -32,7 +32,7 @@ export default function Contact() {
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} transition={stagger(1)}>
             <Link to="/" className="text-xs font-medium text-slate-500 hover:text-slate-800 flex items-center gap-1 transition-colors">
-              <i className="ri-arrow-left-line" /> Back
+              <i className="ri-arrow-left-line" /> Back to Home
             </Link>
           </motion.div>
         </div>

@@ -295,11 +295,16 @@ export default function Ecosystem() {
                   </div>
                 </div>
               </div>
-              {ecosystemNodes.map((node, i) => {
-                const isSel = selectedIdx === i;
+              {(() => {
+                const drugIdx = ecosystemNodes.findIndex(n => n.label === "Drug Finder");
+                const others = ecosystemNodes.filter((_, i) => i !== drugIdx);
+                return { others, drugNode: ecosystemNodes[drugIdx] };
+              })().others.map((node, i) => {
+                const originalIdx = ecosystemNodes.indexOf(node);
+                const isSel = selectedIdx === originalIdx;
                 return (
                   <motion.div key={node.label} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.04 }}>
-                    <button onClick={() => setSelectedIdx(isSel ? null : i)} className={`w-full text-left flex items-center gap-2.5 px-3 py-2.5 rounded-xl border transition-all duration-150 ${isSel ? "bg-emerald-600 border-emerald-500 text-white" : "bg-white border-slate-100 shadow-sm hover:border-emerald-200"}`}>
+                    <button onClick={() => setSelectedIdx(isSel ? null : originalIdx)} className={`w-full text-left flex items-center gap-2.5 px-3 py-2.5 rounded-xl border transition-all duration-150 ${isSel ? "bg-emerald-600 border-emerald-500 text-white" : "bg-white border-slate-100 shadow-sm hover:border-emerald-200"}`}>
                       <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${isSel ? "bg-white/20" : "bg-emerald-50"}`}>
                         <i className={`${node.icon} ${isSel ? "text-white" : "text-emerald-600"} text-xs`} />
                       </div>
@@ -318,6 +323,34 @@ export default function Ecosystem() {
                   </motion.div>
                 );
               })}
+              {/* Drug Finder centered below */}
+              {(() => {
+                const drugIdx = ecosystemNodes.findIndex(n => n.label === "Drug Finder");
+                const node = ecosystemNodes[drugIdx];
+                const isSel = selectedIdx === drugIdx;
+                return (
+                  <motion.div key="drug-finder-mobile" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: 0.24 }} className="col-span-2 flex justify-center">
+                    <div className="w-1/2">
+                      <button onClick={() => setSelectedIdx(isSel ? null : drugIdx)} className={`w-full text-left flex items-center gap-2.5 px-3 py-2.5 rounded-xl border transition-all duration-150 ${isSel ? "bg-emerald-600 border-emerald-500 text-white" : "bg-white border-slate-100 shadow-sm hover:border-emerald-200"}`}>
+                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${isSel ? "bg-white/20" : "bg-emerald-50"}`}>
+                          <i className={`${node.icon} ${isSel ? "text-white" : "text-emerald-600"} text-xs`} />
+                        </div>
+                        <span className={`text-[11px] font-semibold ${isSel ? "text-white" : "text-slate-700"}`}>{node.label}</span>
+                      </button>
+                      <AnimatePresence>
+                        {isSel && (
+                          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.2 }} className="overflow-hidden">
+                            <div className="mt-2 p-3 rounded-xl bg-emerald-50 border border-emerald-100">
+                              <p className="text-[11px] text-slate-600 leading-relaxed">{node.description}</p>
+                              <button onClick={() => setSelectedIdx(null)} className="mt-1.5 text-[10px] text-emerald-600 font-semibold">Close</button>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </motion.div>
+                );
+              })()}
             </div>
           </motion.div>
         </Reveal>

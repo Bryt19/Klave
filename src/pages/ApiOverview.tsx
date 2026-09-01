@@ -72,13 +72,20 @@ export default function ApiOverview() {
               <p className="text-sm text-slate-600 mb-4">
                 The Klavora pharmacy API uses a cookie-based session model built on top of signed JSON Web Tokens (JWTs).
               </p>
-              <ul className="space-y-4 text-sm text-slate-600 list-none pl-0">
-                <li><strong>Token issuance:</strong> When a pharmacy owner or staff member logs in successfully, the backend signs a JWT containing the user's identifier, their pharmacy identifier, and their role. This token is set as an HttpOnly, Secure browser cookie.</li>
-                <li><strong>Token usage:</strong> On every subsequent request, the browser automatically sends the cookie. The backend validates the token's cryptographic signature and expiry before processing the request. No manual token handling is required on the client side.</li>
-                <li><strong>Role embedding:</strong> Every token carries the authenticated user's role. This means the backend can enforce role-based access control on every individual endpoint without making additional database queries for each request.</li>
-                <li><strong>Token lifecycle:</strong> Sessions have a configurable duration. If "Remember Me" is selected at login, the session duration is extended. Logout clears the cookie server-side. Tokens cannot be revoked mid-lifecycle (other than by clearing the cookie), which is why the inactivity auto-logout feature exists as a compensating control on pharmacy terminals.</li>
-                <li><strong>Admin authentication:</strong> The admin API uses a separate, stricter authentication flow that is completely isolated from the pharmacy user authentication path. Admin users cannot access pharmacy API routes, and pharmacy users cannot access admin API routes.</li>
-              </ul>
+              <div className="space-y-3 text-sm text-slate-600">
+                {[
+                  { name: "Token issuance", desc: "When a pharmacy owner or staff member logs in successfully, the backend signs a JWT containing the user's identifier, their pharmacy identifier, and their role. This token is set as an HttpOnly, Secure browser cookie." },
+                  { name: "Token usage", desc: "On every subsequent request, the browser automatically sends the cookie. The backend validates the token's cryptographic signature and expiry before processing the request. No manual token handling is required on the client side." },
+                  { name: "Role embedding", desc: "Every token carries the authenticated user's role. This means the backend can enforce role-based access control on every individual endpoint without making additional database queries for each request." },
+                  { name: "Token lifecycle", desc: "Sessions have a configurable duration. If \"Remember Me\" is selected at login, the session duration is extended. Logout clears the cookie server-side. Tokens cannot be revoked mid-lifecycle (other than by clearing the cookie), which is why the inactivity auto-logout feature exists as a compensating control on pharmacy terminals." },
+                  { name: "Admin authentication", desc: "The admin API uses a separate, stricter authentication flow that is completely isolated from the pharmacy user authentication path. Admin users cannot access pharmacy API routes, and pharmacy users cannot access admin API routes." },
+                ].map((item) => (
+                  <div key={item.name} className="flex items-start gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
+                    <span className="shrink-0 w-6 h-6 rounded-md bg-emerald-50 border border-emerald-200 flex items-center justify-center text-[10px] font-bold text-emerald-700">{item.name[0]}</span>
+                    <p><strong className="text-slate-900">{item.name}:</strong> {item.desc}</p>
+                  </div>
+                ))}
+              </div>
             </motion.section>
 
             {/* Multi-Tenancy */}
@@ -181,13 +188,14 @@ export default function ApiOverview() {
                 The Klavora pharmacy terminal maintains a local queue of operations performed while offline. When connectivity is restored, the frontend submits this queue to the sync endpoint as a single batch request.
               </p>
               <p className="text-sm text-slate-600 mb-2">The backend processes the batch as follows:</p>
-              <ol className="list-decimal pl-5 space-y-1 text-sm text-slate-600 mb-4">
-                <li>Operations are sorted chronologically by the timestamp they were performed on the device.</li>
-                <li>A single database transaction is opened.</li>
-                <li>Each operation is applied in sequence: sales deduct stock using FEFO logic, restocks add to batches, drug edits update records, and stock reconciliations adjust quantities and log the adjustment.</li>
-                <li>If any operation in the batch cannot be applied, the entire batch is rolled back and the error is returned to the client for manual resolution.</li>
-                <li>On success, the offline session (time offline, operations count) is logged to the server for audit visibility.</li>
-              </ol>
+              <div className="space-y-1.5 text-sm text-slate-600 mb-4">
+                {["Operations are sorted chronologically by the timestamp they were performed on the device.", "A single database transaction is opened.", "Each operation is applied in sequence: sales deduct stock using FEFO logic, restocks add to batches, drug edits update records, and stock reconciliations adjust quantities and log the adjustment.", "If any operation in the batch cannot be applied, the entire batch is rolled back and the error is returned to the client for manual resolution.", "On success, the offline session (time offline, operations count) is logged to the server for audit visibility."].map((step, i) => (
+                  <div key={step} className="flex items-center gap-3 p-2.5 rounded-lg bg-white border border-slate-100">
+                    <span className="shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-[10px] font-bold text-emerald-700">{i + 1}</span>
+                    <span className="text-sm text-slate-700">{step}</span>
+                  </div>
+                ))}
+              </div>
             </motion.section>
             
           </div>
