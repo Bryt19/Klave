@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 const DEMO_URL = "https://app.klavora.com/signup";
 
 const footerProduct = [
-  { label: "Features", href: "#features" },
+  { label: "Features", href: "/features" },
   { label: "Analytics", href: "#analytics" },
   { label: "Ecosystem", href: "#ecosystem" },
-  { label: "Security", href: "#security" },
+  { label: "Security", href: "/security" },
 ];
 const footerCompany = [
   { label: "About", href: "#about" },
@@ -14,13 +14,15 @@ const footerCompany = [
   { label: "FAQ", href: "#faq" },
 ];
 const footerResources = [
-  { label: "Documentation", href: "#" },
-  { label: "Help Center", href: "#" },
+  { label: "Documentation", href: "/docs" },
+  { label: "API Overview", href: "/api" },
+  { label: "Architecture", href: "/architecture" },
+  { label: "Changelog", href: "/changelog" },
+  { label: "Glossary", href: "/glossary" },
 ];
 const footerLegal = [
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
-  { label: "HIPAA", href: "/hipaa" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -152,7 +154,6 @@ export default function Footer() {
           <div className="flex items-center gap-5">
             <Link to="/privacy" className="hover:text-slate-400 transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-slate-400 transition-colors">Terms</Link>
-            <Link to="/hipaa" className="hover:text-slate-400 transition-colors">HIPAA</Link>
           </div>
         </div>
       </div>

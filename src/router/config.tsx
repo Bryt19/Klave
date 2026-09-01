@@ -9,6 +9,13 @@ const NotFound = lazy(() => import("../pages/NotFound"));
 const Privacy = lazy(() => import("../pages/Privacy"));
 const Terms = lazy(() => import("../pages/Terms"));
 const Hipaa = lazy(() => import("../pages/Hipaa"));
+const Changelog = lazy(() => import("../pages/Changelog"));
+const DocsIndex = lazy(() => import("../pages/DocsIndex"));
+const Architecture = lazy(() => import("../pages/Architecture"));
+const ApiOverview = lazy(() => import("../pages/ApiOverview"));
+const Glossary = lazy(() => import("../pages/Glossary"));
+const Security = lazy(() => import("../pages/Security"));
+const Features = lazy(() => import("../pages/Features"));
 
 function PageLoader() {
   return (
@@ -57,6 +64,34 @@ const routes: RouteObject[] = [
   {
     path: "/hipaa",
     element: withSuspense(Hipaa),
+  },
+  {
+    path: "/changelog",
+    element: withSuspense(Changelog),
+  },
+  {
+    path: "/docs",
+    element: withSuspense(DocsIndex),
+  },
+  {
+    path: "/architecture",
+    element: withSuspense(Architecture),
+  },
+  {
+    path: "/api",
+    element: withSuspense(ApiOverview),
+  },
+  {
+    path: "/glossary",
+    element: withSuspense(Glossary),
+  },
+  {
+    path: "/security",
+    element: withSuspense(Security),
+  },
+  {
+    path: "/features",
+    element: withSuspense(Features),
   },
   {
     path: "*",

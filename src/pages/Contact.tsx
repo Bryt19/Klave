@@ -159,7 +159,6 @@ export default function Contact() {
           <div className="flex items-center gap-4">
             <Link to="/privacy" className="hover:text-slate-600 transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-slate-600 transition-colors">Terms</Link>
-            <Link to="/hipaa" className="hover:text-slate-600 transition-colors">HIPAA</Link>
           </div>
         </div>
       </footer>
