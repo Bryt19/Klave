@@ -2,7 +2,7 @@ import Reveal from "./Reveal";
 
 export default function About() {
   return (
-    <section id="about" className="relative py-24 md:py-32 bg-white transition-colors duration-200">
+    <section id="about" className="relative py-24 md:py-32 bg-white dark:bg-slate-900 transition-colors duration-300">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-16 md:mb-20">
@@ -12,17 +12,17 @@ export default function About() {
               <div className="text-[11px] font-semibold uppercase tracking-wider text-emerald-600 mb-4">
                 Our Story
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.12] mb-4">
                 Built by engineers who <br />
                 watch pharmacies work.
               </h2>
-              <p className="text-sm text-slate-500 leading-relaxed max-w-xl mb-6">
+              <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-xl mb-6">
                 We started with a simple observation: pharmacy teams deserve better tools. Here’s how Klavora came to be.
               </p>
               
-              <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
+              <div className="space-y-4 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
                 <p>
-                  Klavora was engineered by <strong className="text-slate-900 font-semibold">EliTech CreaTives Limited</strong> out of direct observation of how modern dispensary counters struggle with slow paper logs, stock expiry blindspots, and disjointed systems.
+                  Klavora was engineered by <strong className="text-slate-900 dark:text-white font-semibold">EliTech CreaTives Limited</strong> out of direct observation of how modern dispensary counters struggle with slow paper logs, stock expiry blindspots, and disjointed systems.
                 </p>
                 <p>
                   We built Klavora from the ground up as a unified operations layer: combining intelligent OCR script intake, batch-level FEFO stock tracking, and instant clinical screening.
@@ -34,7 +34,7 @@ export default function About() {
           {/* Right Quote Card */}
           <div className="lg:col-span-6">
             <Reveal delay={0.1}>
-              <div className="subtle-card rounded-3xl p-8 border border-slate-200/90 shadow-sm bg-slate-50/50">
+              <div className="subtle-card rounded-3xl p-8 border border-slate-200 dark:border-slate-700/90 shadow-sm bg-slate-50/50 dark:bg-slate-800/50">
                 <div className="flex items-center gap-4 mb-6">
                   <span className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-emerald-500/40 shrink-0">
                     <img
@@ -48,10 +48,10 @@ export default function About() {
                     />
                   </span>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-bold text-slate-900">
+                    <p className="text-sm font-bold text-slate-900 dark:text-white">
                       Richard Elikem Amenorpe
                     </p>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
                       Founder &amp; CEO &middot; EliTech CreaTives Ltd
                     </p>
                   </div>
@@ -72,7 +72,7 @@ export default function About() {
                   &ldquo;A pharmacy shouldn&apos;t have to choose between keeping patients waiting and maintaining flawless batch accuracy. Klavora was built to make clinical precision instantaneous.&rdquo;
                 </blockquote>
 
-                <div className="pt-4 border-t border-slate-200/70 text-xs text-slate-400">
+                <div className="pt-4 border-t border-slate-200 dark:border-slate-700/70 text-xs text-slate-400">
                   Registered in Ghana &middot; Built in Accra &middot; Engineered for Global Health Systems
                 </div>
               </div>
@@ -83,7 +83,7 @@ export default function About() {
         {/* Team — Bright & Andy */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <Reveal delay={0.15}>
-            <div className="subtle-card rounded-2xl p-5 bg-white border border-slate-200/90">
+            <div className="subtle-card rounded-2xl p-5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/90">
               <div className="flex items-start gap-4">
                 <span className="w-14 h-14 rounded-full overflow-hidden ring-2 ring-emerald-500/20 shrink-0">
                   <img
@@ -98,7 +98,7 @@ export default function About() {
                 </span>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between mb-0.5">
-                    <h4 className="text-sm font-bold text-slate-900">
+                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">
                       Bright Akoto
                     </h4>
                     <a
@@ -116,7 +116,7 @@ export default function About() {
                   <p className="text-[11px] text-emerald-700 font-semibold mb-2">
                     Frontend &amp; Interface Engineering
                   </p>
-                  <p className="text-xs text-slate-500 leading-relaxed">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                     Architects the high-speed, sub-millisecond interaction design and search ergonomics that make dispensing and verification effortless.
                   </p>
                 </div>
@@ -125,7 +125,7 @@ export default function About() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="subtle-card rounded-2xl p-5 bg-white border border-slate-200/90">
+            <div className="subtle-card rounded-2xl p-5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/90">
               <div className="flex items-start gap-4">
                 <span className="w-14 h-14 rounded-full overflow-hidden ring-2 ring-emerald-500/20 shrink-0">
                   <img
@@ -140,7 +140,7 @@ export default function About() {
                 </span>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between mb-0.5">
-                    <h4 className="text-sm font-bold text-slate-900">
+                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">
                       Andy Nkrumah
                     </h4>
                     <a
@@ -158,7 +158,7 @@ export default function About() {
                   <p className="text-[11px] text-emerald-700 font-semibold mb-2">
                     Clinical Partnerships &amp; Relations
                   </p>
-                  <p className="text-xs text-slate-500 leading-relaxed">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                     Works directly with pharmacy owners and clinical leaders to turn real-world dispensary feedback into platform enhancements.
                   </p>
                 </div>

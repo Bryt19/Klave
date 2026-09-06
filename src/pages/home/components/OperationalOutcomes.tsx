@@ -8,13 +8,13 @@ export default function OperationalOutcomes() {
         {/* Section Header */}
         <div className="max-w-3xl mb-14 md:mb-16 text-left">
           <Reveal>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.12] mb-4">
               Operational outcomes from teams
               <br />
               currently using Klavora.
             </h2>
 
-            <p className="text-base text-slate-600 font-normal leading-relaxed max-w-xl">
+            <p className="text-base text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-xl">
               Real metrics reported by hospital pharmacies, independent retail chains, and high-throughput dispensary networks.
             </p>
           </Reveal>
@@ -26,7 +26,7 @@ export default function OperationalOutcomes() {
           {/* Left: Big Stat Transformation Card */}
           <div className="lg:col-span-6">
             <Reveal>
-              <div className="glass-panel-clean rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 h-full flex flex-col justify-between border border-slate-200/90 shadow-md bg-white">
+              <div className="glass-panel-clean rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 h-full flex flex-col justify-between border border-slate-200 dark:border-slate-700/90 shadow-md bg-white dark:bg-slate-800">
                 <div>
                   <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-blue-600 mb-5">
                     Dispense &amp; Verification Cycle
@@ -37,23 +37,23 @@ export default function OperationalOutcomes() {
                       3 min
                     </span>
                     <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-300">→</span>
-                    <span className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                       22 sec
                     </span>
                   </div>
 
-                  <p className="text-xs sm:text-sm lg:text-base text-slate-600 font-normal leading-relaxed mb-6 sm:mb-8">
+                  <p className="text-xs sm:text-sm lg:text-base text-slate-600 dark:text-slate-300 font-normal leading-relaxed mb-6 sm:mb-8">
                     Automated barcode cross-referencing and instant prescription parsing reduced average patient queue wait times by 88% across 40+ branch locations.
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-slate-100 flex items-center gap-3">
+                <div className="pt-6 border-t border-slate-100 dark:border-slate-700/50 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center">
                     KA
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-slate-900">Dr. Kofi Appiah, PharmD</div>
-                    <div className="text-[11px] text-slate-500">Chief Pharmacist · Apex Clinical Alliance</div>
+                    <div className="text-xs font-bold text-slate-900 dark:text-white">Dr. Kofi Appiah, PharmD</div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400">Chief Pharmacist · Apex Clinical Alliance</div>
                   </div>
                 </div>
               </div>
@@ -63,7 +63,7 @@ export default function OperationalOutcomes() {
           {/* Right: Verified Customer Testimonial Card */}
           <div className="lg:col-span-6">
             <Reveal delay={0.1}>
-              <div className="glass-panel-clean rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 h-full flex flex-col justify-between border border-slate-200/90 shadow-md bg-white">
+              <div className="glass-panel-clean rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 h-full flex flex-col justify-between border border-slate-200 dark:border-slate-700/90 shadow-md bg-white dark:bg-slate-800">
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-5">
                     <div className="flex text-amber-400 text-xs">
@@ -73,30 +73,30 @@ export default function OperationalOutcomes() {
                     </div>
                   </div>
 
-                  <blockquote className="text-sm sm:text-base lg:text-lg text-slate-800 font-medium leading-relaxed mb-5">
+                  <blockquote className="text-sm sm:text-base lg:text-lg text-slate-800 dark:text-slate-100 font-medium leading-relaxed mb-5">
                     &ldquo;Klavora gave us absolute clarity over our multi-branch inventory. The automated FEFO routing alone saved us over GH₵120,000 in expired drug write-offs in our first two quarters.&rdquo;
                   </blockquote>
 
-                  <div className="grid grid-cols-2 gap-3 mb-8 p-3 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
+                  <div className="grid grid-cols-2 gap-3 mb-8 p-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50 text-xs">
                     <div>
                       <div className="text-[10px] text-slate-400">Stock Waste Reduction</div>
-                      <div className="font-bold text-slate-900 text-sm mt-0.5">74% Less Loss</div>
+                      <div className="font-bold text-slate-900 dark:text-white text-sm mt-0.5">74% Less Loss</div>
                     </div>
                     <div>
                       <div className="text-[10px] text-slate-400">Daily Prescription Volume</div>
-                      <div className="font-bold text-slate-900 text-sm mt-0.5">14,200+ Rx / day</div>
+                      <div className="font-bold text-slate-900 dark:text-white text-sm mt-0.5">14,200+ Rx / day</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
+                <div className="pt-6 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-slate-900 text-white font-bold text-xs flex items-center justify-center">
                       SA
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-slate-900">Sarah Antwi</div>
-                      <div className="text-[11px] text-slate-500">Director of Operations · CityMed Pharmacy Group</div>
+                      <div className="text-xs font-bold text-slate-900 dark:text-white">Sarah Antwi</div>
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400">Director of Operations · CityMed Pharmacy Group</div>
                     </div>
                   </div>
 

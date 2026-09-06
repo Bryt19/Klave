@@ -24,8 +24,8 @@ function StatCounter({ value, suffix, label, change, delay }: {
   }, [spring, suffix]);
 
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }} className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.05]">
-      <div className="text-[9px] text-slate-500 uppercase tracking-wider mb-1">{label}</div>
+    <motion.div ref={ref} initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }} className="p-4 rounded-xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-sm">
+      <div className="text-[9px] text-slate-400 uppercase tracking-wider mb-1">{label}</div>
       <div className="text-xl sm:text-2xl font-bold text-white"><span ref={displayRef}>0{suffix}</span></div>
       <div className="text-[10px] font-medium text-emerald-400 mt-0.5">{change}</div>
     </motion.div>
@@ -54,7 +54,7 @@ function SalesChart({ data }: { data: typeof analyticsData.dailySales }) {
   const areaPath = `${linePath} L ${points[points.length - 1].x} ${padY + innerH} L ${points[0].x} ${padY + innerH} Z`;
 
   return (
-    <div ref={ref} className="h-full flex flex-col p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.05]">
+    <div ref={ref} className="h-full flex flex-col p-5 sm:p-6 rounded-2xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-sm">
       <div className="flex items-center justify-between mb-4">
         <div>
           <div className="text-xs font-bold text-white">Daily Sales</div>
@@ -67,7 +67,7 @@ function SalesChart({ data }: { data: typeof analyticsData.dailySales }) {
         <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} className="w-full h-full" onMouseLeave={() => setHoveredIdx(null)}>
           {/* Grid lines */}
           {[0, 0.25, 0.5, 0.75, 1].map((pct) => (
-            <line key={pct} x1={padX} y1={padY + innerH * (1 - pct)} x2={chartWidth - padX} y2={padY + innerH * (1 - pct)} stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
+            <line key={pct} x1={padX} y1={padY + innerH * (1 - pct)} x2={chartWidth - padX} y2={padY + innerH * (1 - pct)} stroke="currentColor" className="text-slate-200 dark:text-slate-700" strokeWidth="1" />
           ))}
 
           {/* Area fill */}
@@ -83,7 +83,6 @@ function SalesChart({ data }: { data: typeof analyticsData.dailySales }) {
           {/* Data points with glow on hover */}
           {points.map((p, i) => (
             <g key={`pt-${i}`} onMouseEnter={() => setHoveredIdx(i)} style={{ cursor: "pointer" }}>
-              {/* Glow halo — only visible when this point is hovered */}
               <motion.circle cx={p.x} cy={p.y} r={14}
                 fill="#10b981"
                 filter="url(#dotGlow)"
@@ -91,7 +90,6 @@ function SalesChart({ data }: { data: typeof analyticsData.dailySales }) {
                 animate={{ opacity: hoveredIdx === i ? 0.5 : 0 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
               />
-              {/* Outer ring */}
               <motion.circle cx={p.x} cy={p.y}
                 r={hoveredIdx === i ? 6 : 0}
                 fill="none"
@@ -101,10 +99,9 @@ function SalesChart({ data }: { data: typeof analyticsData.dailySales }) {
                 animate={{ opacity: hoveredIdx === i ? 0.3 : 0, scale: 1 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               />
-              {/* Dot */}
               <motion.circle cx={p.x} cy={p.y}
                 r={hoveredIdx === i ? 5 : 3}
-                fill={hoveredIdx === i ? "#10b981" : "#0f172a"}
+                fill={hoveredIdx === i ? "#10b981" : "#ffffff"}
                 stroke="#10b981"
                 strokeWidth={hoveredIdx === i ? 2 : 1.5}
                 initial={{ opacity: 0, scale: 0 }}
@@ -135,11 +132,11 @@ function SalesChart({ data }: { data: typeof analyticsData.dailySales }) {
 
           {/* X labels */}
           {data.map((d, i) => (
-            <text key={`lbl-${i}`} x={padX + (i / (data.length - 1)) * innerW} y={chartHeight - 2} textAnchor="middle" fill="#64748b" fontSize="10" fontFamily="Inter, sans-serif">{d.day}</text>
+            <text key={`lbl-${i}`} x={padX + (i / (data.length - 1)) * innerW} y={chartHeight - 2} textAnchor="middle" fill="currentColor" className="text-slate-500" fontSize="10" fontFamily="Inter, sans-serif">{d.day}</text>
           ))}
         </svg>
 
-        {/* Hover tooltip — positioned at the hovered dot */}
+        {/* Hover tooltip */}
         <AnimatePresence>
           {hoveredIdx !== null && (() => {
             const dot = points[hoveredIdx];
@@ -153,7 +150,7 @@ function SalesChart({ data }: { data: typeof analyticsData.dailySales }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 6 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="absolute px-3 py-1.5 rounded-lg bg-emerald-900/90 border border-emerald-700/50 text-[11px] text-white font-medium pointer-events-none z-10 whitespace-nowrap"
+                className="absolute px-3 py-1.5 rounded-lg bg-slate-800/90 border border-white/10 text-[11px] text-white font-medium pointer-events-none z-10 whitespace-nowrap backdrop-blur-sm"
                 style={{
                   left: `${leftPct}%`,
                   top: `${topPct}%`,
@@ -161,9 +158,8 @@ function SalesChart({ data }: { data: typeof analyticsData.dailySales }) {
                 }}
               >
                 {data[hoveredIdx].day}: GH&#x20B5;{data[hoveredIdx].value.toLocaleString()}
-                {/* Arrow pointing down to the dot */}
                 <div
-                  className="absolute left-1/2 -translate-x-1/2 w-0 h-0 border-l-[5px] border-r-[5px] border-t-[5px] border-l-transparent border-r-transparent border-t-emerald-700/50"
+                  className="absolute left-1/2 -translate-x-1/2 w-0 h-0 border-l-[5px] border-r-[5px] border-t-[5px] border-l-transparent border-r-transparent border-t-slate-800/90"
                   style={{ bottom: '-5px' }}
                 />
               </motion.div>
@@ -190,7 +186,7 @@ function BestSellingDrugs() {
   const maxUnits = Math.max(...drugs.map((d) => d.units));
 
   return (
-    <div ref={ref} className="p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.05]">
+    <div ref={ref} className="p-5 sm:p-6 rounded-2xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-sm">
       <div className="mb-4">
         <div className="text-xs font-bold text-white">Best Selling Drugs</div>
         <div className="text-[10px] text-slate-500">Units sold this month</div>
@@ -200,9 +196,9 @@ function BestSellingDrugs() {
           <div key={drug.name} className="group cursor-default" onMouseEnter={() => setHoveredIdx(i)} onMouseLeave={() => setHoveredIdx(null)}>
             <div className="flex items-center justify-between mb-1">
               <span className={`text-[11px] transition-colors ${hoveredIdx === i ? "text-white" : "text-slate-300"}`}>{drug.name}</span>
-              <span className={`text-[11px] font-semibold transition-colors ${hoveredIdx === i ? "text-emerald-400" : "text-slate-400"}`}>{drug.units.toLocaleString()}</span>
+              <span className={`text-[11px] font-semibold transition-colors ${hoveredIdx === i ? "text-emerald-400" : "text-slate-500"}`}>{drug.units.toLocaleString()}</span>
             </div>
-            <div className="h-2 rounded-full bg-white/[0.06] overflow-hidden">
+            <div className="h-2 rounded-full bg-white/[0.08] overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 animate={inView ? { width: `${(drug.units / maxUnits) * 100}%` } : {}}
@@ -221,12 +217,28 @@ function BestSellingDrugs() {
 /* ── Main ──────────────────────────────────────────────────── */
 export default function AnalyticsShowcase() {
   return (
-    <section id="analytics" className="relative py-14 sm:py-20 lg:py-28 section-dark overflow-hidden">
-      <div className="absolute inset-0 opacity-30 pointer-events-none" style={{
-        backgroundImage: "radial-gradient(circle at center, transparent 120px, rgba(16,185,129,0.04) 121px, transparent 122px), radial-gradient(circle at center, transparent 240px, rgba(16,185,129,0.03) 241px, transparent 242px), radial-gradient(circle at center, transparent 360px, rgba(16,185,129,0.02) 361px, transparent 362px)",
+    <section id="analytics" className="relative bg-slate-950 overflow-hidden">
+
+      {/* Top bleed — fades from the surrounding section bg into slate-950 */}
+      <div className="absolute top-0 left-0 right-0 h-28 pointer-events-none z-10"
+        style={{ background: "linear-gradient(to bottom, var(--section-adjacent-bg, white) 0%, transparent 100%)" }}
+      />
+      {/* Bottom bleed — fades back out */}
+      <div className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none z-10"
+        style={{ background: "linear-gradient(to top, var(--section-adjacent-bg, white) 0%, transparent 100%)" }}
+      />
+
+      {/* Emerald ambient glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-emerald-500/[0.07] blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-emerald-600/[0.05] blur-[100px] pointer-events-none" />
+
+      {/* Subtle grid */}
+      <div className="absolute inset-0 opacity-[0.15] pointer-events-none" style={{
+        backgroundImage: "linear-gradient(rgba(16,185,129,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.06) 1px, transparent 1px)",
+        backgroundSize: "48px 48px",
       }} />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-20 py-24 sm:py-32 lg:py-40 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-8 sm:mb-10 text-center mx-auto">
           <Reveal>
@@ -240,12 +252,12 @@ export default function AnalyticsShowcase() {
           </Reveal>
         </div>
 
-        {/* Row 1: Revenue + Chart + Transactions — all equal height */}
+        {/* Row 1 */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5">
           {/* Revenue */}
           <Reveal className="lg:col-span-4">
-            <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.05] h-full flex flex-col">
-              <div className="text-[10px] text-slate-500 font-medium uppercase tracking-wider mb-3">Monthly Revenue</div>
+            <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.06] border border-white/[0.12] h-full flex flex-col backdrop-blur-sm">
+              <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider mb-3">Monthly Revenue</div>
               <div className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-1">GH&#x20B5;{(analyticsData.revenue.current / 1000).toFixed(1)}k</div>
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-xs font-semibold text-emerald-400">+{Math.round(((analyticsData.revenue.current - analyticsData.revenue.previous) / analyticsData.revenue.previous) * 100)}%</span>
@@ -256,7 +268,7 @@ export default function AnalyticsShowcase() {
                   <div key={i} className="flex-1 flex items-end"><div className="w-full rounded-sm bg-emerald-500/25" style={{ height: `${h}%` }} /></div>
                 ))}
               </div>
-              <div className="mt-auto pt-4 border-t border-white/[0.05]">
+              <div className="mt-auto pt-4 border-t border-white/[0.06]">
                 <div className="grid grid-cols-2 gap-3 mb-3">
                   <div><div className="text-[10px] text-slate-500">Last Month</div><div className="text-sm font-bold text-slate-300">GH&#x20B5;{(analyticsData.revenue.previous / 1000).toFixed(1)}k</div></div>
                   <div><div className="text-[10px] text-slate-500">Growth</div><div className="text-sm font-bold text-emerald-400">+GH&#x20B5;{((analyticsData.revenue.current - analyticsData.revenue.previous) / 1000).toFixed(1)}k</div></div>
@@ -269,10 +281,10 @@ export default function AnalyticsShowcase() {
                   ].map((item) => (
                     <div key={item.label} className="flex items-center gap-2">
                       <span className="text-[9px] text-slate-500 w-16 shrink-0">{item.label}</span>
-                      <div className="flex-1 h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
-                        <div className={`${item.color}/40 h-full rounded-full`} style={{ width: `${item.pct}%` }} />
+                      <div className="flex-1 h-1.5 rounded-full bg-white/[0.08] overflow-hidden">
+                        <div className={`${item.color} h-full rounded-full`} style={{ width: `${item.pct}%` }} />
                       </div>
-                      <span className="text-[9px] text-slate-400 font-medium w-6 text-right">{item.pct}%</span>
+                      <span className="text-[9px] text-slate-500 font-medium w-6 text-right">{item.pct}%</span>
                     </div>
                   ))}
                 </div>
@@ -280,15 +292,15 @@ export default function AnalyticsShowcase() {
             </div>
           </Reveal>
 
-          {/* Chart — fills remaining height */}
+          {/* Chart */}
           <Reveal delay={0.1} className="lg:col-span-5">
             <SalesChart data={analyticsData.dailySales} />
           </Reveal>
 
           {/* Transactions + Top medicines */}
           <Reveal delay={0.2} className="lg:col-span-3 flex flex-col gap-4 sm:gap-5">
-            <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/[0.05]">
-              <div className="text-[10px] text-slate-500 font-medium uppercase tracking-wider mb-2">Today's Transactions</div>
+            <div className="p-5 rounded-2xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-sm">
+              <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider mb-2">Today's Transactions</div>
               <div className="text-2xl font-bold text-white">{analyticsData.transactions.today}</div>
               <div className="text-[11px] text-slate-500 mt-1">Avg: {analyticsData.transactions.average}/day</div>
               <div className="flex items-end gap-0.5 h-6 mt-3">
@@ -297,13 +309,13 @@ export default function AnalyticsShowcase() {
                 ))}
               </div>
             </div>
-            <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/[0.05] flex-1">
-              <div className="text-[10px] text-slate-500 font-medium uppercase tracking-wider mb-3">Top Medicines</div>
+            <div className="p-5 rounded-2xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-sm flex-1">
+              <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider mb-3">Top Medicines</div>
               <div className="space-y-2.5">
                 {analyticsData.topMedicines.map((med, i) => (
                   <div key={med.name} className="flex items-center justify-between">
                     <div className="flex items-center gap-2 min-w-0">
-                      <span className="text-[10px] text-slate-600 font-mono">{i + 1}</span>
+                      <span className="text-[10px] text-slate-400 font-mono">{i + 1}</span>
                       <span className="text-[11px] text-slate-300 truncate">{med.name}</span>
                     </div>
                     <span className="text-[10px] font-semibold text-slate-400 ml-2">{med.units} units</span>
@@ -320,7 +332,7 @@ export default function AnalyticsShowcase() {
             <BestSellingDrugs />
           </Reveal>
           <Reveal delay={0.4} className="lg:col-span-7">
-            <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.05] h-full">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-sm h-full">
               <div className="mb-5">
                 <div className="text-xs font-bold text-white">Performance Summary</div>
                 <div className="text-[10px] text-slate-500">Key operational metrics</div>
@@ -339,11 +351,11 @@ export default function AnalyticsShowcase() {
         <Reveal delay={0.5}>
           <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             {[
-              { icon: "ri-lightbulb-line", label: "Peak hours: 10am–2pm", color: "text-amber-400" },
-              { icon: "ri-shopping-bag-line", label: "Top seller: Paracetamol 500mg", color: "text-emerald-400" },
-              { icon: "ri-calendar-line", label: "Busiest day: Saturday", color: "text-blue-400" },
+              { icon: "ri-lightbulb-line", label: "Peak hours: 10am–2pm", color: "text-amber-500" },
+              { icon: "ri-shopping-bag-line", label: "Top seller: Paracetamol 500mg", color: "text-emerald-500" },
+              { icon: "ri-calendar-line", label: "Busiest day: Saturday", color: "text-blue-500" },
             ].map((item) => (
-              <div key={item.label} className="flex-1 flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.05]">
+              <div key={item.label} className="flex-1 flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-sm">
                 <i className={`${item.icon} ${item.color} text-xs`} />
                 <span className="text-[11px] text-slate-400 font-medium">{item.label}</span>
               </div>

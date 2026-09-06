@@ -30,7 +30,7 @@ export default function Footer() {
   return (
     <footer className="relative bg-slate-950 text-white overflow-hidden">
       {/* Subtle top glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-emerald-500/[0.04] blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-emerald-50 dark:bg-emerald-900/300/[0.04] blur-[100px] pointer-events-none" />
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -43,7 +43,7 @@ export default function Footer() {
               backgroundImage: "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
               backgroundSize: "32px 32px",
             }} />
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/[0.06] blur-[80px] rounded-full pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-50 dark:bg-emerald-900/300/[0.06] blur-[80px] rounded-full pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-400/[0.04] blur-[60px] rounded-full pointer-events-none" />
 
             <div className="relative px-6 sm:px-10 py-8 sm:py-10">
@@ -62,16 +62,16 @@ export default function Footer() {
                 <div className="lg:col-span-7">
                   <div className="flex flex-col sm:flex-row gap-3">
                     <div className="relative flex-1">
-                      <i className="ri-mail-line absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm" />
+                      <i className="ri-mail-line absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 text-sm" />
                       <input type="email" placeholder="Enter your email"
                         className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.06] border border-white/[0.08] text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500/40 focus:ring-1 focus:ring-emerald-500/20 transition-all" />
                     </div>
-                    <a href={DEMO_URL} className="shrink-0 px-7 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-bold transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 flex items-center justify-center gap-2">
+                    <a href={DEMO_URL} className="shrink-0 px-7 py-3 rounded-xl bg-emerald-50 dark:bg-emerald-900/300 hover:bg-emerald-400 text-white text-sm font-bold transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 flex items-center justify-center gap-2">
                       Subscribe
                       <i className="ri-arrow-right-line text-xs" />
                     </a>
                   </div>
-                  <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-3 text-[10px] text-slate-500">
+                  <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-3 text-[10px] text-slate-500 dark:text-slate-400">
                     <span className="flex items-center gap-1.5"><i className="ri-shield-check-line text-emerald-400/60" /> No spam, ever</span>
                     <span className="flex items-center gap-1.5"><i className="ri-time-line text-emerald-400/60" /> Delivered monthly</span>
                     <span className="flex items-center gap-1.5"><i className="ri-close-circle-line text-emerald-400/60" /> One-click unsubscribe</span>
@@ -96,14 +96,14 @@ export default function Footer() {
                 </svg>
                 <span className="text-lg font-bold tracking-tight text-white">Klavora</span>
               </Link>
-              <p className="text-sm text-slate-500 leading-relaxed max-w-xs mb-6">
+              <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-xs mb-6">
                 Unified pharmacy management for modern health systems. Inventory, dispensing, sales, and analytics, all in one platform.
               </p>
 
               <div className="flex items-center gap-3">
                 {[ { icon: "ri-twitter-x-line", label: "Twitter" }, { icon: "ri-linkedin-fill", label: "LinkedIn" }, { icon: "ri-github-fill", label: "GitHub" } ].map((s) => (
                   <a key={s.label} href="#" aria-label={s.label}
-                    className="w-9 h-9 rounded-full bg-white/[0.05] border border-white/[0.06] flex items-center justify-center text-slate-500 hover:text-white hover:bg-white/[0.1] hover:border-white/[0.12] transition-all duration-200">
+                    className="w-9 h-9 rounded-full bg-white/[0.05] border border-white/[0.06] flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-white hover:bg-white/[0.1] hover:border-white/[0.12] transition-all duration-200">
                     <i className={`${s.icon} text-sm`} />
                   </a>
                 ))}
@@ -112,22 +112,22 @@ export default function Footer() {
 
             {/* Link columns */}
             <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
-              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 mb-5">Product</h4>
+              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400 mb-5">Product</h4>
                 <ul className="space-y-3">
                   {footerProduct.map((l) => (<li key={l.label}><a href={l.href} className="text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-150">{l.label}</a></li>))}
                 </ul>
               </div>
-              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 mb-5">Company</h4>
+              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400 mb-5">Company</h4>
                 <ul className="space-y-3">
                   {footerCompany.map((l) => (<li key={l.label}><a href={l.href} className="text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-150">{l.label}</a></li>))}
                 </ul>
               </div>
-              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 mb-5">Resources</h4>
+              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400 mb-5">Resources</h4>
                 <ul className="space-y-3">
                   {footerResources.map((l) => (<li key={l.label}><a href={l.href} className="text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-150">{l.label}</a></li>))}
                 </ul>
               </div>
-              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 mb-5">Legal</h4>
+              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400 mb-5">Legal</h4>
                 <ul className="space-y-3">
                   {footerLegal.map((l) => (<li key={l.label}><a href={l.href} className="text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-150">{l.label}</a></li>))}
                 </ul>
@@ -146,7 +146,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="py-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-600">
+        <div className="py-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-600 dark:text-slate-300">
           <div>&copy; {new Date().getFullYear()} Klavora (EliTech CreaTives Limited). All rights reserved.</div>
           <div className="flex items-center gap-5">
             <Link to="/privacy" className="hover:text-slate-400 transition-colors">Privacy</Link>

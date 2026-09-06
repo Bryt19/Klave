@@ -24,33 +24,32 @@ const SectionSpinner = () => (
   </div>
 );
 
-/* Professional section divider */
-function SectionDivider({ variant = "light" }: { variant?: "light" | "dark" | "dark-to-light" | "light-to-dark" }) {
-  const styles: Record<string, { line: string; bg: string }> = {
-    light: {
-      line: "linear-gradient(90deg, transparent 0%, rgba(226,232,240,0.6) 15%, rgba(16,185,129,0.08) 50%, rgba(226,232,240,0.6) 85%, transparent 100%)",
-      bg: "bg-white",
-    },
-    dark: {
-      line: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 15%, rgba(16,185,129,0.15) 50%, rgba(255,255,255,0.06) 85%, transparent 100%)",
-      bg: "bg-slate-950",
-    },
-    "dark-to-light": {
-      line: "linear-gradient(90deg, transparent 0%, rgba(226,232,240,0.3) 15%, rgba(16,185,129,0.1) 50%, rgba(226,232,240,0.3) 85%, transparent 100%)",
-      bg: "bg-gradient-to-b from-slate-950 to-white",
-    },
-    "light-to-dark": {
-      line: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 15%, rgba(16,185,129,0.12) 50%, rgba(255,255,255,0.15) 85%, transparent 100%)",
-      bg: "bg-gradient-to-b from-white to-slate-950",
-    },
-  };
-  const s = styles[variant] || styles.light;
+/* ── Adaptive section divider — respects light/dark mode ── */
+function SectionDivider({ variant = "light" }: { variant?: "light" | "analytics-enter" | "analytics-exit" }) {
+  if (variant === "analytics-enter") {
+    // Transition from light-section bg into the dark analytics panel
+    return (
+      <div className="h-20 bg-gradient-to-b from-white dark:from-slate-900 to-slate-950 dark:to-slate-950 pointer-events-none" />
+    );
+  }
+  if (variant === "analytics-exit") {
+    // Transition from dark analytics panel back to light sections
+    return (
+      <div className="h-20 bg-gradient-to-b from-slate-950 dark:from-slate-950 to-white dark:to-slate-900 pointer-events-none" />
+    );
+  }
 
+  // Generic thin divider line — background matches surrounding sections
   return (
-    <div className={`relative ${s.bg}`}>
+    <div className="relative bg-white dark:bg-slate-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative py-4">
-          <div className="h-px w-full" style={{ background: s.line }} />
+        <div className="relative py-3">
+          <div
+            className="h-px w-full"
+            style={{
+              background: "linear-gradient(90deg, transparent 0%, rgba(226,232,240,0.6) 15%, rgba(16,185,129,0.08) 50%, rgba(226,232,240,0.6) 85%, transparent 100%)",
+            }}
+          />
         </div>
       </div>
     </div>
@@ -59,7 +58,7 @@ function SectionDivider({ variant = "light" }: { variant?: "light" | "dark" | "d
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white selection:bg-emerald-100 selection:text-emerald-900">
+    <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300 selection:bg-emerald-100 selection:text-emerald-900 dark:selection:bg-emerald-900/40 dark:selection:text-emerald-200">
       <Navbar />
       <main>
         <Hero />
@@ -77,11 +76,9 @@ export default function Home() {
           <ExpiryTimeline />
         </Suspense>
         <Suspense fallback={<SectionSpinner />}>
-          <SectionDivider variant="light-to-dark" />
           <AnalyticsShowcase />
         </Suspense>
         <Suspense fallback={<SectionSpinner />}>
-          <SectionDivider variant="dark-to-light" />
           <RoleSwitcher />
         </Suspense>
         <Suspense fallback={<SectionSpinner />}>

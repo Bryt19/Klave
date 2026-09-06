@@ -27,7 +27,7 @@ export default function StickyCtaBar() {
           <div className="mx-auto max-w-3xl pointer-events-auto">
             <div className="flex items-center justify-between gap-4 px-5 py-3 rounded-2xl bg-slate-900/95 backdrop-blur-xl border border-white/[0.08] shadow-[0_8px_40px_rgba(0,0,0,0.35)]">
               <div className="flex items-center gap-3 min-w-0">
-                <div className="w-8 h-8 rounded-lg bg-emerald-500/15 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-900/300/15 flex items-center justify-center shrink-0">
                   <i className="ri-capsule-line text-emerald-400 text-sm" />
                 </div>
                 <div className="min-w-0">
@@ -43,7 +43,7 @@ export default function StickyCtaBar() {
                 <a href="#pricing" className="px-4 py-2 text-[11px] font-semibold text-slate-300 hover:text-white rounded-full border border-white/[0.1] hover:border-white/[0.2] transition-colors">
                   View Pricing
                 </a>
-                <a href={DEMO_URL} className="px-5 py-2 text-[11px] font-bold bg-emerald-500 hover:bg-emerald-400 text-white rounded-full transition-colors shadow-lg shadow-emerald-500/25">
+                <a href={DEMO_URL} className="px-5 py-2 text-[11px] font-bold bg-emerald-50 dark:bg-emerald-900/300 hover:bg-emerald-400 text-white rounded-full transition-colors shadow-lg shadow-emerald-500/25">
                   Get Started Free
                 </a>
               </div>

@@ -8,7 +8,7 @@ export default function ClinicalWorkflows() {
       <div className="absolute inset-0 radar-rings radar-animate opacity-75 pointer-events-none" />
 
       {/* Central Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-50 dark:bg-emerald-900/300/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Klavora Logo Watermark */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none">
@@ -46,13 +46,13 @@ export default function ClinicalWorkflows() {
               {/* Top Warning Banner */}
               <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-red-950/60 border border-red-500/30 text-red-200 mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center shrink-0">
+                  <div className="w-7 h-7 rounded-lg bg-red-50 dark:bg-red-900/300/20 text-red-400 flex items-center justify-center shrink-0">
                     <i className="ri-error-warning-fill text-sm" />
                   </div>
                   <div>
                     <div className="text-xs font-bold text-red-100 flex items-center gap-2">
                       <span>Severe Drug-Drug Interaction Detected</span>
-                      <span className="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.2 rounded-full bg-red-500/20 text-red-300 border border-red-500/30">
+                      <span className="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.2 rounded-full bg-red-50 dark:bg-red-900/300/20 text-red-300 border border-red-500/30">
                         High Risk
                       </span>
                     </div>
@@ -118,7 +118,7 @@ export default function ClinicalWorkflows() {
                 </div>
 
                 <div className="flex items-center gap-2 w-full sm:w-auto">
-                  <button className="w-full sm:w-auto px-4 py-2 text-xs font-semibold rounded-full bg-emerald-500 hover:bg-emerald-400 text-emerald-950 transition-colors">
+                  <button className="w-full sm:w-auto px-4 py-2 text-xs font-semibold rounded-full bg-emerald-50 dark:bg-emerald-900/300 hover:bg-emerald-400 text-emerald-950 transition-colors">
                     Approve with Alternative
                   </button>
                 </div>

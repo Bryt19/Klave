@@ -4,18 +4,18 @@ import Reveal from "./Reveal";
 
 export default function BuiltForTeams() {
   return (
-    <section className="relative py-16 sm:py-24 md:py-32 bg-white transition-colors duration-200">
+    <section className="relative py-16 sm:py-24 md:py-32 bg-white dark:bg-slate-900 transition-colors duration-300">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-16 md:mb-24 text-left">
           <Reveal>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.12] mb-4">
               Built for the way pharmacy <br />
               teams actually work.
             </h2>
 
-            <p className="text-base text-slate-600 font-normal leading-relaxed max-w-xl">
+            <p className="text-base text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-xl">
               Eliminate cognitive friction across dispensing, inventory reconciliation, and prescriber communication with dedicated surfaces.
             </p>
           </Reveal>
@@ -27,13 +27,13 @@ export default function BuiltForTeams() {
           {/* Mockup Left */}
           <div className="lg:col-span-7">
             <Reveal>
-              <div className="glass-panel-clean rounded-3xl p-5 sm:p-6 shadow-xl border border-slate-200/80 bg-slate-50/50">
-                <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200/80">
-                  <div className="flex items-center gap-2 text-xs font-bold text-slate-800">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+              <div className="glass-panel-clean rounded-3xl p-5 sm:p-6 shadow-xl border border-slate-200 dark:border-slate-700/80 bg-slate-50/50">
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200 dark:border-slate-700/80">
+                  <div className="flex items-center gap-2 text-xs font-bold text-slate-800 dark:text-slate-100">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-50 dark:bg-emerald-900/300" />
                     <span>Multi-Station Dispensary Kanban</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[11px] text-slate-500">
+                  <div className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400">
                     <i className="ri-wifi-line text-emerald-600" />
                     <span>Live 4 Workstations Connected</span>
                   </div>
@@ -45,12 +45,12 @@ export default function BuiltForTeams() {
                     { column: "Verification (2)", items: ["RX-9482 · Lisinopril 20mg", "RX-9485 · Losartan"] },
                     { column: "Ready / Bagged (7)", items: ["RX-9479 · Omeprazole", "RX-9480 · Atorvastatin"] },
                   ].map((col, idx) => (
-                    <div key={idx} className="p-3 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2">
-                      <div className="text-[11px] font-bold text-slate-600 pb-1.5 border-b border-slate-100">
+                    <div key={idx} className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 shadow-2xs space-y-2">
+                      <div className="text-[11px] font-bold text-slate-600 dark:text-slate-300 pb-1.5 border-b border-slate-100 dark:border-slate-700/50">
                         {col.column}
                       </div>
                       {col.items.map((item, i) => (
-                        <div key={i} className="p-2 rounded-lg bg-slate-50 border border-slate-100 text-[11px] font-medium text-slate-800">
+                        <div key={i} className="p-2 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50 text-[11px] font-medium text-slate-800 dark:text-slate-100">
                           {item}
                         </div>
                       ))}
@@ -67,10 +67,10 @@ export default function BuiltForTeams() {
               <div className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2">
                 Operational Velocity
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 leading-tight mb-4">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white leading-tight mb-4">
                 A unified workflow for the entire dispensary team.
               </h3>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6">
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
                 Connect cashiers, dispensing technicians, and supervising pharmacists in real time. Eliminate handwritten slips and shouted queue numbers.
               </p>
 
@@ -102,10 +102,10 @@ export default function BuiltForTeams() {
               <div className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2">
                 Interoperability &amp; Sync
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 leading-tight mb-4">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white leading-tight mb-4">
                 Direct health system data at instant speed.
               </h3>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6">
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
                 Ingest e-prescriptions directly from EHR networks and hospital management systems via modern FHIR / HL7 REST APIs with sub-20ms roundtrip latency.
               </p>
 
@@ -129,13 +129,13 @@ export default function BuiltForTeams() {
           {/* Mockup Right */}
           <div className="lg:col-span-7 order-1 lg:order-2">
             <Reveal delay={0.1}>
-              <div className="glass-panel-clean rounded-3xl p-5 sm:p-6 shadow-xl border border-slate-200/80 bg-white">
-                <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
-                  <div className="flex items-center gap-2 text-xs font-bold text-slate-800">
+              <div className="glass-panel-clean rounded-3xl p-5 sm:p-6 shadow-xl border border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-800">
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100 dark:border-slate-700/50">
+                  <div className="flex items-center gap-2 text-xs font-bold text-slate-800 dark:text-slate-100">
                     <i className="ri-exchange-line text-emerald-600 text-base" />
                     <span>EHR Data Pipeline &amp; Integration Hub</span>
                   </div>
-                  <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                  <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 dark:bg-emerald-900/30 px-2 py-0.5 rounded-full border border-emerald-200">
                     Connected (18ms)
                   </span>
                 </div>
@@ -146,16 +146,16 @@ export default function BuiltForTeams() {
                     { source: "Cerner Millennium", event: "Patient Demographics Synced", status: "Verified", time: "24ms" },
                     { source: "National Insurance Gateway", event: "Prior Auth Approved (Claim #PA-902)", status: "Completed", time: "42ms" },
                   ].map((stream, idx) => (
-                    <div key={idx} className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs">
+                    <div key={idx} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50 flex items-center justify-between text-xs">
                       <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                        <div className="w-2 h-2 rounded-full bg-emerald-50 dark:bg-emerald-900/300" />
                         <div>
-                          <div className="font-semibold text-slate-800">{stream.source}</div>
-                          <div className="text-[11px] text-slate-500">{stream.event}</div>
+                          <div className="font-semibold text-slate-800 dark:text-slate-100">{stream.source}</div>
+                          <div className="text-[11px] text-slate-500 dark:text-slate-400">{stream.event}</div>
                         </div>
                       </div>
                       <div className="text-right">
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-white border border-slate-200 text-slate-700">
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700">
                           {stream.status}
                         </span>
                         <div className="text-[10px] text-slate-400 mt-0.5 font-mono">{stream.time}</div>
@@ -175,22 +175,22 @@ export default function BuiltForTeams() {
           {/* Mockup Left */}
           <div className="lg:col-span-7">
             <Reveal>
-              <div className="glass-panel-clean rounded-3xl p-5 sm:p-6 shadow-xl border border-slate-200/80 bg-slate-50/50">
-                <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200/80">
-                  <div className="flex items-center gap-2 text-xs font-bold text-slate-800">
+              <div className="glass-panel-clean rounded-3xl p-5 sm:p-6 shadow-xl border border-slate-200 dark:border-slate-700/80 bg-slate-50/50">
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200 dark:border-slate-700/80">
+                  <div className="flex items-center gap-2 text-xs font-bold text-slate-800 dark:text-slate-100">
                     <i className="ri-stethoscope-line text-emerald-600 text-base" />
                     <span>Clinical Profile &amp; Prescription History</span>
                   </div>
-                  <span className="text-[11px] text-slate-500 font-medium">Auto-Flag Active</span>
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Auto-Flag Active</span>
                 </div>
 
-                <div className="bg-white p-4 rounded-2xl border border-slate-200/80 space-y-3 text-xs">
+                <div className="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700/80 space-y-3 text-xs">
                   <div className="flex items-center justify-between">
-                    <span className="font-bold text-slate-900">Patient: Eleanor Vance (PT-9482)</span>
+                    <span className="font-bold text-slate-900 dark:text-white">Patient: Eleanor Vance (PT-9482)</span>
                     <span className="text-slate-400 text-[11px]">Primary Prescriber: Dr. K. Appiah</span>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-950 flex items-start gap-2.5">
+                  <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 text-emerald-950 flex items-start gap-2.5">
                     <i className="ri-shield-star-line text-emerald-700 text-base shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold text-xs text-emerald-900">Adherence Score: 98% (High Adherence)</div>
@@ -199,13 +199,13 @@ export default function BuiltForTeams() {
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 text-[11px]">
-                    <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-100">
+                    <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50">
                       <span className="text-slate-400">Documented Allergies:</span>
-                      <p className="font-semibold text-slate-800 mt-0.5">Penicillin G, Sulfa (Mild)</p>
+                      <p className="font-semibold text-slate-800 dark:text-slate-100 mt-0.5">Penicillin G, Sulfa (Mild)</p>
                     </div>
-                    <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-100">
+                    <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50">
                       <span className="text-slate-400">Renal Function (eGFR):</span>
-                      <p className="font-semibold text-slate-800 mt-0.5">92 mL/min (Normal Range)</p>
+                      <p className="font-semibold text-slate-800 dark:text-slate-100 mt-0.5">92 mL/min (Normal Range)</p>
                     </div>
                   </div>
                 </div>
@@ -219,10 +219,10 @@ export default function BuiltForTeams() {
               <div className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2">
                 Clinical Intelligence
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 leading-tight mb-4">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white leading-tight mb-4">
                 Decision support without the cognitive overload.
               </h3>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6">
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
                 Replace alert fatigue with contextual, prioritized recommendations that surface only when clinical thresholds require intervention.
               </p>
 
@@ -246,12 +246,12 @@ export default function BuiltForTeams() {
         </div>
 
         {/* ── Section 5: Persona Cards (Built for modern healthcare teams) ── */}
-        <div className="pt-16 border-t border-slate-200/80">
+        <div className="pt-16 border-t border-slate-200 dark:border-slate-700/80">
           <div className="max-w-2xl mb-12 text-left">
             <div className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2">
               Tailored Experiences
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
               Built for modern healthcare teams.
             </h3>
           </div>
@@ -261,25 +261,25 @@ export default function BuiltForTeams() {
               <Reveal key={role.title} delay={idx * 0.08}>
                 <motion.div
                   whileHover={{ y: -4 }}
-                  className="subtle-card p-6 rounded-2xl h-full flex flex-col justify-between bg-white border border-slate-200/90"
+                  className="subtle-card p-6 rounded-2xl h-full flex flex-col justify-between bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/90"
                 >
                   <div>
-                    <div className="w-10 h-10 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center text-lg mb-5">
+                    <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800/50 text-slate-800 dark:text-slate-100 flex items-center justify-center text-lg mb-5">
                       <i className={role.icon} />
                     </div>
 
-                    <h4 className="text-base font-bold text-slate-900 mb-2">
+                    <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
                       {role.title}
                     </h4>
 
-                    <p className="text-xs text-slate-500 leading-relaxed mb-6">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
                       {role.description}
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                  <div className="pt-3 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-between">
                     <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Impact</span>
-                    <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200/80">
+                    <span className="text-xs font-bold text-blue-600 bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded-full border border-blue-200/80">
                       {role.kpi}
                     </span>
                   </div>

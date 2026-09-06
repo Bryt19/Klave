@@ -34,7 +34,7 @@ export default function CtaSection() {
       />
 
       {/* Ambient floating glow orbs */}
-      <div className="absolute top-1/4 left-[15%] w-[350px] h-[250px] rounded-full bg-teal-500/[0.04] blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-[15%] w-[350px] h-[250px] rounded-full bg-teal-50 dark:bg-teal-900/300/[0.04] blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-[10%] w-[280px] h-[200px] rounded-full bg-cyan-400/[0.03] blur-[100px] pointer-events-none" />
       {/* Top edge glow */}
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
@@ -59,7 +59,7 @@ export default function CtaSection() {
                 boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
               }}
               whileTap={{ scale: 0.97 }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold bg-white text-teal-800 rounded-full hover:bg-teal-50 transition-colors duration-200 shadow-xl shadow-black/10 cta-ripple"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold bg-white dark:bg-slate-800 text-teal-800 rounded-full hover:bg-teal-50 dark:bg-teal-900/30 transition-colors duration-200 shadow-xl shadow-black/10 cta-ripple"
             >
               Get Started Free
               <i className="ri-arrow-right-line text-teal-600" />

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
-import { motion, useMotionValue, useSpring, useInView } from "framer-motion";
-import { heroStats, floatingMetrics } from "@/mocks/homeContent";
+import { motion, useMotionValue, useSpring, useInView, useTransform } from "framer-motion";
+import { heroStats } from "@/mocks/homeContent";
+import React from "react";
 
 /* ── Animated number counter ───────────────────────────────── */
 function AnimatedStat({ value, label, delay }: { value: string; label: string; delay: number }) {
@@ -35,109 +36,60 @@ function AnimatedStat({ value, label, delay }: { value: string; label: string; d
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div              className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold tracking-tight text-slate-900 leading-none">
+        <div className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold tracking-tight text-slate-900 dark:text-white leading-none">
           <span ref={displayRef}>0{suffix}</span>
         </div>
-        <div className="text-[11px] sm:text-xs text-slate-500 font-medium mt-1.5">{label}</div>
+        <div className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium mt-1.5">{label}</div>
       </motion.div>
     </div>
   );
 }
 
-/* ── Floating metric card ──────────────────────────────────── */
-function FloatingMetric({
-  metric,
-  index,
-  mouseX,
-  mouseY,
-}: {
-  metric: typeof floatingMetrics[0];
-  index: number;
-  mouseX: any;
-  mouseY: any;
-}) {
-  const colorMap: Record<string, { bg: string; text: string; icon: string; border: string }> = {
-    amber: { bg: "bg-amber-50", text: "text-amber-700", icon: "text-amber-500", border: "border-amber-100" },
-    red: { bg: "bg-red-50", text: "text-red-700", icon: "text-red-500", border: "border-red-100" },
-    emerald: { bg: "bg-emerald-50", text: "text-emerald-700", icon: "text-emerald-500", border: "border-emerald-100" },
-    blue: { bg: "bg-blue-50", text: "text-blue-700", icon: "text-blue-500", border: "border-blue-100" },
-  };
-  const c = colorMap[metric.color] || colorMap.emerald;
-
-  const positions = [
-    { top: "8%", left: "-6%" },
-    { top: "4%", right: "-4%" },
-    { bottom: "30%", left: "-8%" },
-    { bottom: "8%", right: "-5%" },
-  ];
-  const pos = positions[index % positions.length];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9, y: 20 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{
-        duration: 0.6,
-        delay: 0.8 + index * 0.12,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      style={{
-        ...pos,
-        x: mouseX,
-        y: mouseY,
-      }}
-      className={`absolute z-20 hidden lg:flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/90 backdrop-blur-md border ${c.border} float-shadow`}
-    >
-      <div className={`w-8 h-8 rounded-lg ${c.bg} flex items-center justify-center`}>
-        <i className={`${metric.icon} ${c.icon} text-sm`} />
-      </div>
-      <div>
-        <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">{metric.label}</div>
-        <div className="text-sm font-bold text-slate-800 leading-tight">{metric.medicine}</div>
-        <div className="text-[10px] text-slate-500">{metric.detail}</div>
-      </div>
-    </motion.div>
-  );
-}
-
 /* ── Main Hero ─────────────────────────────────────────────── */
 export default function Hero() {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
+  const x = useMotionValue(0.5);
+  const y = useMotionValue(0.5);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { innerWidth, innerHeight } = window;
-      const x = (e.clientX / innerWidth - 0.5) * 12;
-      const y = (e.clientY / innerHeight - 0.5) * 8;
-      mouseX.set(x);
-      mouseY.set(y);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
+  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
+  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
+
+  const rotateX = useTransform(mouseYSpring, [0, 1], ["4deg", "-4deg"]);
+  const rotateY = useTransform(mouseXSpring, [0, 1], ["-4deg", "4deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    x.set(mouseX / width);
+    y.set(mouseY / height);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0.5);
+    y.set(0.5);
+  };
 
   return (
-    <section className="relative min-h-[80vh] sm:min-h-[90vh] flex flex-col justify-center overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-16 hero-bg noise-overlay">
+    <section id="home" className="relative min-h-[80vh] sm:min-h-[90vh] flex flex-col justify-center overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-16 hero-bg dark:bg-slate-900 transition-colors duration-300">
       {/* Subtle grid texture */}
-      <div className="absolute inset-0 grid-texture opacity-30 pointer-events-none" />
+      <div className="absolute inset-0 grid-texture opacity-30 dark:opacity-10 pointer-events-none" />
 
       {/* Ambient emerald glow — top right, wide wash */}
-      <div className="absolute -top-32 -right-24 w-[600px] h-[500px] rounded-full bg-emerald-300/[0.07] blur-[140px] pointer-events-none" />
+      <div className="absolute -top-32 -right-24 w-[600px] h-[500px] rounded-full bg-emerald-300/[0.07] dark:bg-emerald-500/[0.1] blur-[140px] pointer-events-none" />
 
       {/* Secondary emerald glow — center-right, focused */}
-      <div className="absolute top-1/3 right-0 w-[350px] h-[350px] rounded-full bg-emerald-400/[0.04] blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-[350px] h-[350px] rounded-full bg-emerald-400/[0.04] dark:bg-emerald-500/[0.08] blur-[100px] pointer-events-none" />
 
       {/* Teal accent — bottom left, soft depth */}
-      <div className="absolute -bottom-24 -left-16 w-[450px] h-[380px] rounded-full bg-teal-300/[0.04] blur-[110px] pointer-events-none" />
+      <div className="absolute -bottom-24 -left-16 w-[450px] h-[380px] rounded-full bg-teal-300/[0.04] dark:bg-teal-500/[0.08] blur-[110px] pointer-events-none" />
 
       {/* Very subtle warm mint — center, barely visible */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[200px] rounded-full bg-emerald-200/[0.025] blur-[80px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[200px] rounded-full bg-emerald-200/[0.025] dark:bg-emerald-400/[0.05] blur-[80px] pointer-events-none" />
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-emerald-50/40 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-emerald-50/40 dark:from-slate-900 to-transparent pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -150,7 +102,7 @@ export default function Hero() {
             className="lg:col-span-4 text-left"
           >
             {/* Headline */}
-            <h1 className="text-[2.25rem] sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-5">
+            <h1 className="text-[2.25rem] sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.08] mb-5">
               <motion.span
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -162,7 +114,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="gradient-text-emerald whitespace-nowrap"
+                className="gradient-text-emerald dark:text-emerald-400 whitespace-nowrap"
               >
                 finally in sync.
               </motion.span>
@@ -173,7 +125,7 @@ export default function Hero() {
               initial={{ width: 0 }}
               animate={{ width: 48 }}
               transition={{ duration: 0.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="h-0.5 bg-emerald-300/50 rounded-full mb-5"
+              className="h-0.5 bg-emerald-300/50 dark:bg-emerald-500/50 rounded-full mb-5"
             />
 
             {/* Subheadline */}
@@ -181,7 +133,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-              className="text-sm sm:text-base lg:text-lg text-slate-600 font-normal leading-relaxed max-w-md mb-7"
+              className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-md mb-7"
             >
               Inventory intelligence, prescription verification, and real-time dispensing, all unified in one platform built for modern pharmacies.
             </motion.p>
@@ -202,10 +154,10 @@ export default function Hero() {
               </a>
               <a
                 href="#features"
-                className="inline-flex items-center justify-center gap-1.5 px-5 py-3 text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 rounded-full transition-all duration-200"
+                className="inline-flex items-center justify-center gap-1.5 px-5 py-3 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800 rounded-full transition-all duration-200"
               >
                 Explore platform
-                <i className="ri-arrow-right-up-line text-slate-400 text-xs" />
+                <i className="ri-arrow-right-up-line text-slate-400 dark:text-slate-500 text-xs" />
               </a>
             </motion.div>
 
@@ -217,9 +169,9 @@ export default function Hero() {
               className="flex flex-wrap items-center gap-3 sm:gap-4 mt-6 sm:mt-8"
             >
               {[
-                { icon: "ri-time-line", text: "Sub-20ms Sync", color: "text-emerald-400" },
+                { icon: "ri-time-line", text: "Sub-20ms Sync", color: "text-emerald-500 dark:text-emerald-400" },
               ].map((item) => (
-                <div key={item.text} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/60 border border-slate-100 text-[11px] text-slate-500 font-medium">
+                <div key={item.text} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/60 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 text-[11px] text-slate-600 dark:text-slate-300 font-medium">
                   <i className={`${item.icon} ${item.color} text-xs`} />
                   <span>{item.text}</span>
                 </div>
@@ -227,33 +179,39 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* ── Right: Dashboard composition ──────────────────── */}
+          {/* ── Right: Interactive Dashboard Window ──────────────────── */}
           <motion.div
             initial={{ opacity: 0, y: 32, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-8 relative lg:pr-2 lg:translate-x-4"
+            style={{ perspective: 1200 }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
           >
-            <div className="relative">
-              <img
-                src="/white.png"
-                alt="Klavora Dashboard"
-                className="w-full h-auto rounded-xl sm:rounded-2xl dashboard-shadow"
-                loading="eager"
-                decoding="async"
-              />
+            <motion.div
+              style={{ rotateX, rotateY }}
+              className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-2xl dark:shadow-emerald-500/10 transition-transform duration-100 ease-linear transform-gpu"
+            >
+              {/* Window Header */}
+              <div className="absolute top-0 left-0 w-full h-10 bg-slate-50 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 flex items-center px-4 gap-2 z-20">
+                <div className="w-3 h-3 rounded-full bg-red-400" />
+                <div className="w-3 h-3 rounded-full bg-amber-400" />
+                <div className="w-3 h-3 rounded-full bg-green-400" />
+              </div>
 
-              {/* Floating metric cards */}
-              {floatingMetrics.map((metric, i) => (
-                <FloatingMetric
-                  key={metric.label}
-                  metric={metric}
-                  index={i}
-                  mouseX={springX}
-                  mouseY={springY}
+              {/* Dashboard Content */}
+              <div className="pt-10">
+                <img
+                  src="/white.png"
+                  alt="Klavora Dashboard"
+                  className="w-full h-auto object-cover object-top opacity-90 dark:opacity-80 pointer-events-none mix-blend-multiply dark:mix-blend-normal"
+                  loading="eager"
+                  decoding="async"
                 />
-              ))}
-            </div>
+              </div>
+
+            </motion.div>
           </motion.div>
 
         </div>
@@ -263,10 +221,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-12 sm:mt-16 lg:mt-20 pt-6 sm:pt-8 border-t border-slate-200/50"
+          className="mt-12 sm:mt-16 lg:mt-20 pt-6 sm:pt-8 border-t border-slate-200/50 dark:border-slate-800"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-            {heroStats.map((stat, idx) => (              <div key={stat.label} className={`${idx !== 0 ? "border-l border-slate-200/50 pl-4 md:border-l md:pl-8" : ""}`}>
+            {heroStats.map((stat, idx) => (
+              <div key={stat.label} className={`${idx !== 0 ? "border-l border-slate-200/50 dark:border-slate-800 pl-4 md:border-l md:pl-8" : ""}`}>
                 <AnimatedStat value={stat.value} label={stat.label} delay={idx * 0.1} />
               </div>
             ))}
