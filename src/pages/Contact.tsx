@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -14,6 +14,83 @@ const stagger = (i: number) => ({ ...fast, delay: i * 0.05 });
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [cooldownSeconds, setCooldownSeconds] = useState<number | null>(null);
+
+  // Load initial cooldown state on mount
+  useEffect(() => {
+    const lastSub = localStorage.getItem("klavora_contact_time");
+    if (lastSub) {
+      const diff = Date.now() - parseInt(lastSub, 10);
+      const cooldown = 10 * 60 * 1000;
+      if (diff < cooldown) {
+        setCooldownSeconds(Math.ceil((cooldown - diff) / 1000));
+        setSubmitted(true);
+      } else {
+        localStorage.removeItem("klavora_contact_time");
+      }
+    }
+  }, []);
+
+  // Live countdown timer logic
+  useEffect(() => {
+    if (cooldownSeconds === null) return;
+    if (cooldownSeconds <= 0) {
+      setCooldownSeconds(null);
+      localStorage.removeItem("klavora_contact_time");
+      return;
+    }
+    const timer = setInterval(() => {
+      setCooldownSeconds((prev) => (prev !== null ? prev - 1 : null));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [cooldownSeconds]);
+
+  const formatTime = (totalSeconds: number) => {
+    const m = Math.floor(totalSeconds / 60);
+    const s = totalSeconds % 60;
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    // Final check to prevent bypass
+    const lastSub = localStorage.getItem("klavora_contact_time");
+    if (lastSub && Date.now() - parseInt(lastSub, 10) < 10 * 60 * 1000) {
+      alert("Please wait 10 minutes before sending another message to prevent spam.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries((formData as any).entries());
+
+    try {
+      // Formspree endpoint
+      const response = await fetch("https://formspree.io/f/mykobgrz", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        localStorage.setItem("klavora_contact_time", Date.now().toString());
+        setCooldownSeconds(10 * 60);
+        setSubmitted(true);
+      } else {
+        alert("Failed to send message. Please ensure your Formspree ID is correct.");
+      }
+    } catch (error) {
+      alert("Network error. Could not connect to Formspree.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white selection:bg-emerald-100 selection:text-emerald-900">
@@ -23,9 +100,9 @@ export default function Contact() {
           <motion.div initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={stagger(0)}>
             <Link to="/" className="flex items-center gap-2.5 group">
               <svg className="w-7 h-7 transition-transform duration-200 group-hover:scale-105" viewBox="0 0 32 32" fill="none">
-                <rect x="10" y="2" width="12" height="28" rx="4" fill="#10B981"/>
-                <rect x="2" y="10" width="28" height="12" rx="4" fill="#3B82F6"/>
-                <rect x="10" y="10" width="12" height="12" rx="2" fill="#0EA5E9" opacity="0.85"/>
+                <rect x="10" y="2" width="12" height="28" rx="4" fill="#10B981" />
+                <rect x="2" y="10" width="28" height="12" rx="4" fill="#3B82F6" />
+                <rect x="10" y="10" width="12" height="12" rx="2" fill="#0EA5E9" opacity="0.85" />
               </svg>
               <span className="text-lg font-bold tracking-tight text-slate-900">Klavora<span className="text-emerald-500">.</span></span>
             </Link>
@@ -72,49 +149,63 @@ export default function Contact() {
                   </motion.div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2">Message sent!</h3>
                   <p className="text-sm text-slate-600 mb-4">We&apos;ll get back to you within 24 hours.</p>
-                  <button onClick={() => setSubmitted(false)} className="text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition-colors">Send another message</button>
+                  
+                  {cooldownSeconds !== null ? (
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-500 text-xs font-semibold">
+                      <i className="ri-timer-line" />
+                      <span>Try again in {formatTime(cooldownSeconds)}</span>
+                    </div>
+                  ) : (
+                    <button onClick={() => setSubmitted(false)} className="text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition-colors">
+                      Send another message
+                    </button>
+                  )}
                 </motion.div>
               ) : (
                 <motion.form key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                  onSubmit={(e) => { e.preventDefault(); window.location.href = "mailto:info@klavora.store?subject=Contact"; setSubmitted(true); }} className="space-y-5"
+                  onSubmit={handleSubmit} className="space-y-5"
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={stagger(4)}>
                       <label className="block text-xs font-semibold text-slate-700 mb-1.5">Full Name</label>
-                      <input type="text" required placeholder="Dr. Kofi Appiah"
+                      <input type="text" name="Full Name" required placeholder="Dr. Kofi Appiah"
                         className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400 transition-all duration-200 hover:border-slate-300" />
                     </motion.div>
                     <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={stagger(5)}>
                       <label className="block text-xs font-semibold text-slate-700 mb-1.5">Email</label>
-                      <input type="email" required placeholder="you@pharmacy.com"
+                      <input type="email" name="Email Address" required placeholder="you@pharmacy.com"
                         className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400 transition-all duration-200 hover:border-slate-300" />
                     </motion.div>
                   </div>
                   <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={stagger(6)}>
                     <label className="block text-xs font-semibold text-slate-700 mb-1.5">Pharmacy Name</label>
-                    <input type="text" placeholder="Apex Clinical Pharmacy"
+                    <input type="text" name="Pharmacy Name" placeholder="Apex Clinical Pharmacy"
                       className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400 transition-all duration-200 hover:border-slate-300" />
                   </motion.div>
                   <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={stagger(7)}>
                     <label className="block text-xs font-semibold text-slate-700 mb-1.5">Subject</label>
-                    <select className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400 transition-all duration-200 bg-white hover:border-slate-300">
-                      <option>Demo Request</option>
-                      <option>Enterprise Inquiry</option>
-                      <option>Technical Support</option>
-                      <option>Partnership</option>
-                      <option>General Question</option>
+                    <select name="Subject" className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400 transition-all duration-200 bg-white hover:border-slate-300">
+                      <option value="Demo Request">Demo Request</option>
+                      <option value="Enterprise Inquiry">Enterprise Inquiry</option>
+                      <option value="Technical Support">Technical Support</option>
+                      <option value="Partnership">Partnership</option>
+                      <option value="General Question">General Question</option>
                     </select>
                   </motion.div>
                   <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={stagger(8)}>
                     <label className="block text-xs font-semibold text-slate-700 mb-1.5">Message</label>
-                    <textarea rows={4} required placeholder="Tell us about your pharmacy and what you are looking for..."
+                    <textarea rows={4} name="Message" required placeholder="Tell us about your pharmacy and what you are looking for..."
                       className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400 transition-all duration-200 resize-none hover:border-slate-300" />
                   </motion.div>
                   <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={stagger(9)}>
-                    <motion.button type="submit" whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.98 }}
-                      className="w-full sm:w-auto px-8 py-3 rounded-full bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 transition-colors shadow-sm shadow-emerald-500/20"
+                    <motion.button type="submit" disabled={isSubmitting} whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.98 }}
+                      className="w-full sm:w-auto px-8 py-3 rounded-full bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 transition-colors shadow-sm shadow-emerald-500/20 disabled:opacity-50 flex justify-center items-center gap-2"
                     >
-                      Send Message
+                      {isSubmitting ? (
+                        <><div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" /> Sending...</>
+                      ) : (
+                        "Send Message"
+                      )}
                     </motion.button>
                   </motion.div>
                 </motion.form>
