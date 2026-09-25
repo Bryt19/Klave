@@ -10,7 +10,7 @@ const phaseConfig: Record<
   { label: string; dot: string; bar: string; text: string }
 > = {
   online: {
-    label: "Online — Connected",
+    label: "Online, Connected",
     dot: "bg-primary-400",
     bar: "bg-primary-500",
     text: "text-primary-300",
@@ -22,13 +22,13 @@ const phaseConfig: Record<
     text: "text-secondary-400",
   },
   queued: {
-    label: "Sale queued — pending sync",
+    label: "Sale queued, pending sync",
     dot: "bg-secondary-400",
     bar: "bg-secondary-500",
     text: "text-secondary-400",
   },
   syncing: {
-    label: "Reconnected — syncing…",
+    label: "Reconnected, syncing…",
     dot: "bg-primary-400",
     bar: "bg-primary-500",
     text: "text-primary-300",
@@ -110,7 +110,7 @@ export default function OfflineWindow() {
               </span>
               <div>
                 <p className="text-xs text-foreground-100 font-medium">
-                  Sale #1024 — GH₵128
+                  Sale #1024: GH₵128
                 </p>
                 <p className="text-[10px] text-foreground-600">
                   {phase === "queued"

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, HelpCircle } from "lucide-react";
 import { faqs } from "@/mocks/homeContent";
 import Reveal from "./Reveal";
 
@@ -8,74 +7,41 @@ export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative py-16 sm:py-24 md:py-32 bg-slate-50/50 transition-colors duration-200">
+    <section id="faq" className="relative py-14 sm:py-20 lg:py-28 bg-white dark:bg-slate-900 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
-          
-          {/* Header */}
-          <Reveal className="text-center mb-12 md:mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-medium mb-6">
-              <HelpCircle className="w-3 h-3" />
-              <span>Questions &amp; Answers</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-4">
+          <Reveal className="text-center mb-8 md:mb-10">
+            <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-5">
               Frequently asked questions.
             </h2>
-
-            <p className="text-base text-slate-600 font-normal leading-relaxed max-w-lg mx-auto">
+            <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-lg mx-auto">
               Straightforward answers to the technical, operational, and clinical questions pharmacy leaders ask most.
             </p>
           </Reveal>
 
-          {/* Accordion */}
           <Reveal delay={0.1}>
             <div className="space-y-3">
-              {faqs.map((faq, i: number) => {
+              {faqs.map((faq, i) => {
                 const open = openIndex === i;
                 return (
-                  <div
-                    key={faq.question}
-                    className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                      open
-                        ? "border-emerald-300/60 bg-white shadow-lg shadow-emerald-950/[0.03]"
-                        : "border-slate-200/70 bg-white/80 hover:border-slate-300 hover:shadow-sm"
-                    }`}
-                  >
-                    <button
+                  <div key={faq.question} className={`rounded-2xl border transition-all duration-200 overflow-hidden ${open ? "border-emerald-200 dark:border-emerald-800/50 bg-emerald-50/30 dark:bg-emerald-950/30 shadow-sm" : "border-slate-200 dark:border-slate-700/70 bg-white dark:bg-slate-800 hover:border-slate-300"}`}>
+                    <motion.button
                       type="button"
                       onClick={() => setOpenIndex(open ? null : i)}
-                      className="w-full flex items-center justify-between gap-4 px-6 py-4.5 text-left group"
+                      whileHover={{ backgroundColor: "rgba(248, 250, 252, 0.5)" }}
+                      className="w-full flex items-center justify-between gap-4 px-5 sm:px-6 py-4 sm:py-5 text-left"
                     >
-                      <span className={`text-sm font-semibold transition-colors duration-200 ${
-                        open ? "text-emerald-900" : "text-slate-900 group-hover:text-slate-700"
-                      }`}>
-                        {faq.question}
+                      <span className={`text-sm font-semibold transition-colors ${open ? "text-emerald-700 dark:text-emerald-300" : "text-slate-900 dark:text-white"}`}>{faq.question}</span>
+                      <span className={`w-6 h-6 flex items-center justify-center rounded-full shrink-0 transition-all duration-300 ${open ? "bg-emerald-600 text-white" : "bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-300"}`}>
+                        <i className={`ri-add-line text-xs transition-transform duration-300 ${open ? "rotate-45" : ""}`} />
                       </span>
-                      <span
-                        className={`w-7 h-7 flex items-center justify-center rounded-full shrink-0 transition-all duration-300 ${
-                          open
-                            ? "bg-emerald-950 text-white rotate-0"
-                            : "bg-slate-100 text-slate-600 rotate-0 group-hover:bg-slate-200"
-                        }`}
-                      >
-                        <Plus className={`w-3.5 h-3.5 transition-transform duration-300 ${open ? "rotate-45" : ""}`} />
-                      </span>
-                    </button>
-                    
+                    </motion.button>
                     <AnimatePresence initial={false}>
                       {open && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                          <div className="px-6 pb-5">
-                            <div className="pt-3 border-t border-slate-100">
-                              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                                {faq.answer}
-                              </p>
+                        <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}>
+                          <div className="px-5 sm:px-6 pb-5 pt-0">
+                            <div className="pt-3 border-t border-emerald-100 dark:border-emerald-800/40/60">
+                              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{faq.answer}</p>
                             </div>
                           </div>
                         </motion.div>
@@ -87,9 +53,23 @@ export default function Faq() {
             </div>
           </Reveal>
 
+          {/* CTA */}
+          <Reveal delay={0.2}>
+            <div className="mt-10 text-center">
+              <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50">
+                <div className="text-left">
+                  <div className="text-sm font-bold text-slate-900 dark:text-white mb-1">Still have questions?</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">Our team typically responds within 24 hours.</div>
+                </div>
+                <a href="/contact" className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-emerald-600 text-white text-xs font-semibold hover:bg-emerald-700 transition-colors shadow-sm">
+                  <i className="ri-message-3-line text-emerald-200 text-xs" />
+                  Contact us
+                </a>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
   );
 }
-

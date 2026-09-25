@@ -31,7 +31,7 @@ const features: FeatureDef[] = [
   {
     title: "KPI Dashboard",
     description:
-      "Financial metrics explained in plain language for pharmacists — not accountants. Inventory value, margin, and revenue at a glance.",
+      "Financial metrics explained in plain language for pharmacists, not accountants. Inventory value, margin, and revenue at a glance.",
     render: <KpiWindow />,
   },
   {
@@ -49,13 +49,13 @@ const features: FeatureDef[] = [
   {
     title: "Hold Feature",
     description:
-      "Hold an active cart, serve the next customer, and resume the held cart seamlessly — no lost sales at the counter.",
+      "Hold an active cart, serve the next customer, and resume the held cart seamlessly, with no lost sales at the counter.",
     render: <HoldWindow />,
   },
   {
     title: "Audit Log",
     description:
-      "Every action in your system is recorded — sales, edits, restocks, and staff logins — with full accountability.",
+      "Every action in your system is recorded, including sales, edits, restocks, and staff logins, with full accountability.",
     render: <AuditLogWindow />,
   },
   {
@@ -110,7 +110,7 @@ export default function Features() {
                         </span>
                         <p className="text-xs text-foreground-400 leading-relaxed">
                           When it's time to dispense, Klavora suggests the batch
-                          expiring soonest — so the oldest stock always leaves
+                          expiring soonest, so the oldest stock always leaves
                           first and nothing gets wasted.
                         </p>
                       </div>

@@ -9,7 +9,7 @@ type LogRow = {
 };
 
 const templates: Omit<LogRow, "time">[] = [
-  { action: "Sale Completed", detail: "#1028 — GH₵56 · Ama K.", type: "sale" },
+  { action: "Sale Completed", detail: "#1028: GH₵56 · Ama K.", type: "sale" },
   { action: "Drug Edited", detail: "Amoxicillin price updated", type: "edit" },
   { action: "Staff Login", detail: "Kofi M. signed in", type: "login" },
   { action: "Restock Added", detail: "+500 Paracetamol 500mg", type: "restock" },

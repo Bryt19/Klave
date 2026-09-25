@@ -39,10 +39,6 @@ export default function FoundingPharmacies() {
           {/* Gradient border card */}
           <div className="rounded-2xl p-px bg-gradient-to-br from-primary-500 via-primary-600/40 to-accent-500/50">
             <div className="rounded-2xl bg-background-100/80 px-6 py-10 md:px-12 md:py-14 text-center">
-              <span className="inline-block px-3 py-1 rounded-full bg-primary-500/15 text-primary-300 text-xs font-medium mb-5">
-                Limited Founding Offer
-              </span>
-
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground-50 tracking-tight mb-4">
                 Become a Founding Pharmacy.
               </h2>
@@ -58,7 +54,7 @@ export default function FoundingPharmacies() {
                   <strong className="text-primary-400">
                     <SpotCounter /> of {TOTAL} spots
                   </strong>{" "}
-                  taken — {TOTAL - TAKEN} remaining
+                  taken, {TOTAL - TAKEN} remaining
                 </p>
                 <div className="h-2 rounded-full bg-background-200/30 overflow-hidden">
                   <motion.div
@@ -73,7 +69,7 @@ export default function FoundingPharmacies() {
 
               {/* CTA */}
               <a
-                href="https://app.klavora.com/signup"
+                href="https://app.klavora.store/signup"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold bg-primary-500 text-background-50 rounded-md hover:bg-primary-400 transition-colors duration-200 whitespace-nowrap"
               >
                 Claim Your Founding Spot

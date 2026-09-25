@@ -4,42 +4,34 @@ export default function Marquee() {
   const items = [...marqueePharmacies, ...marqueePharmacies, ...marqueePharmacies];
 
   return (
-    <section className="relative py-12 bg-white overflow-hidden border-y border-slate-100/80">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-        <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-[0.15em]">
-          Trusted by leading pharmacies &amp; healthcare networks
-        </p>
+    <section className="relative py-10 bg-white dark:bg-slate-900 overflow-hidden border-y border-slate-100 dark:border-slate-800">
+      <div className="absolute inset-0 bg-gradient-to-r from-emerald-50/30 dark:from-emerald-900/10 via-transparent to-emerald-50/30 dark:to-emerald-900/10 pointer-events-none" />
+
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
+        <div className="inline-flex items-center gap-2 text-slate-400">
+          <div className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-slate-200" />
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em]">
+            Trusted by leading pharmacy networks across West Africa
+          </p>
+          <div className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-slate-200" />
+        </div>
       </div>
 
       <div className="relative">
-        {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-white dark:from-slate-900 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-white dark:from-slate-900 to-transparent z-10 pointer-events-none" />
 
-        {/* Scrolling track */}
-        <div className="flex flex-col gap-3 overflow-hidden">
-          {/* Row 1 → left */}
+        <div className="overflow-hidden">
           <div className="flex gap-3 marquee-scroll-left" style={{ width: "max-content" }}>
             {items.map((name, i) => (
               <div
-                key={`row1-${name}-${i}`}
-                className="flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-slate-200/60 bg-slate-50/50 whitespace-nowrap transition-colors hover:bg-slate-100/80 hover:border-slate-300/60 cursor-default"
+                key={`marquee-${name}-${i}`}
+                className="flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-slate-100 dark:border-slate-700/50 bg-white dark:bg-slate-800/60 shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:border-emerald-200 hover:shadow-emerald-100/40 transition-all duration-200 whitespace-nowrap group"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span className="text-xs font-semibold text-slate-600">{name}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Row 2 → right */}
-          <div className="flex gap-3 marquee-scroll-right" style={{ width: "max-content" }}>
-            {[...items].reverse().map((name, i) => (
-              <div
-                key={`row2-${name}-${i}`}
-                className="flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-slate-200/60 bg-slate-50/30 whitespace-nowrap transition-colors hover:bg-slate-100/60 hover:border-slate-300/60 cursor-default"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-300/70" />
-                <span className="text-xs font-medium text-slate-500">{name}</span>
+                <div className="w-6 h-6 rounded-full bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center shrink-0 group-hover:bg-emerald-100 transition-colors">
+                  <i className="ri-checkbox-circle-fill text-emerald-400 text-[10px]" />
+                </div>
+                <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-300 group-hover:text-slate-800 dark:text-slate-100 transition-colors">{name}</span>
               </div>
             ))}
           </div>

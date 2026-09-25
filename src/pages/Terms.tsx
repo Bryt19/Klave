@@ -100,7 +100,7 @@ const sections: { title: string; body: ReactNode }[] = [
         <p className="mt-4">
           You are responsible for all activity that occurs under your account.
           Notify us immediately at{" "}
-          <span className="font-semibold">security@klavora.com</span> if you
+          <span className="font-semibold">info@klavora.store</span> if you
           suspect unauthorized access.
         </p>
       </>
@@ -214,7 +214,7 @@ const sections: { title: string; body: ReactNode }[] = [
         <p className="mt-4">
           For details on service credits and SLA commitments, refer to your
           Enterprise agreement or contact{" "}
-          <span className="font-semibold">sales@klavora.com</span>.
+          <span className="font-semibold">info@klavora.store</span>.
         </p>
       </>
     ),
@@ -310,7 +310,7 @@ const sections: { title: string; body: ReactNode }[] = [
         <Bullet bold="Severability:">If any provision is found unenforceable, the remaining provisions continue in effect.</Bullet>
         <Bullet bold="Waiver:">Failure to enforce any right does not constitute a waiver of that right.</Bullet>
         <Bullet bold="Assignment:">You may not assign these Terms without Klavora's prior written consent. Klavora may assign in connection with a merger, acquisition, or sale of assets.</Bullet>
-        <Bullet bold="Notices:">We will send notices to the email address associated with your account. You may send notices to legal@klavora.com.</Bullet>
+        <Bullet bold="Notices:">We will send notices to the email address associated with your account. You may send notices to info@klavora.store.</Bullet>
       </ul>
     ),
   },
@@ -351,7 +351,7 @@ export default function Terms() {
             className="text-xs font-medium text-slate-500 hover:text-slate-800 flex items-center gap-1 transition-colors"
           >
             <i className="ri-arrow-left-line" />
-            Back
+            Back to Home
           </Link>
         </div>
       </header>
@@ -418,7 +418,7 @@ export default function Terms() {
           <div className="flex items-center gap-4">
             <Link to="/privacy" className="hover:text-slate-600 transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-slate-600 transition-colors">Terms of Service</Link>
-            <Link to="/hipaa" className="hover:text-slate-600 transition-colors">HIPAA Compliance</Link>
+            <Link to="/contact" className="hover:text-slate-600 transition-colors">Contact</Link>
           </div>
         </div>
       </footer>

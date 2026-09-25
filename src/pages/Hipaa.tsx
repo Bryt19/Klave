@@ -197,7 +197,7 @@ export default function Hipaa() {
               <Plain>Obligations upon termination of the agreement</Plain>
             </ul>
             <p className="text-sm text-slate-600 mt-4">
-              To request a BAA, contact <span className="font-semibold">compliance@klavora.com</span>.
+              To request a BAA, contact <span className="font-semibold">info@klavora.store</span>.
             </p>
           </motion.section>
 
@@ -338,7 +338,8 @@ export default function Hipaa() {
           <div className="flex items-center gap-4">
             <Link to="/privacy" className="hover:text-slate-600 transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-slate-600 transition-colors">Terms of Service</Link>
-            <Link to="/hipaa" className="hover:text-slate-600 transition-colors">HIPAA Compliance</Link>
+            <Link to="/hipaa" className="hover:text-slate-600 transition-colors">HIPAA</Link>
+            <Link to="/contact" className="hover:text-slate-600 transition-colors">Contact</Link>
           </div>
         </div>
       </footer>

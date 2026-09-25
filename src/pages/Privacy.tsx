@@ -158,7 +158,7 @@ const sections: { title: string; body: ReactNode }[] = [
         </ul>
         <p className="mt-4">
           To exercise these rights, contact us at{" "}
-          <span className="font-semibold">privacy@klavora.com</span>. We will
+          <span className="font-semibold">info@klavora.store</span>. We will
           respond within 30 days.
         </p>
       </>
@@ -219,7 +219,7 @@ const sections: { title: string; body: ReactNode }[] = [
 ];
 
 const contactInfo = [
-  { label: "Email", value: "privacy@klavora.com" },
+  { label: "Email", value: "info@klavora.store" },
   { label: "Mail", value: "EliTech CreaTives Limited, Privacy Team" },
   { label: "Response Time", value: "Within 30 days of receiving your request" },
 ];
@@ -245,7 +245,7 @@ export default function Privacy() {
             className="text-xs font-medium text-slate-500 hover:text-slate-800 flex items-center gap-1 transition-colors"
           >
             <i className="ri-arrow-left-line" />
-            Back
+            Back to Home
           </Link>
         </div>
       </header>
@@ -312,7 +312,7 @@ export default function Privacy() {
           <div className="flex items-center gap-4">
             <Link to="/privacy" className="hover:text-slate-600 transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-slate-600 transition-colors">Terms of Service</Link>
-            <Link to="/hipaa" className="hover:text-slate-600 transition-colors">HIPAA Compliance</Link>
+            <Link to="/contact" className="hover:text-slate-600 transition-colors">Contact</Link>
           </div>
         </div>
       </footer>

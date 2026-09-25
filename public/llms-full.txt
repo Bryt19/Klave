@@ -1,0 +1,28 @@
+# Klavora - Full Context for AI Agents
+
+Klavora is a modern Pharmacy Inventory Management and FEFO (First Expired, First Out) Automated Dispensing software engineered by EliTech CreaTives Limited. It is designed to modernize pharmacies in Ghana and across West Africa.
+
+## Core Features
+1. Point-of-Sale Counter Register
+2. FEFO Automated Batch Dispensing
+3. Offline-First Architecture (Sub-20ms real-time sync)
+4. Unified Dispensary Queue
+5. Clinical Sign-Off workflows
+6. Multi-Branch Operations
+
+## Team
+- **Richard Elikem Amenorpe**: Founder & CEO
+- **Bright Akoto**: Founder
+- **Andy Nkrumah**: Founder
+
+## Security & Compliance
+Klavora is fully compliant with the Ghana Data Protection Act (DPA) and HIPAA. Data at rest is encrypted using AES-256. Backup media is encrypted and stored in geographically redundant, access-controlled facilities. Role-based access controls (RBAC) ensure that staff only see information relevant to their roles.
+
+## Pricing
+- Starter: GH₵250 / month (or GH₵200 / month billed annually)
+- Enterprise: Custom pricing for multi-branch and advanced API needs.
+
+## Contact
+Email: info@klavora.store
+Phone / WhatsApp: +233 20 360 4957
+Website: https://klavora.store

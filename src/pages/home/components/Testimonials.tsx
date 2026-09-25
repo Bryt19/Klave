@@ -1,117 +1,113 @@
-import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { testimonials } from "@/mocks/homeContent";
 import Reveal from "./Reveal";
 
-const testimonials = [
-  {
-    name: "Dr. Kofi Appiah",
-    role: "Chief Pharmacist",
-    company: "Apex Clinical Alliance",
-    avatar: "KA",
-    quote: "Klavora gave us absolute clarity over our multi-branch inventory. The automated FEFO routing alone saved us over GH₵120,000 in expired drug write-offs in our first two quarters.",
-    metric: "74% Less Stock Waste",
-  },
-  {
-    name: "Sarah Antwi",
-    role: "Director of Operations",
-    company: "CityMed Pharmacy Group",
-    avatar: "SA",
-    quote: "We process over 14,000 prescriptions daily. Before Klavora, that meant chaos. Now it means precision. The clinical safety engine catches things humans miss under pressure.",
-    metric: "14,200+ Rx/day",
-  },
-  {
-    name: "Dr. Emmanuel Mensah",
-    role: "Clinical Lead",
-    company: "HealthCare Alliance",
-    avatar: "EM",
-    quote: "The drug interaction alerts have prevented at least three critical contraindications in the last month alone. The ROI on patient safety is immeasurable.",
-    metric: "3 Critical Alerts Saved",
-  },
-  {
-    name: "Nana Ama Owusu",
-    role: "Pharmacy Owner",
-    company: "QuickCure Networks",
-    avatar: "NO",
-    quote: "Setup was incredibly fast. Within a day, our entire inventory was live with batch tracking. The offline mode has been a game-changer for our rural branches.",
-    metric: "Same-Day Setup",
-  },
-];
-
-const avatarColors = [
-  "bg-emerald-600",
-  "bg-slate-900",
-  "bg-blue-600",
-  "bg-violet-600",
-];
-
 export default function Testimonials() {
+  const [active, setActive] = useState(0);
+
   return (
-    <section className="relative py-16 sm:py-24 md:py-32 bg-white transition-colors duration-200">
+    <section id="about" className="relative py-14 sm:py-20 lg:py-28 bg-slate-50 dark:bg-slate-800/50 dark:bg-slate-900 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-14 md:mb-16 text-left">
+
+        {/* Header */}
+        <div className="max-w-3xl mb-8 sm:mb-10 text-center mx-auto">
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-700 text-xs font-medium mb-6">
-              <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-              <span>Trusted by Leaders</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.12] mb-4">
-              What pharmacy leaders say <br />
-              <span className="text-emerald-600">about Klavora.</span>
+            <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+              Trusted by pharmacy <br className="hidden sm:block" />
+              <span className="gradient-text-emerald">leaders across Africa.</span>
             </h2>
-
-            <p className="text-base text-slate-600 font-normal leading-relaxed max-w-xl">
-              Real feedback from pharmacists, operations leaders, and clinical leads who transformed their workflows with Klavora.
-            </p>
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {testimonials.map((t, i) => (
-            <Reveal key={t.name} delay={i * 0.08}>
-              <motion.div
-                whileHover={{ y: -6, transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] } }}
-                className="group relative rounded-2xl p-6 bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-slate-300/80 transition-all duration-300 h-full flex flex-col overflow-hidden"
-              >
-                {/* Subtle gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-50/0 to-emerald-50/0 group-hover:from-amber-50/20 group-hover:to-emerald-50/10 transition-all duration-500 rounded-2xl pointer-events-none" />
-
-                {/* Stars */}
-                <div className="relative flex items-center gap-0.5 mb-4">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <div className="relative flex-1 mb-5">
-                  <Quote className="absolute -top-1 -left-1 w-5 h-5 text-slate-200 group-hover:text-amber-200 transition-colors duration-300" />
-                  <p className="text-[13px] text-slate-600 leading-relaxed pl-4 italic">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                </div>
-
-                {/* Metric */}
-                <div className="relative p-3 rounded-xl bg-slate-50 border border-slate-100 mb-5 group-hover:bg-emerald-50/50 group-hover:border-emerald-100 transition-all duration-300">
-                  <div className="text-[10px] text-slate-400 uppercase tracking-wider font-medium mb-0.5 group-hover:text-emerald-600 transition-colors">
-                    Key Impact
+        {/* Testimonial cards */}
+        <div className="max-w-3xl mx-auto">
+          <Reveal delay={0.1}>
+            <div className="relative min-h-[320px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -16 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-white dark:bg-slate-800/80 border border-slate-100 dark:border-slate-700/50 shadow-sm card-hover-glow"
+                >
+                  {/* Decorative quote mark */}
+                  <div className="absolute top-6 right-8 sm:top-8 sm:right-10 text-emerald-100 pointer-events-none select-none">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="currentColor">
+                      <path d="M18 24c0-4.4-3.6-8-8-8V10c6.6 0 12 5.4 12 12v16H8V28h10V24zm24 0c0-4.4-3.6-8-8-8V10c6.6 0 12 5.4 12 12v16H32V28h10V24z" opacity="0.4" />
+                    </svg>
                   </div>
-                  <div className="text-sm font-bold text-slate-900 group-hover:text-emerald-900 transition-colors">{t.metric}</div>
-                </div>
 
-                {/* Author */}
-                <div className="relative flex items-center gap-3 pt-4 border-t border-slate-100">
-                  <div className={`w-9 h-9 rounded-full ${avatarColors[i]} text-white font-bold text-[11px] flex items-center justify-center shrink-0 ring-2 ring-white group-hover:ring-emerald-100 transition-all`}>
-                    {t.avatar}
+                  {/* Stars */}
+                  <div className="flex gap-0.5 text-amber-400 text-sm mb-5">
+                    {[...Array(5)].map((_, i) => (
+                      <motion.i
+                        key={i}
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.1 + i * 0.06, duration: 0.3 }}
+                        className="ri-star-fill"
+                      />
+                    ))}
                   </div>
-                  <div className="min-w-0">
-                    <div className="text-xs font-bold text-slate-900 truncate">{t.name}</div>
-                    <div className="text-[10px] text-slate-500 truncate">{t.role} · {t.company}</div>
+
+                  {/* Quote */}
+                  <blockquote className="text-base sm:text-lg lg:text-xl text-slate-800 dark:text-slate-100 font-medium leading-relaxed mb-8 relative z-10">
+                    &ldquo;{testimonials[active].quote}&rdquo;
+                  </blockquote>
+
+                  {/* Metrics */}
+                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-emerald-50/80 dark:from-emerald-900/20 to-transparent border border-emerald-100 dark:border-emerald-800/40 mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center shrink-0">
+                      <i className="ri-line-chart-line text-emerald-600 dark:text-emerald-400 text-lg" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] text-slate-400 dark:text-slate-500 font-medium uppercase tracking-wider">
+                        {testimonials[active].metrics.label}
+                      </div>
+                      <div className="text-lg font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">
+                        {testimonials[active].metrics.value}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            </Reveal>
-          ))}
+
+                  {/* Author */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center text-xs font-bold text-emerald-700 dark:text-emerald-400">
+                      {testimonials[active].initials}
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-slate-900 dark:text-white">
+                        {testimonials[active].name}
+                      </div>
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                        {testimonials[active].role} · {testimonials[active].company}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </Reveal>
+
+          {/* Navigation dots */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            {testimonials.map((_, i) => (
+              <motion.button
+                key={i}
+                onClick={() => setActive(i)}
+                whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  active === i
+                    ? "bg-emerald-500 dark:bg-emerald-400 w-6"
+                    : "bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 w-2"
+                }`}
+                aria-label={`View testimonial ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
