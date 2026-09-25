@@ -38,11 +38,7 @@ export default function Footer() {
     }, 3000);
   };
 
-  const copyPhone = (e: React.MouseEvent) => {
-    e.preventDefault();
-    navigator.clipboard.writeText("020 360 4957");
-    showToast("Phone number copied to clipboard!");
-  };
+
 
   return (
     <footer className="relative bg-slate-950 text-white overflow-hidden">
@@ -145,7 +141,7 @@ export default function Footer() {
                 <a href="https://wa.me/233203604957" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="w-9 h-9 rounded-full bg-white/[0.05] border border-white/[0.06] flex items-center justify-center text-slate-500 hover:text-emerald-400 hover:bg-white/[0.1] hover:border-white/[0.12] transition-all duration-200">
                   <i className="ri-whatsapp-line text-sm" />
                 </a>
-                <a href="#" onClick={copyPhone} aria-label="Phone" className="w-9 h-9 rounded-full bg-white/[0.05] border border-white/[0.06] flex items-center justify-center text-slate-500 hover:text-emerald-400 hover:bg-white/[0.1] hover:border-white/[0.12] transition-all duration-200">
+                <a href="tel:+233203604957" aria-label="Phone" className="w-9 h-9 rounded-full bg-white/[0.05] border border-white/[0.06] flex items-center justify-center text-slate-500 hover:text-emerald-400 hover:bg-white/[0.1] hover:border-white/[0.12] transition-all duration-200">
                   <i className="ri-phone-line text-sm" />
                 </a>
               </div>
