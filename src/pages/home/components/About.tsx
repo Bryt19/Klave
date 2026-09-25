@@ -25,7 +25,7 @@ export default function About() {
                   Klavora was engineered by <strong className="text-slate-900 dark:text-white font-semibold">EliTech CreaTives Limited</strong> out of direct observation of how modern dispensary counters struggle with slow paper logs, stock expiry blindspots, and disjointed systems.
                 </p>
                 <p>
-                  We built Klavora from the ground up as a unified operations layer: combining intelligent OCR script intake, batch-level FEFO stock tracking, and instant clinical screening.
+                  We built Klavora from the ground up as a unified operations layer: combining secure digital script intake, batch-level FEFO stock tracking, and instant clinical screening.
                 </p>
               </div>
             </Reveal>
@@ -34,7 +34,7 @@ export default function About() {
           {/* Right Quote Card */}
           <div className="lg:col-span-6">
             <Reveal delay={0.1}>
-              <div className="subtle-card rounded-3xl p-8 border border-slate-200 dark:border-slate-700/90 shadow-sm bg-slate-50/50 dark:bg-slate-800/50">
+              <div className="subtle-card rounded-3xl p-8 border border-slate-200 dark:border-slate-700/90 shadow-sm bg-slate-50 dark:bg-slate-800/50 dark:bg-slate-800/50">
                 <div className="flex items-center gap-4 mb-6">
                   <span className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-emerald-500/40 shrink-0">
                     <img
@@ -68,7 +68,7 @@ export default function About() {
                   </a>
                 </div>
 
-                <blockquote className="text-sm sm:text-base text-slate-700 font-medium leading-relaxed mb-6">
+                <blockquote className="text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium leading-relaxed mb-6">
                   &ldquo;A pharmacy shouldn&apos;t have to choose between keeping patients waiting and maintaining flawless batch accuracy. Klavora was built to make clinical precision instantaneous.&rdquo;
                 </blockquote>
 
@@ -113,7 +113,7 @@ export default function About() {
                       </svg>
                     </a>
                   </div>
-                  <p className="text-[11px] text-emerald-700 font-semibold mb-2">
+                  <p className="text-[11px] text-emerald-700 dark:text-emerald-400 font-semibold mb-2">
                     Frontend &amp; Interface Engineering
                   </p>
                   <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
@@ -155,7 +155,7 @@ export default function About() {
                       </svg>
                     </a>
                   </div>
-                  <p className="text-[11px] text-emerald-700 font-semibold mb-2">
+                  <p className="text-[11px] text-emerald-700 dark:text-emerald-400 font-semibold mb-2">
                     Clinical Partnerships &amp; Relations
                   </p>
                   <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">

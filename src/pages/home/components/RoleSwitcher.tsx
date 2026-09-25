@@ -17,7 +17,7 @@ export default function RoleSwitcher() {
   const colors = roleColors[activeRole] || roleColors.staff;
 
   return (
-    <section id="platform" className="relative py-14 sm:py-20 lg:py-28 bg-slate-50/50 dark:bg-slate-900 overflow-hidden">
+    <section id="platform" className="relative py-14 sm:py-20 lg:py-28 bg-slate-50 dark:bg-slate-800/50 dark:bg-slate-900 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="max-w-3xl mb-8 sm:mb-10 text-center mx-auto">

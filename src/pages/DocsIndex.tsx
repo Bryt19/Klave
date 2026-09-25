@@ -150,7 +150,7 @@ export default function DocsIndex() {
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
-                  <span><strong className="font-semibold text-slate-900">Support:</strong> <a href="mailto:support@klavora.co" className="text-emerald-600 hover:text-emerald-500">support@klavora.co</a></span>
+                  <span><strong className="font-semibold text-slate-900">Support:</strong> <a href="mailto:info@klavora.store" className="text-emerald-600 hover:text-emerald-500">info@klavora.store</a></span>
                 </li>
               </ul>
             </motion.section>

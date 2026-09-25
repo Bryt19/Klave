@@ -100,7 +100,7 @@ const sections: { title: string; body: ReactNode }[] = [
         <p className="mt-4">
           You are responsible for all activity that occurs under your account.
           Notify us immediately at{" "}
-          <span className="font-semibold">security@klavora.com</span> if you
+          <span className="font-semibold">info@klavora.store</span> if you
           suspect unauthorized access.
         </p>
       </>
@@ -214,7 +214,7 @@ const sections: { title: string; body: ReactNode }[] = [
         <p className="mt-4">
           For details on service credits and SLA commitments, refer to your
           Enterprise agreement or contact{" "}
-          <span className="font-semibold">sales@klavora.com</span>.
+          <span className="font-semibold">info@klavora.store</span>.
         </p>
       </>
     ),
@@ -310,7 +310,7 @@ const sections: { title: string; body: ReactNode }[] = [
         <Bullet bold="Severability:">If any provision is found unenforceable, the remaining provisions continue in effect.</Bullet>
         <Bullet bold="Waiver:">Failure to enforce any right does not constitute a waiver of that right.</Bullet>
         <Bullet bold="Assignment:">You may not assign these Terms without Klavora's prior written consent. Klavora may assign in connection with a merger, acquisition, or sale of assets.</Bullet>
-        <Bullet bold="Notices:">We will send notices to the email address associated with your account. You may send notices to legal@klavora.com.</Bullet>
+        <Bullet bold="Notices:">We will send notices to the email address associated with your account. You may send notices to info@klavora.store.</Bullet>
       </ul>
     ),
   },

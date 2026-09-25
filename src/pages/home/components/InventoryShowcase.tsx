@@ -35,7 +35,7 @@ export default function InventoryShowcase() {
   const headerY = useTransform(scrollYProgress, [0.1, 0.2], [40, 0]);
 
   return (
-    <section ref={containerRef} id="features" className="relative mt-12 pt-20 sm:pt-28 lg:pt-36 pb-14 sm:pb-20 lg:pb-28 bg-slate-50/50 dark:bg-slate-900 overflow-hidden">
+    <section ref={containerRef} id="features" className="relative mt-12 pt-20 sm:pt-28 lg:pt-36 pb-14 sm:pb-20 lg:pb-28 bg-slate-50 dark:bg-slate-800/50 dark:bg-slate-900 overflow-hidden">
       <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-emerald-300/[0.04] blur-[100px] pointer-events-none" />
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,14 +68,14 @@ export default function InventoryShowcase() {
                   <i className="ri-search-line text-xs" />
                   <span>Search medicines...</span>
                 </div>
-                <div className="px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-100 dark:border-emerald-800/40 text-[11px] text-emerald-700 font-medium">
+                <div className="px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-100 dark:border-emerald-800/40 text-[11px] text-emerald-700 dark:text-emerald-400 font-medium">
                   <i className="ri-filter-3-line text-xs mr-1" />
                   Filter
                 </div>
               </div>
             </div>
 
-            <div className="divide-y divide-slate-50">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700/50">
               <div className="hidden sm:grid grid-cols-12 gap-3 px-5 sm:px-6 py-2.5 text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
                 <div className="col-span-4">Medicine</div>
                 <div className="col-span-2">Batch</div>
@@ -91,7 +91,7 @@ export default function InventoryShowcase() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-30px" }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-3 px-5 sm:px-6 py-3 hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors"
+                  className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-3 px-5 sm:px-6 py-3 hover:bg-slate-50 dark:bg-slate-800/80 dark:hover:bg-slate-800/50 transition-colors"
                 >
                   <div className="sm:col-span-4 flex items-center gap-2.5">
                     <div className={`w-2 h-2 rounded-full shrink-0 ${
@@ -173,7 +173,7 @@ export default function InventoryShowcase() {
               {[
                 { step: "01", icon: "ri-upload-2-line", title: "Stock Intake", desc: "Import your entire drug catalogue via smart CSV or add medicines manually. Klavora auto-maps batch numbers, expiry dates, supplier codes, and reorder thresholds.", color: "bg-blue-50 dark:bg-blue-900/30 text-blue-500 border-blue-100 dark:border-blue-800/40", accent: "border-blue-200/60" },
                 { step: "02", icon: "ri-radar-line", title: "FEFO Batch Tracking", desc: "Every dispensation automatically decrements the batch expiring soonest. Real-time stock levels update across all branches within 18ms of any transaction.", color: "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-500 border-emerald-100 dark:border-emerald-800/40", accent: "border-emerald-200/60" },
-                { step: "03", icon: "ri-alarm-warning-line", title: "Smart Alerts", desc: "Proactive notifications for low-stock thresholds, approaching expiry dates, and unusual consumption patterns, delivered via dashboard, email, or SMS.", color: "bg-amber-50 dark:bg-amber-900/30 text-amber-500 border-amber-100 dark:border-amber-800/40", accent: "border-amber-200/60" },
+                { step: "03", icon: "ri-alarm-warning-line", title: "Smart Alerts", desc: "Proactive notifications for low-stock thresholds, approaching expiry dates, and unusual consumption patterns, delivered via dashboard and email.", color: "bg-amber-50 dark:bg-amber-900/30 text-amber-500 border-amber-100 dark:border-amber-800/40", accent: "border-amber-200/60" },
                 { step: "04", icon: "ri-line-chart-line", title: "Business Analytics", desc: "Real-time KPI dashboards with revenue tracking, turnover rates, and supplier performance insights to drive data-informed decisions across all branches.", color: "bg-violet-50 dark:bg-violet-900/30 text-violet-500 border-violet-100 dark:border-violet-800/40", accent: "border-violet-200/60" },
               ].map((item) => (
                 <div key={item.step} className={`group p-5 rounded-2xl bg-white dark:bg-slate-800 border ${item.accent} card-hover-glow cursor-default`}>

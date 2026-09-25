@@ -27,11 +27,10 @@ export default function BuiltForTeams() {
           {/* Mockup Left */}
           <div className="lg:col-span-7">
             <Reveal>
-              <div className="glass-panel-clean rounded-3xl p-5 sm:p-6 shadow-xl border border-slate-200 dark:border-slate-700/80 bg-slate-50/50">
+              <div className="glass-panel-clean rounded-3xl p-5 sm:p-6 shadow-xl border border-slate-200 dark:border-slate-700/80 bg-slate-50 dark:bg-slate-800/50">
                 <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200 dark:border-slate-700/80">
                   <div className="flex items-center gap-2 text-xs font-bold text-slate-800 dark:text-slate-100">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-50 dark:bg-emerald-900/300" />
-                    <span>Multi-Station Dispensary Kanban</span>
+                    <span>Unified Dispensary Queue</span>
                   </div>
                   <div className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400">
                     <i className="ri-wifi-line text-emerald-600" />
@@ -135,7 +134,7 @@ export default function BuiltForTeams() {
                     <i className="ri-exchange-line text-emerald-600 text-base" />
                     <span>EHR Data Pipeline &amp; Integration Hub</span>
                   </div>
-                  <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 dark:bg-emerald-900/30 px-2 py-0.5 rounded-full border border-emerald-200">
+                  <span className="text-[11px] font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 px-2 py-0.5 rounded-full border border-emerald-200">
                     Connected (18ms)
                   </span>
                 </div>
@@ -175,7 +174,7 @@ export default function BuiltForTeams() {
           {/* Mockup Left */}
           <div className="lg:col-span-7">
             <Reveal>
-              <div className="glass-panel-clean rounded-3xl p-5 sm:p-6 shadow-xl border border-slate-200 dark:border-slate-700/80 bg-slate-50/50">
+              <div className="glass-panel-clean rounded-3xl p-5 sm:p-6 shadow-xl border border-slate-200 dark:border-slate-700/80 bg-slate-50 dark:bg-slate-800/50">
                 <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200 dark:border-slate-700/80">
                   <div className="flex items-center gap-2 text-xs font-bold text-slate-800 dark:text-slate-100">
                     <i className="ri-stethoscope-line text-emerald-600 text-base" />
@@ -191,7 +190,7 @@ export default function BuiltForTeams() {
                   </div>
 
                   <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 text-emerald-950 flex items-start gap-2.5">
-                    <i className="ri-shield-star-line text-emerald-700 text-base shrink-0 mt-0.5" />
+                    <i className="ri-shield-star-line text-emerald-700 dark:text-emerald-400 text-base shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold text-xs text-emerald-900">Adherence Score: 98% (High Adherence)</div>
                       <div className="text-[11px] text-emerald-800/80 mt-0.5">Last refill completed on schedule. No dosage alterations noted.</div>

@@ -219,14 +219,6 @@ export default function AnalyticsShowcase() {
   return (
     <section id="analytics" className="relative bg-slate-950 overflow-hidden">
 
-      {/* Top bleed — fades from the surrounding section bg into slate-950 */}
-      <div className="absolute top-0 left-0 right-0 h-28 pointer-events-none z-10"
-        style={{ background: "linear-gradient(to bottom, var(--section-adjacent-bg, white) 0%, transparent 100%)" }}
-      />
-      {/* Bottom bleed — fades back out */}
-      <div className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none z-10"
-        style={{ background: "linear-gradient(to top, var(--section-adjacent-bg, white) 0%, transparent 100%)" }}
-      />
 
       {/* Emerald ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-emerald-500/[0.07] blur-[120px] pointer-events-none" />

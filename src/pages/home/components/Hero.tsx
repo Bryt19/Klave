@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring, useInView, useTransform } from "framer-motion";
 import { heroStats } from "@/mocks/homeContent";
 import React from "react";
+import AnimatedCTA from "@/components/AnimatedCTA";
 
 /* ── Animated number counter ───────────────────────────────── */
 function AnimatedStat({ value, label, delay }: { value: string; label: string; delay: number }) {
@@ -72,7 +73,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-[80vh] sm:min-h-[90vh] flex flex-col justify-center overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-16 hero-bg dark:bg-slate-900 transition-colors duration-300">
+    <section id="home" className="relative min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-center overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24 hero-bg dark:bg-slate-900 transition-colors duration-300">
       {/* Subtle grid texture */}
       <div className="absolute inset-0 grid-texture opacity-30 dark:opacity-10 pointer-events-none" />
 
@@ -92,17 +93,17 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-emerald-50/40 dark:from-slate-900 to-transparent pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
 
           {/* ── Left: Text content ────────────────────────────── */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-4 text-left"
+            className="lg:col-span-5 text-center lg:text-left flex flex-col items-center lg:items-start"
           >
             {/* Headline */}
-            <h1 className="text-[2.25rem] sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.08] mb-5">
+            <h1 className="text-[2.5rem] leading-tight sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white sm:leading-[1.08] mb-5">
               <motion.span
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -133,7 +134,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-              className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-md mb-7"
+              className="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-lg mb-8"
             >
               Inventory intelligence, prescription verification, and real-time dispensing, all unified in one platform built for modern pharmacies.
             </motion.p>
@@ -145,16 +146,16 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.65 }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
             >
-              <a
-                href="https://app.klavora.com/signup"
+              <AnimatedCTA
+                href="https://app.klavora.store"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-full transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30"
               >
                 Get Started
                 <i className="ri-arrow-right-line text-emerald-200 text-xs" />
-              </a>
+              </AnimatedCTA>
               <a
                 href="#features"
-                className="inline-flex items-center justify-center gap-1.5 px-5 py-3 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800 rounded-full transition-all duration-200"
+                className="inline-flex items-center justify-center gap-1.5 px-5 py-3 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800 rounded-full transition-all duration-200"
               >
                 Explore platform
                 <i className="ri-arrow-right-up-line text-slate-400 dark:text-slate-500 text-xs" />
@@ -184,7 +185,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 32, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-8 relative lg:pr-2 lg:translate-x-4"
+            className="lg:col-span-7 relative lg:pl-6 w-full max-w-3xl mx-auto lg:max-w-none"
             style={{ perspective: 1200 }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
@@ -205,7 +206,14 @@ export default function Hero() {
                 <img
                   src="/white.png"
                   alt="Klavora Dashboard"
-                  className="w-full h-auto object-cover object-top opacity-90 dark:opacity-80 pointer-events-none mix-blend-multiply dark:mix-blend-normal"
+                  className="w-full h-auto object-cover object-top opacity-90 dark:hidden pointer-events-none mix-blend-multiply"
+                  loading="eager"
+                  decoding="async"
+                />
+                <img
+                  src="/dashboard-mockup.png"
+                  alt="Klavora Dashboard Dark Mode"
+                  className="w-full h-auto object-cover object-top opacity-90 hidden dark:block pointer-events-none"
                   loading="eager"
                   decoding="async"
                 />

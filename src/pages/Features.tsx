@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 export default function Features() {
   return (
     <div className="min-h-screen bg-white selection:bg-emerald-100 selection:text-emerald-900">
+      <SEO 
+        title="Features | Klavora - Pharmacy Inventory Management" 
+        description="Explore Klavora's features including FEFO automated dispensing, offline-first sync, and pharmacy POS software built for Ghana and West Africa." 
+        canonical="https://klavora.store/features"
+      />
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">

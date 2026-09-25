@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 export default function Security() {
   return (
     <div className="min-h-screen bg-white selection:bg-emerald-100 selection:text-emerald-900">
+      <SEO 
+        title="Security | Klavora - Pharmacy Inventory Management" 
+        description="Klavora provides enterprise-grade security for pharmacy software in West Africa, ensuring compliance with Ghana DPA and HIPAA." 
+        canonical="https://klavora.store/security"
+      />
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
@@ -280,7 +286,7 @@ export default function Security() {
                 ))}
               </div>
               <p className="text-sm text-slate-600 mb-4">
-                For questions about data compliance, contact <a href="mailto:support@klavora.co" className="text-emerald-600 hover:text-emerald-500">support@klavora.co</a>.
+                For questions about data compliance, contact <a href="mailto:info@klavora.store" className="text-emerald-600 hover:text-emerald-500">info@klavora.store</a>.
               </p>
             </motion.section>
           </div>

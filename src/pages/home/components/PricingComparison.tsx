@@ -19,8 +19,6 @@ const features = [
   ]},
   { category: "Clinical & Safety", items: [
     { name: "Drug Interaction Alerts", starter: false, pro: true, enterprise: true },
-    { name: "OCR Script Scanner", starter: false, pro: true, enterprise: true },
-    { name: "Telepharmacy Sign-Off", starter: false, pro: true, enterprise: true },
     { name: "Custom Formulary Rules", starter: false, pro: false, enterprise: true },
     { name: "EHR Integration (FHIR/HL7)", starter: false, pro: false, enterprise: true },
   ]},
@@ -51,7 +49,7 @@ export default function PricingComparison() {
     <section className="relative py-14 sm:py-20 bg-white dark:bg-slate-900 overflow-hidden">
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-100 dark:border-emerald-800/40 text-emerald-700 text-[11px] font-medium mb-5">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-100 dark:border-emerald-800/40 text-emerald-700 dark:text-emerald-400 text-[11px] font-medium mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
             <span>Feature Comparison</span>
           </div>
@@ -65,7 +63,7 @@ export default function PricingComparison() {
 
         <Reveal delay={0.1}>
           <div className="rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-slate-700/80 overflow-hidden bg-white dark:bg-slate-800 shadow-sm">
-            <div className="grid grid-cols-4 border-b border-slate-100 dark:border-slate-700/50 bg-slate-50/80">
+            <div className="grid grid-cols-4 border-b border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/80">
               <div className="p-4 sm:p-5 text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Feature</div>
               {tiers.map((tier, i) => (
                 <div key={tier} className={`p-4 sm:p-5 text-center ${i === 1 ? "bg-emerald-50 dark:bg-emerald-900/30/50" : ""}`}>
@@ -77,7 +75,7 @@ export default function PricingComparison() {
 
             {features.map((group, gi) => (
               <div key={group.category}>
-                <div className="grid grid-cols-4 border-b border-slate-100 dark:border-slate-700/50 bg-slate-50/40">
+                <div className="grid grid-cols-4 border-b border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/40">
                   <div className="col-span-4 px-4 sm:px-5 py-2.5 text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">{group.category}</div>
                 </div>
                 {group.items.map((item, ii) => (
@@ -87,7 +85,7 @@ export default function PricingComparison() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: (gi * 5 + ii) * 0.02 }}
-                    className="grid grid-cols-4 border-b border-slate-50 last:border-b-0 hover:bg-slate-50/50 transition-colors"
+                    className="grid grid-cols-4 border-b border-slate-50 dark:border-slate-700/50 last:border-b-0 hover:bg-slate-50 dark:bg-slate-800/50 transition-colors"
                   >
                     <div className="flex items-center px-4 sm:px-5 py-3 text-xs text-slate-600 dark:text-slate-300">{item.name}</div>
                     <div className="flex items-center justify-center py-3"><CellValue value={item.starter} /></div>

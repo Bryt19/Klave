@@ -245,7 +245,10 @@ export default function Ecosystem() {
                           <div className={`w-7 h-7 rounded-lg flex items-center justify-center transition-colors duration-150 ${isSelected ? "bg-white/20" : "bg-emerald-50 dark:bg-emerald-900/30"}`}>
                             <i className={`${node.icon} ${isSelected ? "text-white" : "text-emerald-600"} text-sm`} />
                           </div>
-                          <span className={`text-xs font-semibold ${isSelected ? "text-white" : "text-slate-700"}`}>{node.label}</span>
+                          <span className={`text-xs font-semibold ${isSelected ? "text-white" : "text-slate-700 dark:text-slate-300"}`}>
+                            {node.label}
+                            {node.label === "Drug Finder" && <span className="text-[9px] text-emerald-500 ml-1">(Coming Soon)</span>}
+                          </span>
                         </motion.button>
 
                         <AnimatePresence>
@@ -270,7 +273,7 @@ export default function Ecosystem() {
                                 </div>
                                 <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">{node.description}</p>
                                 <button onClick={(e) => { e.stopPropagation(); setSelectedIdx(null); }}
-                                  className="mt-2.5 text-[10px] text-emerald-600 font-semibold hover:text-emerald-700 transition-colors">Close</button>
+                                  className="mt-2.5 text-[10px] text-emerald-600 font-semibold hover:text-emerald-700 dark:text-emerald-400 transition-colors">Close</button>
                               </div>
                               <div className={`absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 rotate-45 ${
                                 popupSide === "right" ? "-left-1.5 border-l border-b" : "-right-1.5 border-r border-t"
@@ -308,7 +311,9 @@ export default function Ecosystem() {
                       <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${isSel ? "bg-white/20" : "bg-emerald-50 dark:bg-emerald-900/30"}`}>
                         <i className={`${node.icon} ${isSel ? "text-white" : "text-emerald-600"} text-xs`} />
                       </div>
-                      <span className={`text-[11px] font-semibold ${isSel ? "text-white" : "text-slate-700"}`}>{node.label}</span>
+                      <span className={`text-[11px] font-semibold ${isSel ? "text-white" : "text-slate-700 dark:text-slate-300"}`}>
+                        {node.label}
+                      </span>
                     </button>
                     <AnimatePresence>
                       {isSel && (
@@ -335,7 +340,10 @@ export default function Ecosystem() {
                         <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${isSel ? "bg-white/20" : "bg-emerald-50 dark:bg-emerald-900/30"}`}>
                           <i className={`${node.icon} ${isSel ? "text-white" : "text-emerald-600"} text-xs`} />
                         </div>
-                        <span className={`text-[11px] font-semibold ${isSel ? "text-white" : "text-slate-700"}`}>{node.label}</span>
+                        <span className={`text-[11px] font-semibold ${isSel ? "text-white" : "text-slate-700 dark:text-slate-300"}`}>
+                          {node.label}
+                          <span className="text-[9px] text-emerald-500 ml-1">(Coming Soon)</span>
+                        </span>
                       </button>
                       <AnimatePresence>
                         {isSel && (

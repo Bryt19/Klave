@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/mocks/homeContent";
 
-const DEMO_URL = "https://app.klavora.com/signup";
+import AnimatedCTA from "@/components/AnimatedCTA";
+
+const DEMO_URL = "https://app.klavora.store";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -138,11 +140,11 @@ export default function Navbar() {
                   <i className={`text-lg ${isDark ? "ri-sun-line" : "ri-moon-line"}`} />
                 </button>
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                  <a href={DEMO_URL}
+                  <AnimatedCTA href={DEMO_URL}
                     className="px-5 py-2 text-sm font-semibold rounded-full bg-emerald-600 text-white hover:bg-emerald-700 transition-all duration-200 shadow-sm shadow-emerald-500/20"
                   >
                     Get Started
-                  </a>
+                  </AnimatedCTA>
                 </motion.div>
               </div>
 
@@ -179,13 +181,13 @@ export default function Navbar() {
               {navLinks.map((link) => (
                 <a key={link.label} href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className="block px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-xl transition-colors"
+                  className="block px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white dark:hover:text-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-800/50 rounded-xl transition-colors"
                 >{link.label}</a>
               ))}
               <div className="pt-2 mt-1 border-t border-slate-100 dark:border-slate-800 flex gap-2">
-                <a href={DEMO_URL}
+                <AnimatedCTA href={DEMO_URL}
                   className="flex-1 text-center py-3 text-base font-semibold bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition-colors"
-                >Get Started</a>
+                >Get Started</AnimatedCTA>
               </div>
             </div>
           </motion.div>

@@ -197,7 +197,7 @@ export default function Hipaa() {
               <Plain>Obligations upon termination of the agreement</Plain>
             </ul>
             <p className="text-sm text-slate-600 mt-4">
-              To request a BAA, contact <span className="font-semibold">compliance@klavora.com</span>.
+              To request a BAA, contact <span className="font-semibold">info@klavora.store</span>.
             </p>
           </motion.section>
 

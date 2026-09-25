@@ -19,7 +19,7 @@ export default function Login() {
     setErrorMessage("");
     setIsLoading(true);
     setTimeout(() => {
-      window.location.href = "https://app.klavora.com/login";
+      window.location.href = "https://app.klavora.store/login";
     }, 800);
   };
 
@@ -208,7 +208,7 @@ export default function Login() {
                 <div className="flex items-center justify-between mb-1.5">
                   <label className="text-xs font-semibold text-slate-700">Password</label>
                   <a
-                    href="https://app.klavora.com/forgot-password"
+                    href="https://app.klavora.store/forgot-password"
                     className="text-[11px] font-medium text-emerald-600 hover:text-emerald-700 hover:underline transition-colors"
                   >
                     Forgot password?

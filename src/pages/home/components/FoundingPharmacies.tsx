@@ -69,7 +69,7 @@ export default function FoundingPharmacies() {
 
               {/* CTA */}
               <a
-                href="https://app.klavora.com/signup"
+                href="https://app.klavora.store/signup"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold bg-primary-500 text-background-50 rounded-md hover:bg-primary-400 transition-colors duration-200 whitespace-nowrap"
               >
                 Claim Your Founding Spot

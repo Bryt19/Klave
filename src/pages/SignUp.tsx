@@ -24,7 +24,7 @@ export default function SignUp() {
     setErrorMessage("");
     setIsLoading(true);
     setTimeout(() => {
-      window.location.href = "https://app.klavora.com/signup";
+      window.location.href = "https://app.klavora.store/signup";
     }, 800);
   };
 

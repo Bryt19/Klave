@@ -7,7 +7,7 @@ export default function Testimonials() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="about" className="relative py-14 sm:py-20 lg:py-28 bg-slate-50/50 dark:bg-slate-900 overflow-hidden">
+    <section id="about" className="relative py-14 sm:py-20 lg:py-28 bg-slate-50 dark:bg-slate-800/50 dark:bg-slate-900 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -59,15 +59,15 @@ export default function Testimonials() {
                   </blockquote>
 
                   {/* Metrics */}
-                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-emerald-50/80 to-transparent border border-emerald-100 dark:border-emerald-800/40/60 mb-6">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
-                      <i className="ri-line-chart-line text-emerald-600 text-lg" />
+                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-emerald-50/80 dark:from-emerald-900/20 to-transparent border border-emerald-100 dark:border-emerald-800/40 mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center shrink-0">
+                      <i className="ri-line-chart-line text-emerald-600 dark:text-emerald-400 text-lg" />
                     </div>
                     <div>
-                      <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">
+                      <div className="text-[10px] text-slate-400 dark:text-slate-500 font-medium uppercase tracking-wider">
                         {testimonials[active].metrics.label}
                       </div>
-                      <div className="text-lg font-bold text-emerald-600 mt-0.5">
+                      <div className="text-lg font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">
                         {testimonials[active].metrics.value}
                       </div>
                     </div>
@@ -75,7 +75,7 @@ export default function Testimonials() {
 
                   {/* Author */}
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-xs font-bold text-emerald-700">
+                    <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center text-xs font-bold text-emerald-700 dark:text-emerald-400">
                       {testimonials[active].initials}
                     </div>
                     <div>
@@ -101,7 +101,7 @@ export default function Testimonials() {
                 whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }}
                 className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                   active === i
-                    ? "bg-emerald-50 dark:bg-emerald-900/300 w-6"
+                    ? "bg-emerald-500 dark:bg-emerald-400 w-6"
                     : "bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 w-2"
                 }`}
                 aria-label={`View testimonial ${i + 1}`}

@@ -85,9 +85,9 @@ export const threeSystems = [
   {
     number: "1",
     tag: "Intake & Extraction",
-    title: "Prescription Intake & OCR",
+    title: "Prescription Intake",
     description:
-      "Instant optical character recognition maps handwritten and digital doctor scripts into validated FHIR structures with 99.4% confidence rating.",
+      "Secure digital entry maps prescriptions into validated FHIR structures.",
     badge: "",
   },
   {
@@ -101,7 +101,7 @@ export const threeSystems = [
   {
     number: "3",
     tag: "Clinical Verification",
-    title: "Telepharmacy & Clinical Sign-Off",
+    title: "Clinical Sign-Off",
     description:
       "Pharmacists verify scripts with integrated drug-interaction alerts, allergy cross-referencing, digital signatures, and automated label dispensing.",
     badge: "",
@@ -324,8 +324,8 @@ export const everyLayerFeatures = [
   },
   {
     icon: "ri-user-shared-line",
-    title: "Staff Roles & Telepharmacy",
-    description: "Granular access control and remote supervising pharmacist sign-off workflows.",
+    title: "Staff Roles & Access Control",
+    description: "Granular access control and secure pharmacist sign-off workflows.",
   },
 ];
 
@@ -390,7 +390,7 @@ export const pricingFeatures = [
   "Offline Selling with Auto Cloud Sync",
   "Real-Time KPI & Revenue Analytics",
   "Staff Management & Role-Based Permissions",
-  "Prescription Intake & OCR Parser",
+  "Secure Prescription Intake",
   "Immutable Cryptographic Audit Trail",
   "Automated Expiry & Low Stock Alerts",
   "Drug Interaction Clinical Warning Engine",

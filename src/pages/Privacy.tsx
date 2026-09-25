@@ -158,7 +158,7 @@ const sections: { title: string; body: ReactNode }[] = [
         </ul>
         <p className="mt-4">
           To exercise these rights, contact us at{" "}
-          <span className="font-semibold">privacy@klavora.com</span>. We will
+          <span className="font-semibold">info@klavora.store</span>. We will
           respond within 30 days.
         </p>
       </>
@@ -219,7 +219,7 @@ const sections: { title: string; body: ReactNode }[] = [
 ];
 
 const contactInfo = [
-  { label: "Email", value: "privacy@klavora.com" },
+  { label: "Email", value: "info@klavora.store" },
   { label: "Mail", value: "EliTech CreaTives Limited, Privacy Team" },
   { label: "Response Time", value: "Within 30 days of receiving your request" },
 ];

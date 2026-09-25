@@ -1,0 +1,22 @@
+# Klavora
+
+Klavora is a modern Pharmacy Inventory Management and FEFO (First Expired, First Out) Automated Dispensing software engineered by EliTech CreaTives Limited. It is designed to modernize pharmacies in Ghana and across West Africa.
+
+## Core Features
+- Sub-20ms real-time sync
+- FEFO automated batch dispensing
+- Offline-first architecture
+- HIPAA & Ghana DPA compliant security
+- Unified dispensary queue
+
+## Tech Stack
+Frontend: React, Vite, Tailwind CSS, Framer Motion
+Backend & Infrastructure: Edge computing, real-time sync engines
+
+## Navigation
+- [Home](https://klavora.store/)
+- [Features](https://klavora.store/features)
+- [Pricing](https://klavora.store/pricing)
+- [API Overview](https://klavora.store/api)
+- [Security](https://klavora.store/security)
+- [Documentation](https://klavora.store/docs)

@@ -69,9 +69,9 @@ export default function ExpiryTimeline() {
 
               {expiryItems.map((item, i) => {
                 const severityColors: Record<string, { dot: string; bg: string; border: string; text: string }> = {
-                  critical: { dot: "bg-red-50 dark:bg-red-900/300", bg: "bg-red-50 dark:bg-red-900/30/80", border: "border-red-100 dark:border-red-800/40", text: "text-red-600" },
-                  warning: { dot: "bg-amber-400", bg: "bg-amber-50 dark:bg-amber-900/30/80", border: "border-amber-100 dark:border-amber-800/40", text: "text-amber-600" },
-                  normal: { dot: "bg-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-900/30/80", border: "border-emerald-100 dark:border-emerald-800/40", text: "text-emerald-600" },
+                  critical: { dot: "bg-red-400", bg: "bg-red-50 dark:bg-red-900/30", border: "border-red-100 dark:border-red-800/40", text: "text-red-600 dark:text-red-400" },
+                  warning: { dot: "bg-amber-400", bg: "bg-amber-50 dark:bg-amber-900/30", border: "border-amber-100 dark:border-amber-800/40", text: "text-amber-600 dark:text-amber-400" },
+                  normal: { dot: "bg-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-900/30", border: "border-emerald-100 dark:border-emerald-800/40", text: "text-emerald-600 dark:text-emerald-400" },
                 };
                 const c = severityColors[item.severity] || severityColors.normal;
 
@@ -92,9 +92,9 @@ export default function ExpiryTimeline() {
                       <div className="flex items-center justify-between mb-2">
                         <div className="text-xs font-bold text-slate-900 dark:text-white">{item.medicine}</div>
                         <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                          item.severity === "critical" ? "bg-red-100 text-red-700" :
-                          item.severity === "warning" ? "bg-amber-100 text-amber-700" :
-                          "bg-emerald-100 text-emerald-700"
+                          item.severity === "critical" ? "bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-400" :
+                          item.severity === "warning" ? "bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-400" :
+                          "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-400"
                         }`}>
                           {item.daysLeft} days
                         </span>

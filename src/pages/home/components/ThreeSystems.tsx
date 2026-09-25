@@ -36,7 +36,7 @@ export default function ThreeSystems() {
           {/* Right Column - 3 Fluid Mesh Stacked Cards */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-10">
             
-            {/* Card 1: Prescription Intake & OCR */}
+            {/* Card 1: Prescription Intake */}
             <Reveal delay={0.1}>
               <div className="rounded-3xl p-5 sm:p-8 organic-card-mesh border border-emerald-100 dark:border-emerald-800/40/80 shadow-sm transition-all duration-300 hover:shadow-md">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 mb-3 sm:mb-4">
@@ -45,21 +45,21 @@ export default function ThreeSystems() {
                       1
                     </span>
                     <h3 className="text-sm sm:text-lg font-bold text-slate-900 dark:text-white">
-                      Prescription Intake &amp; OCR
+                      Prescription Intake
                     </h3>
                   </div>
                 </div>
 
                 <p className="text-[13px] sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 sm:mb-6">
-                  Intelligent character recognition parses handwritten Rx and digital prescriptions into structured data ready for verification.
+                  Secure digital entry maps prescriptions into validated structures ready for verification.
                 </p>
 
-                {/* Micro Mockup: OCR Parser */}
+                {/* Micro Mockup: Intake Form */}
                 <div className="bg-white/90 backdrop-blur-md rounded-2xl p-3 sm:p-4 border border-slate-200 dark:border-slate-700/80 shadow-xs space-y-2 sm:space-y-3">
                   <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-700/50 text-xs">
                     <div className="flex items-center gap-2 text-slate-800 dark:text-slate-100 font-semibold">
                       <i className="ri-file-search-line text-emerald-600" />
-                      <span>Script Scan #OCR-2940</span>
+                      <span>Script Entry #RX-2940</span>
                     </div>
                     <span className="text-[10px] text-slate-400 font-mono">340ms</span>
                   </div>
@@ -87,7 +87,7 @@ export default function ThreeSystems() {
                     <span className="flex items-center gap-1">
                       <i className="ri-check-line text-emerald-600 font-bold" /> Signature verified
                     </span>
-                    <span className="text-emerald-700 font-medium cursor-pointer hover:underline hidden sm:inline">View scan →</span>
+                    <span className="text-emerald-700 dark:text-emerald-400 font-medium cursor-pointer hover:underline hidden sm:inline">View scan →</span>
                   </div>
                 </div>
               </div>
@@ -146,7 +146,7 @@ export default function ThreeSystems() {
               </div>
             </Reveal>
 
-            {/* Card 3: Telepharmacy & Clinical Sign-Off */}
+            {/* Card 3: Clinical Sign-Off */}
             <Reveal delay={0.3}>
               <div className="rounded-3xl p-5 sm:p-8 organic-card-mesh border border-emerald-100 dark:border-emerald-800/40/80 shadow-sm transition-all duration-300 hover:shadow-md">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 mb-3 sm:mb-4">
@@ -155,13 +155,13 @@ export default function ThreeSystems() {
                       3
                     </span>
                     <h3 className="text-sm sm:text-lg font-bold text-slate-900 dark:text-white">
-                      Telepharmacy &amp; Verification
+                      Clinical Verification
                     </h3>
                   </div>
                 </div>
 
                 <p className="text-[13px] sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 sm:mb-6">
-                  Supervising pharmacists complete dual-factor verification, trigger label printing, and generate permanent compliance records.
+                  Pharmacists verify scripts with integrated drug-interaction alerts, allergy cross-referencing, digital signatures, and automated label dispensing.
                 </p>
 
                 {/* Micro Mockup: Verification Modal */}
@@ -173,7 +173,7 @@ export default function ThreeSystems() {
                       </div>
                       <span className="font-semibold text-slate-800 dark:text-slate-100">Verification Console</span>
                     </div>
-                    <span className="text-[10px] text-emerald-700 font-semibold bg-emerald-50 dark:bg-emerald-900/30 px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold bg-emerald-50 dark:bg-emerald-900/30 px-2 py-0.5 rounded-full">
                       All Clear
                     </span>
                   </div>

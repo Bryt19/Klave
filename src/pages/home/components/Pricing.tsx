@@ -9,20 +9,16 @@ const plan = {
   priceMonthly: "GH\u20B5250",
   priceAnnual: "GH\u20B5200",
   cta: "Start Free Trial",
-  ctaLink: "https://app.klavora.com/signup",
+  ctaLink: "https://app.klavora.store/signup",
   features: [
     "Point-of-Sale Counter Register",
     "FEFO Automated Batch Dispensing",
     "Offline Selling with Auto Cloud Sync",
     "Batch Expiry & Low Stock Alerts",
     "Standard Sales & Receipt Printing",
-    "OCR Script Scanner (99.4% confidence)",
     "Drug Interaction Warning Engine",
-    "Telepharmacy Sign-Off Console",
-    "Multi-Station Live Kanban",
     "Cryptographic Audit Trail",
     "Unlimited Staff & Roles",
-    "SMS & WhatsApp Pickup Alerts",
     "Priority 24/7 Support",
   ],
 };
@@ -107,7 +103,7 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      className="relative py-14 sm:py-20 lg:py-28 bg-slate-50/50 dark:bg-slate-900 overflow-hidden"
+      className="relative py-14 sm:py-20 lg:py-28 bg-slate-50 dark:bg-slate-800/50 dark:bg-slate-900 overflow-hidden"
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -152,10 +148,10 @@ export default function Pricing() {
                 className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
                   isAnnual
                     ? "bg-emerald-400 text-emerald-950"
-                    : "bg-emerald-100 text-emerald-700"
+                    : "bg-emerald-100 text-emerald-700 dark:text-emerald-400"
                 }`}
               >
-                Save 20%
+                Save GH₵50
               </span>
             </motion.button>
           </div>
@@ -203,7 +199,7 @@ export default function Pricing() {
                           billed annually
                         </span>
                         <span className="inline-flex items-center px-1.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-900/40 text-[9px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-800/40">
-                          Save 20%
+                          Save GH₵50
                         </span>
                       </span>
                     ) : (
@@ -219,7 +215,7 @@ export default function Pricing() {
                     {plan.features.map((feat, fIdx) => (
                       <li
                         key={fIdx}
-                        className="flex items-start gap-2.5 text-xs text-slate-700"
+                        className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300"
                       >
                         <i className="ri-checkbox-circle-fill text-emerald-500 text-sm shrink-0 mt-0.5" />
                         <span>{feat}</span>
@@ -244,7 +240,7 @@ export default function Pricing() {
 
         {/* Trust banner */}
         <div className="mt-14 p-5 rounded-2xl bg-emerald-50 dark:bg-emerald-900/30/60 border border-emerald-100 dark:border-emerald-800/40 max-w-3xl mx-auto text-center">
-          <div className="flex flex-wrap items-center justify-center gap-5 text-xs text-emerald-800 font-medium">
+          <div className="flex flex-wrap items-center justify-center gap-5 text-xs text-emerald-800 dark:text-emerald-400 font-medium">
             <span className="flex items-center gap-1.5">
               <i className="ri-shield-check-fill text-emerald-500" /> Free
               30-day trial

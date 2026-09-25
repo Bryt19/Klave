@@ -2,7 +2,7 @@ import Reveal from "./Reveal";
 
 export default function OperationalOutcomes() {
   return (
-    <section className="relative py-24 md:py-32 bg-slate-50/70 transition-colors duration-200">
+    <section className="relative py-24 md:py-32 bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -26,7 +26,7 @@ export default function OperationalOutcomes() {
           {/* Left: Big Stat Transformation Card */}
           <div className="lg:col-span-6">
             <Reveal>
-              <div className="glass-panel-clean rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 h-full flex flex-col justify-between border border-slate-200 dark:border-slate-700/90 shadow-md bg-white dark:bg-slate-800">
+              <div className="rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 h-full flex flex-col justify-between border border-slate-200 dark:border-slate-700/90 shadow-md bg-white dark:bg-slate-800">
                 <div>
                   <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-blue-600 mb-5">
                     Dispense &amp; Verification Cycle
@@ -63,7 +63,7 @@ export default function OperationalOutcomes() {
           {/* Right: Verified Customer Testimonial Card */}
           <div className="lg:col-span-6">
             <Reveal delay={0.1}>
-              <div className="glass-panel-clean rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 h-full flex flex-col justify-between border border-slate-200 dark:border-slate-700/90 shadow-md bg-white dark:bg-slate-800">
+              <div className="rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 h-full flex flex-col justify-between border border-slate-200 dark:border-slate-700/90 shadow-md bg-white dark:bg-slate-800">
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-5">
                     <div className="flex text-amber-400 text-xs">

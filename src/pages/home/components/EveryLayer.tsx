@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 
 export default function EveryLayer() {
   return (
-    <section id="features" className="relative py-16 sm:py-24 md:py-32 bg-slate-50/50 transition-colors duration-200">
+    <section id="features" className="relative py-16 sm:py-24 md:py-32 bg-slate-50 dark:bg-slate-800/50 transition-colors duration-200">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -34,7 +34,7 @@ export default function EveryLayer() {
                   <div>
                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-5 text-lg transition-colors ${
                       isGreen
-                        ? "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 hover:bg-emerald-100 hover:text-emerald-800"
+                        ? "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-100 hover:text-emerald-800"
                         : "bg-blue-50 dark:bg-blue-900/30 text-blue-600 hover:bg-blue-100 hover:text-blue-700"
                     }`}>
                       <i className={feature.icon} />

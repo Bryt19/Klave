@@ -101,6 +101,27 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── Anti-Copy & Anti-Screenshot for Legal Dates ──────────────── */
+.legal-date-stamp {
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+}
+@media print {
+  .legal-date-stamp {
+    display: none !important;
+  }
+}
+@media screen {
+  .anti-screenshot {
+    color: transparent !important;
+    text-shadow: 0 0 0px rgba(15, 23, 42, 1);
+  }
+  .dark .anti-screenshot {
+    text-shadow: 0 0 0px rgba(241, 245, 249, 1);
+  }
+}
+
 /* ── Hero background — premium editorial ───────────────────── */
 .hero-bg {
   background:

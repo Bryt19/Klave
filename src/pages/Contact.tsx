@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const contactMethods = [
-  { icon: "ri-mail-line", label: "Email", value: "info.klavora@gmail.com", href: "mailto:info.klavora@gmail.com" },
-  { icon: "ri-phone-line", label: "Phone", value: "+233 24 123 4567", href: "tel:+233241234567" },
+  { icon: "ri-mail-line", label: "Email", value: "info@klavora.store", href: "mailto:info@klavora.store" },
+  { icon: "ri-phone-line", label: "Phone & WhatsApp", value: "020 360 4957", href: "tel:0203604957" },
   { icon: "ri-map-pin-line", label: "Office", value: "Accra, Ghana", href: "#" },
   { icon: "ri-time-line", label: "Response", value: "Within 24 hours", href: "#" },
 ];
@@ -76,7 +76,7 @@ export default function Contact() {
                 </motion.div>
               ) : (
                 <motion.form key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                  onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-5"
+                  onSubmit={(e) => { e.preventDefault(); window.location.href = "mailto:info@klavora.store?subject=Contact"; setSubmitted(true); }} className="space-y-5"
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={stagger(4)}>
@@ -147,7 +147,7 @@ export default function Contact() {
             >
               <h3 className="text-sm font-bold text-slate-900 mb-2">Enterprise?</h3>
               <p className="text-xs text-slate-600 leading-relaxed mb-3">Need multi-branch deployment, custom EHR integration, or a dedicated account team?</p>
-              <a href="mailto:info.klavora@gmail.com" className="text-xs font-semibold text-emerald-600 hover:text-emerald-700 transition-colors">Contact Enterprise Sales &rarr;</a>
+              <a href="mailto:info@klavora.store" className="text-xs font-semibold text-emerald-600 hover:text-emerald-700 transition-colors">Contact Enterprise Sales &rarr;</a>
             </motion.div>
           </motion.div>
         </div>

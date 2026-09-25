@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const DEMO_URL = "https://app.klavora.com/signup";
+const DEMO_URL = "https://app.klavora.store/signup";
 
 export default function StickyCtaBar() {
   const [visible, setVisible] = useState(false);
