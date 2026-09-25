@@ -142,11 +142,11 @@ export default function DocsIndex() {
               <ul className="space-y-3">
                 <li className="flex gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
-                  <span><strong className="font-semibold text-slate-900">Use Klavora:</strong> <a href="https://app.klavora.co" className="text-emerald-600 hover:text-emerald-500">app.klavora.co</a></span>
+                  <span><strong className="font-semibold text-slate-900">Use Klavora:</strong> <a href="https://app.klavora.store" className="text-emerald-600 hover:text-emerald-500">app.klavora.store</a></span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
-                  <span><strong className="font-semibold text-slate-900">Website:</strong> <a href="https://klavora.co" className="text-emerald-600 hover:text-emerald-500">klavora.co</a></span>
+                  <span><strong className="font-semibold text-slate-900">Website:</strong> <a href="https://klavora.store" className="text-emerald-600 hover:text-emerald-500">klavora.store</a></span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
