@@ -84,7 +84,7 @@ export default function Footer() {
                 <div className="lg:col-span-7">
                   <div className="flex flex-col sm:flex-row gap-3">
                     <div className="relative flex-1">
-                      <i className="ri-mail-line absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 text-sm" />
+                      <i className="ri-mail-line absolute left-4 top-1/2 -translate-y-1/2 text-slate-500  text-sm" />
                       <input type="email" placeholder="Enter your email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -96,13 +96,13 @@ export default function Footer() {
                         showToast("Thank you for subscribing! 🎉");
                         setEmail("");
                       }}
-                      className="shrink-0 px-7 py-3 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 hover:bg-emerald-400 text-slate-900 dark:text-white text-sm font-bold transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-emerald-50 dark:disabled:hover:bg-emerald-900/30 disabled:hover:shadow-emerald-500/20 flex items-center justify-center gap-2 group cursor-pointer"
+                      className="shrink-0 px-7 py-3 rounded-xl bg-emerald-50  hover:bg-emerald-400 text-slate-900  text-sm font-bold transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-emerald-50  disabled:hover:shadow-emerald-500/20 flex items-center justify-center gap-2 group cursor-pointer"
                     >
                       Subscribe
                       <i className="ri-arrow-right-line text-xs group-hover:translate-x-0.5 transition-transform" />
                     </button>
                   </div>
-                  <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-3 text-[10px] text-slate-500 dark:text-slate-400">
+                  <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-3 text-[10px] text-slate-500 ">
                     <span className="flex items-center gap-1.5"><i className="ri-shield-check-line text-emerald-400/60" /> No spam, ever</span>
                     <span className="flex items-center gap-1.5"><i className="ri-time-line text-emerald-400/60" /> Delivered monthly</span>
                     <span className="flex items-center gap-1.5"><i className="ri-close-circle-line text-emerald-400/60" /> One-click unsubscribe</span>
@@ -127,7 +127,7 @@ export default function Footer() {
                 </svg>
                 <span className="text-lg font-bold tracking-tight text-white">Klavora</span>
               </Link>
-              <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-xs mb-6">
+              <p className="text-sm text-slate-500  leading-relaxed max-w-xs mb-6">
                 Unified pharmacy management for modern health systems. Inventory, dispensing, sales, and analytics, all in one platform.
               </p>
 
@@ -149,22 +149,22 @@ export default function Footer() {
 
             {/* Link columns */}
             <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
-              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400 mb-5">Product</h4>
+              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500  mb-5">Product</h4>
                 <ul className="space-y-3">
                   {footerProduct.map((l) => (<li key={l.label}><a href={l.href} className="text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-150">{l.label}</a></li>))}
                 </ul>
               </div>
-              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400 mb-5">Company</h4>
+              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500  mb-5">Company</h4>
                 <ul className="space-y-3">
                   {footerCompany.map((l) => (<li key={l.label}><a href={l.href} className="text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-150">{l.label}</a></li>))}
                 </ul>
               </div>
-              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400 mb-5">Resources</h4>
+              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500  mb-5">Resources</h4>
                 <ul className="space-y-3">
                   {footerResources.map((l) => (<li key={l.label}><a href={l.href} className="text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-150">{l.label}</a></li>))}
                 </ul>
               </div>
-              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400 mb-5">Legal</h4>
+              <div>                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500  mb-5">Legal</h4>
                 <ul className="space-y-3">
                   {footerLegal.map((l) => (<li key={l.label}><a href={l.href} className="text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-150">{l.label}</a></li>))}
                 </ul>
@@ -183,7 +183,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="py-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-600 dark:text-slate-300">
+        <div className="py-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-600 ">
           <div>&copy; {new Date().getFullYear()} Klavora (EliTech CreaTives Limited). All rights reserved.</div>
           <div className="flex items-center gap-5">
             <Link to="/privacy" className="hover:text-slate-400 transition-colors">Privacy</Link>

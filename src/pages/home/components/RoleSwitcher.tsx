@@ -4,11 +4,11 @@ import { roles } from "@/mocks/homeContent";
 import Reveal from "./Reveal";
 
 const roleColors: Record<string, { bg: string; text: string; border: string; ring: string; activeBg: string }> = {
-  owner: { bg: "bg-violet-50 dark:bg-violet-900/30", text: "text-violet-600", border: "border-violet-200", ring: "ring-violet-100", activeBg: "bg-violet-600" },
-  pharmacist: { bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-600", border: "border-blue-200", ring: "ring-blue-100", activeBg: "bg-blue-600" },
-  cashier: { bg: "bg-emerald-50 dark:bg-emerald-900/30", text: "text-emerald-600", border: "border-emerald-200", ring: "ring-emerald-100", activeBg: "bg-emerald-600" },
-  manager: { bg: "bg-amber-50 dark:bg-amber-900/30", text: "text-amber-600", border: "border-amber-200", ring: "ring-amber-100", activeBg: "bg-amber-600" },
-  staff: { bg: "bg-sky-50 dark:bg-sky-900/30", text: "text-sky-600", border: "border-sky-200", ring: "ring-sky-100", activeBg: "bg-sky-600" },
+  owner: { bg: "bg-violet-50 ", text: "text-violet-600", border: "border-violet-200", ring: "ring-violet-100", activeBg: "bg-violet-600" },
+  pharmacist: { bg: "bg-blue-50 ", text: "text-blue-600", border: "border-blue-200", ring: "ring-blue-100", activeBg: "bg-blue-600" },
+  cashier: { bg: "bg-emerald-50 ", text: "text-emerald-600", border: "border-emerald-200", ring: "ring-emerald-100", activeBg: "bg-emerald-600" },
+  manager: { bg: "bg-amber-50 ", text: "text-amber-600", border: "border-amber-200", ring: "ring-amber-100", activeBg: "bg-amber-600" },
+  staff: { bg: "bg-sky-50 ", text: "text-sky-600", border: "border-sky-200", ring: "ring-sky-100", activeBg: "bg-sky-600" },
 };
 
 export default function RoleSwitcher() {
@@ -17,16 +17,16 @@ export default function RoleSwitcher() {
   const colors = roleColors[activeRole] || roleColors.staff;
 
   return (
-    <section id="platform" className="relative py-14 sm:py-20 lg:py-28 bg-slate-50 dark:bg-slate-800/50 dark:bg-slate-900 overflow-hidden">
+    <section id="platform" className="relative py-14 sm:py-20 lg:py-28 bg-slate-50   overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="max-w-3xl mb-8 sm:mb-10 text-center mx-auto">
           <Reveal>
-            <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-5">
+            <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900  leading-[1.1] mb-5">
               Built for every role{" "}
               <span className="gradient-text-emerald">in your pharmacy.</span>
             </h2>
-            <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 leading-relaxed max-w-xl mx-auto">
+            <p className="text-sm sm:text-base text-slate-500  leading-relaxed max-w-xl mx-auto">
               Each team member sees exactly what they need, nothing more, nothing less. Select a role to see their workspace.
             </p>
           </Reveal>
@@ -45,7 +45,7 @@ export default function RoleSwitcher() {
                   className={`relative flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
                     isActive
                       ? `${rc.activeBg} text-white shadow-sm`
-                      : `bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:${rc.text} hover:${rc.border}`
+                      : `bg-white  border border-slate-200  text-slate-500  hover:${rc.text} hover:${rc.border}`
                   }`}
                 >
                   <i className={`${role.icon} text-sm`} />
@@ -65,17 +65,17 @@ export default function RoleSwitcher() {
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
-              <div className="lg:col-span-4 p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 shadow-sm card-hover-glow">
+              <div className="lg:col-span-4 p-6 sm:p-8 rounded-3xl bg-white  border border-slate-100  shadow-sm card-hover-glow">
                 <div className={`w-12 h-12 rounded-2xl ${colors.bg} flex items-center justify-center mb-5`}>
                   <i className={`${currentRole.icon} ${colors.text} text-xl`} />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">{currentRole.name}</h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">{currentRole.description}</p>
-                <div className="pt-4 border-t border-slate-100 dark:border-slate-700/50">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900  mb-2">{currentRole.name}</h3>
+                <p className="text-sm text-slate-500  leading-relaxed mb-6">{currentRole.description}</p>
+                <div className="pt-4 border-t border-slate-100 ">
                   <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-3">Key Capabilities</div>
                   <div className="space-y-2.5">
                     {currentRole.features.map((feat) => (
-                      <div key={feat} className="flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-300">
+                      <div key={feat} className="flex items-start gap-2.5 text-xs text-slate-600 ">
                         <i className={`ri-check-line ${colors.text} text-sm mt-0.5 shrink-0`} />
                         <span>{feat}</span>
                       </div>
@@ -84,14 +84,14 @@ export default function RoleSwitcher() {
                 </div>
               </div>
 
-              <div className="lg:col-span-8 p-5 sm:p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 shadow-sm dashboard-shadow min-h-[360px]">
-                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-slate-700/50">
+              <div className="lg:col-span-8 p-5 sm:p-6 rounded-3xl bg-white  border border-slate-100  shadow-sm dashboard-shadow min-h-[360px]">
+                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 ">
                   <div className="flex items-center gap-3">
                     <div className={`w-8 h-8 rounded-lg ${colors.bg} flex items-center justify-center`}>
                       <i className={`${currentRole.icon} ${colors.text} text-sm`} />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-slate-800 dark:text-slate-100">{currentRole.name} Dashboard</div>
+                      <div className="text-xs font-bold text-slate-800 ">{currentRole.name} Dashboard</div>
                       <div className="text-[10px] text-slate-400">Klavora Workspace</div>
                     </div>
                   </div>
@@ -110,16 +110,16 @@ export default function RoleSwitcher() {
                       { branch: "Tema Medical", rx: 63, revenue: "GH₵ 3,740", status: "Operational" },
                       { branch: "Takoradi Hub", rx: 54, revenue: "GH₵ 2,960", status: "Operational" },
                     ].map((b) => (
-                      <div key={b.branch} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50 flex items-center justify-between">
+                      <div key={b.branch} className="p-3 rounded-xl bg-slate-50  border border-slate-100  flex items-center justify-between">
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 rounded-full bg-violet-400" />
                           <div>
-                            <div className="text-[11px] font-semibold text-slate-800 dark:text-slate-100">{b.branch}</div>
+                            <div className="text-[11px] font-semibold text-slate-800 ">{b.branch}</div>
                             <div className="text-[10px] text-slate-400">{b.rx} prescriptions today</div>
                           </div>
                         </div>
                         <div className="text-right">
-                          <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300">{b.revenue}</div>
+                          <div className="text-[11px] font-bold text-slate-700 ">{b.revenue}</div>
                           <div className={`text-[9px] font-medium ${b.status.includes("Alert") ? "text-amber-600" : "text-emerald-600"}`}>{b.status}</div>
                         </div>
                       </div>
@@ -136,18 +136,18 @@ export default function RoleSwitcher() {
                       { rx: "RX-9491", patient: "James Mensah", drug: "Cefuroxime 250mg", status: "Pending Review", color: "amber" },
                       { rx: "RX-9492", patient: "Ama Darko", drug: "Omeprazole 20mg", status: "Approved", color: "emerald" },
                     ].map((item) => (
-                      <div key={item.rx} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50 flex items-center justify-between">
+                      <div key={item.rx} className="p-3 rounded-xl bg-slate-50  border border-slate-100  flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-[10px] font-bold text-blue-600 font-mono">Rx</div>
+                          <div className="w-8 h-8 rounded-lg bg-blue-50  flex items-center justify-center text-[10px] font-bold text-blue-600 font-mono">Rx</div>
                           <div>
-                            <div className="text-[11px] font-semibold text-slate-800 dark:text-slate-100">{item.drug}</div>
+                            <div className="text-[11px] font-semibold text-slate-800 ">{item.drug}</div>
                             <div className="text-[10px] text-slate-400">{item.rx} · {item.patient}</div>
                           </div>
                         </div>
                         <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${
-                          item.color === "amber" ? "bg-amber-50 dark:bg-amber-900/30 text-amber-600 border border-amber-100 dark:border-amber-800/40" :
-                          item.color === "emerald" ? "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 border border-emerald-100 dark:border-emerald-800/40" :
-                          "bg-red-50 dark:bg-red-900/30 text-red-600 border border-red-100 dark:border-red-800/40"
+                          item.color === "amber" ? "bg-amber-50  text-amber-600 border border-amber-100 " :
+                          item.color === "emerald" ? "bg-emerald-50  text-emerald-600 border border-emerald-100 " :
+                          "bg-red-50  text-red-600 border border-red-100 "
                         }`}>{item.status}</span>
                       </div>
                     ))}
@@ -163,9 +163,9 @@ export default function RoleSwitcher() {
                       { item: "Lisinopril 20mg", qty: "30 tabs", total: "GH₵ 62.00", time: "11m ago" },
                       { item: "Omeprazole 20mg", qty: "28 caps", total: "GH₵ 38.50", time: "14m ago" },
                     ].map((tx) => (
-                      <div key={tx.item + tx.time} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50 flex items-center justify-between">
+                      <div key={tx.item + tx.time} className="p-3 rounded-xl bg-slate-50  border border-slate-100  flex items-center justify-between">
                         <div>
-                          <div className="text-[11px] font-semibold text-slate-800 dark:text-slate-100">{tx.item}</div>
+                          <div className="text-[11px] font-semibold text-slate-800 ">{tx.item}</div>
                           <div className="text-[10px] text-slate-400">{tx.qty} · {tx.time}</div>
                         </div>
                         <div className="text-[11px] font-bold text-slate-700">{tx.total}</div>
@@ -183,16 +183,16 @@ export default function RoleSwitcher() {
                       { name: "Metformin 850mg", stock: 312, max: 400, alert: "OK" },
                       { name: "Amlodipine 5mg", stock: 45, max: 300, alert: "Low Stock" },
                     ].map((item) => (
-                      <div key={item.name} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50">
+                      <div key={item.name} className="p-3 rounded-xl bg-slate-50  border border-slate-100 ">
                         <div className="flex items-center justify-between mb-2">
-                          <div className="text-[11px] font-semibold text-slate-800 dark:text-slate-100">{item.name}</div>
+                          <div className="text-[11px] font-semibold text-slate-800 ">{item.name}</div>
                           <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${
-                            item.alert === "Reorder Now" ? "bg-red-50 dark:bg-red-900/30 text-red-600 border border-red-100 dark:border-red-800/40" :
-                            item.alert === "Monitor" || item.alert === "Low Stock" ? "bg-amber-50 dark:bg-amber-900/30 text-amber-600 border border-amber-100 dark:border-amber-800/40" :
-                            "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 border border-emerald-100 dark:border-emerald-800/40"
+                            item.alert === "Reorder Now" ? "bg-red-50  text-red-600 border border-red-100 " :
+                            item.alert === "Monitor" || item.alert === "Low Stock" ? "bg-amber-50  text-amber-600 border border-amber-100 " :
+                            "bg-emerald-50  text-emerald-600 border border-emerald-100 "
                           }`}>{item.alert}</span>
                         </div>
-                        <div className="h-1.5 rounded-full bg-slate-100 dark:bg-slate-800/50 overflow-hidden">
+                        <div className="h-1.5 rounded-full bg-slate-100  overflow-hidden">
                           <div className={`h-full rounded-full ${
                             item.alert === "Reorder Now" ? "bg-red-400" :
                             item.alert === "Monitor" || item.alert === "Low Stock" ? "bg-amber-400" : "bg-emerald-400"
@@ -213,12 +213,12 @@ export default function RoleSwitcher() {
                       { action: "Assisted patient Marcus Sterling with refill", time: "25m ago", icon: "ri-user-heart-line", color: "violet" },
                       { action: "Logged daily opening inventory check", time: "1h ago", icon: "ri-clipboard-line", color: "sky" },
                     ].map((log) => (
-                      <div key={log.action} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50 flex items-center gap-3">
+                      <div key={log.action} className="p-3 rounded-xl bg-slate-50  border border-slate-100  flex items-center gap-3">
                         <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                          log.color === "emerald" ? "bg-emerald-50 dark:bg-emerald-900/30" :
-                          log.color === "blue" ? "bg-blue-50 dark:bg-blue-900/30" :
-                          log.color === "amber" ? "bg-amber-50 dark:bg-amber-900/30" :
-                          log.color === "violet" ? "bg-violet-50 dark:bg-violet-900/30" : "bg-sky-50 dark:bg-sky-900/30"
+                          log.color === "emerald" ? "bg-emerald-50 " :
+                          log.color === "blue" ? "bg-blue-50 " :
+                          log.color === "amber" ? "bg-amber-50 " :
+                          log.color === "violet" ? "bg-violet-50 " : "bg-sky-50 "
                         }`}>
                           <i className={`${log.icon} text-sm ${
                             log.color === "emerald" ? "text-emerald-600" :
@@ -228,7 +228,7 @@ export default function RoleSwitcher() {
                           }`} />
                         </div>
                         <div className="flex-1">
-                          <div className="text-[11px] font-semibold text-slate-800 dark:text-slate-100">{log.action}</div>
+                          <div className="text-[11px] font-semibold text-slate-800 ">{log.action}</div>
                           <div className="text-[10px] text-slate-400">{log.time}</div>
                         </div>
                       </div>

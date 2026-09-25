@@ -8,19 +8,19 @@ export default function ProblemSection() {
   const inView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section ref={sectionRef} className="relative py-14 sm:py-20 lg:py-28 bg-white dark:bg-slate-900 overflow-hidden">
+    <section ref={sectionRef} className="relative py-14 sm:py-20 lg:py-28 bg-white  overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
         <div className="max-w-3xl mb-8 sm:mb-12">
           <Reveal>
-            <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-5">
+            <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900  leading-[1.1] mb-5">
               Pharmacy operations{" "}
               <span className="text-slate-400">shouldn't feel</span>{" "}
               <span className="gradient-text-emerald">fragmented.</span>
             </h2>
 
-            <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 leading-relaxed max-w-xl">
+            <p className="text-sm sm:text-base text-slate-500  leading-relaxed max-w-xl">
               Most pharmacies still run on disconnected systems: paper logs, spreadsheet inventory, and manual dispensing workflows that create blind spots at every step.
             </p>
           </Reveal>
@@ -34,17 +34,17 @@ export default function ProblemSection() {
               <Reveal key={point.title} delay={i * 0.08}>
                 <motion.div
                   whileHover={{ y: -3 }}
-                  className="group p-5 sm:p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50 hover:border-red-200/60 transition-all duration-300 card-hover-glow"
+                  className="group p-5 sm:p-6 rounded-2xl bg-slate-50  border border-slate-100  hover:border-red-200/60 transition-all duration-300 card-hover-glow"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-900/30 border border-red-100 dark:border-red-800/40 flex items-center justify-center shrink-0 group-hover:bg-red-100 transition-colors">
+                    <div className="w-10 h-10 rounded-xl bg-red-50  border border-red-100  flex items-center justify-center shrink-0 group-hover:bg-red-100 transition-colors">
                       <i className={`${point.icon} text-red-500 text-lg`} />
                     </div>
                     <div>
-                      <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1.5">
+                      <h3 className="text-sm font-bold text-slate-900  mb-1.5">
                         {point.title}
                       </h3>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                      <p className="text-xs text-slate-500  leading-relaxed">
                         {point.description}
                       </p>
                     </div>
@@ -63,7 +63,7 @@ export default function ProblemSection() {
                   <motion.div
                     animate={inView ? { rotate: 360 } : {}}
                     transition={{ duration: 2, ease: "easeInOut" }}
-                    className="w-12 h-12 rounded-full bg-emerald-50 dark:bg-emerald-900/30 border-2 border-emerald-200 flex items-center justify-center"
+                    className="w-12 h-12 rounded-full bg-emerald-50  border-2 border-emerald-200 flex items-center justify-center"
                   >
                     <i className="ri-arrow-down-line text-emerald-600 text-lg" />
                   </motion.div>
@@ -97,16 +97,16 @@ export default function ProblemSection() {
 
           {/* Organized result */}
           <Reveal delay={0.5}>
-            <div className="p-6 sm:p-8 rounded-3xl bg-emerald-50/50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-800/40 card-hover-glow">
+            <div className="p-6 sm:p-8 rounded-3xl bg-emerald-50/50  border border-emerald-100  card-hover-glow">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
                   <i className="ri-checkbox-circle-fill text-emerald-600 text-lg" />
                 </div>
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-1">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900  mb-1">
                     One platform. Complete clarity.
                   </h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-300">
+                  <p className="text-sm text-slate-600 ">
                     Klavora unifies inventory, dispensing, sales, and analytics into a single source of truth for your pharmacy.
                   </p>
                 </div>
@@ -123,16 +123,16 @@ export default function ProblemSection() {
                   { label: "Staff", value: "Role-based", icon: "ri-team-line" },
                   { label: "Offline", value: "Offline First", icon: "ri-wifi-off-line" },
                 ].map((item) => (
-                  <div key={item.label} className="p-3 rounded-xl bg-white dark:bg-slate-800 border border-emerald-100 dark:border-emerald-900/60 text-center">
+                  <div key={item.label} className="p-3 rounded-xl bg-white  border border-emerald-100  text-center">
                     <i className={`${item.icon} text-emerald-500 text-lg mb-2 block`} />
                     <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">{item.label}</div>
-                    <div className="text-xs font-bold text-slate-800 dark:text-slate-100 mt-0.5">{item.value}</div>
+                    <div className="text-xs font-bold text-slate-800  mt-0.5">{item.value}</div>
                   </div>
                 ))}
               </div>
 
               {/* Impact stats */}
-              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 pt-6 mt-6 border-t border-emerald-100 dark:border-emerald-800/40">
+              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 pt-6 mt-6 border-t border-emerald-100 ">
                 {[
                   { value: "88%", label: "Faster dispensing" },
                   { value: "74%", label: "Less stock waste" },
@@ -141,7 +141,7 @@ export default function ProblemSection() {
                 ].map((stat) => (
                   <div key={stat.label} className="text-center">
                     <div className="text-lg sm:text-xl font-bold text-emerald-600">{stat.value}</div>
-                    <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">{stat.label}</div>
+                    <div className="text-[10px] text-slate-500  font-medium mt-0.5">{stat.label}</div>
                   </div>
                 ))}
               </div>

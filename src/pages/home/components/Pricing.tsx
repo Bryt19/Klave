@@ -79,7 +79,7 @@ function AnimatedPrice({
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className="absolute inset-0 flex items-baseline"
         >
-          <span className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight tabular-nums">
+          <span className="text-4xl font-extrabold text-slate-900  tracking-tight tabular-nums">
             {currency}
             {counted}
           </span>
@@ -103,22 +103,22 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      className="relative py-14 sm:py-20 lg:py-28 bg-slate-50 dark:bg-slate-800/50 dark:bg-slate-900 overflow-hidden"
+      className="relative py-14 sm:py-20 lg:py-28 bg-slate-50   overflow-hidden"
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <Reveal className="max-w-2xl mx-auto text-center mb-8 md:mb-10">
-          <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-5">
+          <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900  leading-[1.1] mb-5">
             One plan. <br />
             <span className="gradient-text-emerald">Everything included.</span>
           </h2>
-          <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 leading-relaxed max-w-lg mx-auto mb-8">
+          <p className="text-sm sm:text-base text-slate-500  leading-relaxed max-w-lg mx-auto mb-8">
             Start with our 30-day free trial. No tiers, no add-ons — just one
             powerful plan built for pharmacies of every size.
           </p>
 
           {/* Billing toggle */}
-          <div className="inline-flex items-center gap-1 p-1 rounded-full bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 text-xs font-semibold select-none">
+          <div className="inline-flex items-center gap-1 p-1 rounded-full bg-slate-100  border border-slate-200  text-xs font-semibold select-none">
             <motion.button
               type="button"
               onClick={() => setIsAnnual(false)}
@@ -126,8 +126,8 @@ export default function Pricing() {
               whileTap={{ scale: 0.97 }}
               className={`px-4 py-2 rounded-full transition-colors duration-200 cursor-pointer ${
                 !isAnnual
-                  ? "bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm font-bold"
-                  : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-100"
+                  ? "bg-white  text-slate-900  shadow-sm font-bold"
+                  : "text-slate-500  hover:text-slate-800 "
               }`}
             >
               Monthly
@@ -140,7 +140,7 @@ export default function Pricing() {
               className={`px-4 py-2 rounded-full transition-colors duration-200 cursor-pointer flex items-center gap-1.5 ${
                 isAnnual
                   ? "bg-emerald-950 text-white shadow-sm font-bold"
-                  : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-100"
+                  : "text-slate-500  hover:text-slate-800 "
               }`}
             >
               <span>Annual</span>
@@ -148,7 +148,7 @@ export default function Pricing() {
                 className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
                   isAnnual
                     ? "bg-emerald-400 text-emerald-950"
-                    : "bg-emerald-100 text-emerald-700 dark:text-emerald-400"
+                    : "bg-emerald-100 text-emerald-700 "
                 }`}
               >
                 Save GH₵50
@@ -162,7 +162,7 @@ export default function Pricing() {
           <Reveal>
             <motion.div
               whileHover={{ y: -4 }}
-              className="rounded-2xl sm:rounded-3xl p-6 sm:p-8 bg-white dark:bg-slate-800 border-2 border-emerald-500 shadow-xl ring-2 sm:ring-4 ring-emerald-500/10 relative card-hover-glow"
+              className="rounded-2xl sm:rounded-3xl p-6 sm:p-8 bg-white  border-2 border-emerald-500 shadow-xl ring-2 sm:ring-4 ring-emerald-500/10 relative card-hover-glow"
             >
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950 text-white text-[11px] font-bold shadow-md">
@@ -173,14 +173,14 @@ export default function Pricing() {
 
               <div className="mt-2">
                 <div className="flex items-center justify-between gap-2 mb-2">
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                  <h3 className="text-lg font-bold text-slate-900 ">
                     {plan.name}
                   </h3>
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                <p className="text-xs text-slate-500  leading-relaxed mb-6">
                   {plan.description}
                 </p>
-                <div className="pb-6 mb-6 border-b border-slate-100 dark:border-slate-700/50">
+                <div className="pb-6 mb-6 border-b border-slate-100 ">
                   <AnimatedPrice
                     price={isAnnual ? plan.priceAnnual : plan.priceMonthly}
                     isAnnual={isAnnual}
@@ -190,7 +190,7 @@ export default function Pricing() {
                     initial={{ opacity: 0, y: 4 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.1 }}
-                    className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-0.5"
+                    className="text-xs font-medium text-slate-500  mt-0.5"
                   >
                     {isAnnual ? (
                       <span className="flex items-center gap-1.5">
@@ -198,7 +198,7 @@ export default function Pricing() {
                         <span className="text-emerald-600 font-semibold">
                           billed annually
                         </span>
-                        <span className="inline-flex items-center px-1.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-900/40 text-[9px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-800/40">
+                        <span className="inline-flex items-center px-1.5 py-0.5 rounded-full bg-emerald-50  text-[9px] font-bold text-emerald-700  border border-emerald-100 ">
                           Save GH₵50
                         </span>
                       </span>
@@ -215,7 +215,7 @@ export default function Pricing() {
                     {plan.features.map((feat, fIdx) => (
                       <li
                         key={fIdx}
-                        className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300"
+                        className="flex items-start gap-2.5 text-xs text-slate-700 "
                       >
                         <i className="ri-checkbox-circle-fill text-emerald-500 text-sm shrink-0 mt-0.5" />
                         <span>{feat}</span>
@@ -239,8 +239,8 @@ export default function Pricing() {
         </div>
 
         {/* Trust banner */}
-        <div className="mt-14 p-5 rounded-2xl bg-emerald-50 dark:bg-emerald-900/30/60 border border-emerald-100 dark:border-emerald-800/40 max-w-3xl mx-auto text-center">
-          <div className="flex flex-wrap items-center justify-center gap-5 text-xs text-emerald-800 dark:text-emerald-400 font-medium">
+        <div className="mt-14 p-5 rounded-2xl bg-emerald-50  border border-emerald-100  max-w-3xl mx-auto text-center">
+          <div className="flex flex-wrap items-center justify-center gap-5 text-xs text-emerald-800  font-medium">
             <span className="flex items-center gap-1.5">
               <i className="ri-shield-check-fill text-emerald-500" /> Free
               30-day trial

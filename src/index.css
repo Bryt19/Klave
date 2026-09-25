@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -64,28 +63,23 @@
   overflow-x: hidden;
 }
 
-/* ── Dark mode root variables ────────────────────────────── */
-.dark {
-  --surface: #0f172a;
-  --surface-elevated: #1e293b;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-tertiary: #64748b;
-  --border-subtle: rgba(255, 255, 255, 0.06);
-  --border-default: rgba(255, 255, 255, 0.1);
-  --section-adjacent-bg: #0f172a;
 
-  background-color: var(--surface);
-  color: var(--text-primary);
-}
 
 /* ── Custom scrollbar ─────────────────────────────────────── */
-::-webkit-scrollbar { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 ::-webkit-scrollbar-thumb {
   background: rgba(5, 150, 105, 0.2);
   border-radius: 9999px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(5, 150, 105, 0.35);
 }
@@ -107,18 +101,17 @@ html {
   pointer-events: none;
   -webkit-user-select: none;
 }
+
 @media print {
   .legal-date-stamp {
     display: none !important;
   }
 }
+
 @media screen {
   .anti-screenshot {
     color: transparent !important;
     text-shadow: 0 0 0px rgba(15, 23, 42, 1);
-  }
-  .dark .anti-screenshot {
-    text-shadow: 0 0 0px rgba(241, 245, 249, 1);
   }
 }
 
@@ -130,15 +123,6 @@ html {
     radial-gradient(ellipse 50% 35% at 15% 80%, rgba(16, 185, 129, 0.04) 0%, transparent 45%),
     radial-gradient(ellipse 35% 25% at 50% 50%, rgba(110, 231, 183, 0.03) 0%, transparent 50%),
     linear-gradient(175deg, #f7fdf9 0%, #f0faf4 25%, #e8f7ef 50%, #f0faf5 75%, #f7fdf9 100%);
-}
-
-/* Dark mode override for hero */
-.dark .hero-bg {
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 85% 30%, rgba(5, 150, 105, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 35% at 15% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 45%),
-    linear-gradient(175deg, #0f172a 0%, #0f1f2e 40%, #0a1628 60%, #0f172a 100%);
 }
 
 /* ── Noise texture overlay ─────────────────────────────────── */
@@ -166,11 +150,6 @@ html {
     radial-gradient(ellipse 60% 40% at 80% 20%, rgba(16, 185, 129, 0.04) 0%, transparent 60%),
     #f8fafc;
 }
-.dark .section-subtle {
-  background:
-    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(16, 185, 129, 0.06) 0%, transparent 60%),
-    #0f172a;
-}
 
 /* ── Fine grid texture ─────────────────────────────────────── */
 .grid-texture {
@@ -186,13 +165,6 @@ html {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(226, 232, 240, 0.5);
-}
-
-.glass-dark {
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* ── Dashboard mockup shadow ───────────────────────────────── */
@@ -226,12 +198,14 @@ html {
   max-width: 800px;
   margin: 0 auto;
 }
+
 .section-separator::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg, transparent 0%, rgba(226, 232, 240, 0.5) 20%, rgba(16, 185, 129, 0.08) 50%, rgba(226, 232, 240, 0.5) 80%, transparent 100%);
 }
+
 .section-separator::after {
   content: "";
   position: absolute;
@@ -257,6 +231,7 @@ html {
   position: relative;
   transition: box-shadow 0.3s ease;
 }
+
 .card-hover-glow::after {
   content: "";
   position: absolute;
@@ -267,29 +242,39 @@ html {
   box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.15), 0 0 24px rgba(16, 185, 129, 0.06);
   pointer-events: none;
 }
+
 .card-hover-glow:hover::after {
   opacity: 1;
 }
 
 /* ── CTA animated shimmer ─────────────────────────────────── */
 @keyframes cta-shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
+
 .cta-shimmer {
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.06) 50%, transparent 100%);
   background-size: 200% 100%;
   animation: cta-shimmer 8s ease-in-out infinite;
 }
 
 /* ── Micro-interactions ───────────────────────────────────── */
 /* Button press depth */
-button:active, a:active {
+button:active,
+a:active {
   transform: scale(0.98);
 }
 
 /* Input focus glow */
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.08);
 }
 
@@ -309,15 +294,17 @@ a {
   position: relative;
   overflow: hidden;
 }
+
 .cta-ripple::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%), rgba(255,255,255,0.3) 0%, transparent 60%);
+  background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%), rgba(255, 255, 255, 0.3) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
 }
+
 .cta-ripple:hover::after {
   opacity: 1;
 }
@@ -331,21 +318,35 @@ a {
 
 /* ── Marquee ───────────────────────────────────────────────── */
 @keyframes marquee-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.333%);
+  }
 }
+
 @keyframes marquee-right {
-  0% { transform: translateX(-33.333%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-33.333%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
+
 .marquee-scroll-left {
   animation: marquee-left 30s linear infinite;
   will-change: transform;
 }
+
 .marquee-scroll-right {
   animation: marquee-right 34s linear infinite;
   will-change: transform;
 }
+
 .marquee-scroll-left:hover,
 .marquee-scroll-right:hover {
   animation-play-state: paused;
@@ -353,38 +354,61 @@ a {
 
 /* ── Stat counter ──────────────────────────────────────────── */
 @keyframes count-up-fade {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 .stat-count-animate {
   animation: count-up-fade 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* ── Subtle float ──────────────────────────────────────────── */
 @keyframes gentle-float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
 }
+
 .gentle-float {
   animation: gentle-float 5s ease-in-out infinite;
 }
 
 /* ── Mobile refinements ────────────────────────────────────── */
 @media (max-width: 640px) {
+
   /* Tighter section spacing on mobile */
   section {
     --section-px: 1rem;
   }
+
   /* Reduce animation complexity on mobile */
   .gentle-float {
     animation: none;
   }
+
   /* Smoother tap targets */
-  button, a {
+  button,
+  a {
     -webkit-tap-highlight-color: transparent;
   }
+
   /* Prevent text overflow on small screens */
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     overflow-wrap: break-word;
     word-break: break-word;
   }
@@ -392,12 +416,16 @@ a {
 
 /* ── Reduced motion ────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
   .marquee-scroll-left,
   .marquee-scroll-right {
     animation: none !important;
@@ -419,7 +447,8 @@ a {
 }
 
 /* ── Container query for responsive image loading ─────────── */
-img, video {
+img,
+video {
   content-visibility: auto;
   contain-intrinsic-size: auto 300px;
 }
@@ -435,7 +464,8 @@ blockquote {
 }
 
 /* ── Enhanced focus ring ──────────────────────────────────── */
-a:focus-visible, button:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid rgba(16, 185, 129, 0.5);
   outline-offset: 2px;
   border-radius: 8px;
@@ -443,11 +473,16 @@ a:focus-visible, button:focus-visible {
 
 /* ── Donut chart staggered circular loading ────────────── */
 @keyframes donut-fill {
-  from { stroke-dashoffset: 100.53; }
-  to   { stroke-dashoffset: 0; }
+  from {
+    stroke-dashoffset: 100.53;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
 }
+
 .donut-segment {
   stroke-dashoffset: 100.53;
   animation: donut-fill 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-

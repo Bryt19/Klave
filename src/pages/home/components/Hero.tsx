@@ -37,10 +37,10 @@ function AnimatedStat({ value, label, delay }: { value: string; label: string; d
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold tracking-tight text-slate-900 dark:text-white leading-none">
+        <div className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold tracking-tight text-slate-900  leading-none">
           <span ref={displayRef}>0{suffix}</span>
         </div>
-        <div className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium mt-1.5">{label}</div>
+        <div className="text-[11px] sm:text-xs text-slate-500  font-medium mt-1.5">{label}</div>
       </motion.div>
     </div>
   );
@@ -73,24 +73,24 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-center overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24 hero-bg dark:bg-slate-900 transition-colors duration-300">
+    <section id="home" className="relative min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-center overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24 hero-bg  transition-colors duration-300">
       {/* Subtle grid texture */}
-      <div className="absolute inset-0 grid-texture opacity-30 dark:opacity-10 pointer-events-none" />
+      <div className="absolute inset-0 grid-texture opacity-30  pointer-events-none" />
 
       {/* Ambient emerald glow — top right, wide wash */}
-      <div className="absolute -top-32 -right-24 w-[600px] h-[500px] rounded-full bg-emerald-300/[0.07] dark:bg-emerald-500/[0.1] blur-[140px] pointer-events-none" />
+      <div className="absolute -top-32 -right-24 w-[600px] h-[500px] rounded-full bg-emerald-300/[0.07] .1] blur-[140px] pointer-events-none" />
 
       {/* Secondary emerald glow — center-right, focused */}
-      <div className="absolute top-1/3 right-0 w-[350px] h-[350px] rounded-full bg-emerald-400/[0.04] dark:bg-emerald-500/[0.08] blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-[350px] h-[350px] rounded-full bg-emerald-400/[0.04] .08] blur-[100px] pointer-events-none" />
 
       {/* Teal accent — bottom left, soft depth */}
-      <div className="absolute -bottom-24 -left-16 w-[450px] h-[380px] rounded-full bg-teal-300/[0.04] dark:bg-teal-500/[0.08] blur-[110px] pointer-events-none" />
+      <div className="absolute -bottom-24 -left-16 w-[450px] h-[380px] rounded-full bg-teal-300/[0.04] .08] blur-[110px] pointer-events-none" />
 
       {/* Very subtle warm mint — center, barely visible */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[200px] rounded-full bg-emerald-200/[0.025] dark:bg-emerald-400/[0.05] blur-[80px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[200px] rounded-full bg-emerald-200/[0.025] .05] blur-[80px] pointer-events-none" />
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-emerald-50/40 dark:from-slate-900 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-emerald-50/40  to-transparent pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
@@ -103,7 +103,7 @@ export default function Hero() {
             className="lg:col-span-5 text-center lg:text-left flex flex-col items-center lg:items-start"
           >
             {/* Headline */}
-            <h1 className="text-[2.5rem] leading-tight sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white sm:leading-[1.08] mb-5">
+            <h1 className="text-[2.5rem] leading-tight sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900  sm:leading-[1.08] mb-5">
               <motion.span
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -115,7 +115,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="gradient-text-emerald dark:text-emerald-400 whitespace-nowrap"
+                className="gradient-text-emerald  whitespace-nowrap"
               >
                 finally in sync.
               </motion.span>
@@ -126,7 +126,7 @@ export default function Hero() {
               initial={{ width: 0 }}
               animate={{ width: 48 }}
               transition={{ duration: 0.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="h-0.5 bg-emerald-300/50 dark:bg-emerald-500/50 rounded-full mb-5"
+              className="h-0.5 bg-emerald-300/50  rounded-full mb-5"
             />
 
             {/* Subheadline */}
@@ -134,7 +134,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-              className="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-lg mb-8"
+              className="text-base sm:text-lg lg:text-xl text-slate-600  font-normal leading-relaxed max-w-lg mb-8"
             >
               Inventory intelligence, prescription verification, and real-time dispensing, all unified in one platform built for modern pharmacies.
             </motion.p>
@@ -155,10 +155,10 @@ export default function Hero() {
               </AnimatedCTA>
               <a
                 href="#features"
-                className="inline-flex items-center justify-center gap-1.5 px-5 py-3 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800 rounded-full transition-all duration-200"
+                className="inline-flex items-center justify-center gap-1.5 px-5 py-3 text-xs font-semibold text-slate-600  hover:text-slate-900   hover:bg-slate-100/80  rounded-full transition-all duration-200"
               >
                 Explore platform
-                <i className="ri-arrow-right-up-line text-slate-400 dark:text-slate-500 text-xs" />
+                <i className="ri-arrow-right-up-line text-slate-400  text-xs" />
               </a>
             </motion.div>
 
@@ -170,9 +170,9 @@ export default function Hero() {
               className="flex flex-wrap items-center gap-3 sm:gap-4 mt-6 sm:mt-8"
             >
               {[
-                { icon: "ri-time-line", text: "Sub-20ms Sync", color: "text-emerald-500 dark:text-emerald-400" },
+                { icon: "ri-time-line", text: "Sub-20ms Sync", color: "text-emerald-500 " },
               ].map((item) => (
-                <div key={item.text} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/60 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 text-[11px] text-slate-600 dark:text-slate-300 font-medium">
+                <div key={item.text} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/60  border border-slate-100  text-[11px] text-slate-600  font-medium">
                   <i className={`${item.icon} ${item.color} text-xs`} />
                   <span>{item.text}</span>
                 </div>
@@ -192,10 +192,10 @@ export default function Hero() {
           >
             <motion.div
               style={{ rotateX, rotateY }}
-              className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-2xl dark:shadow-emerald-500/10 transition-transform duration-100 ease-linear transform-gpu"
+              className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200  bg-white  shadow-2xl  transition-transform duration-100 ease-linear transform-gpu"
             >
               {/* Window Header */}
-              <div className="absolute top-0 left-0 w-full h-10 bg-slate-50 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 flex items-center px-4 gap-2 z-20">
+              <div className="absolute top-0 left-0 w-full h-10 bg-slate-50  backdrop-blur-md border-b border-slate-200  flex items-center px-4 gap-2 z-20">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
                 <div className="w-3 h-3 rounded-full bg-amber-400" />
                 <div className="w-3 h-3 rounded-full bg-green-400" />
@@ -206,14 +206,14 @@ export default function Hero() {
                 <img
                   src="/white.png"
                   alt="Klavora Dashboard"
-                  className="w-full h-auto object-cover object-top opacity-90 dark:hidden pointer-events-none mix-blend-multiply"
+                  className="w-full h-auto object-cover object-top opacity-90  pointer-events-none mix-blend-multiply"
                   loading="eager"
                   decoding="async"
                 />
                 <img
                   src="/dashboard-mockup.png"
                   alt="Klavora Dashboard Dark Mode"
-                  className="w-full h-auto object-cover object-top opacity-90 hidden dark:block pointer-events-none"
+                  className="w-full h-auto object-cover object-top opacity-90 hidden  pointer-events-none"
                   loading="eager"
                   decoding="async"
                 />
@@ -229,11 +229,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-12 sm:mt-16 lg:mt-20 pt-6 sm:pt-8 border-t border-slate-200/50 dark:border-slate-800"
+          className="mt-12 sm:mt-16 lg:mt-20 pt-6 sm:pt-8 border-t border-slate-200/50 "
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {heroStats.map((stat, idx) => (
-              <div key={stat.label} className={`${idx !== 0 ? "border-l border-slate-200/50 dark:border-slate-800 pl-4 md:border-l md:pl-8" : ""}`}>
+              <div key={stat.label} className={`${idx !== 0 ? "border-l border-slate-200/50  pl-4 md:border-l md:pl-8" : ""}`}>
                 <AnimatedStat value={stat.value} label={stat.label} delay={idx * 0.1} />
               </div>
             ))}

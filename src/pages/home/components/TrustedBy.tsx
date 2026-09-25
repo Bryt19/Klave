@@ -15,7 +15,7 @@ const loopPartners = [...partners, ...partners];
 
 export default function TrustedBy() {
   return (
-    <section className="relative py-10 sm:py-14 bg-white dark:bg-slate-900 overflow-hidden">
+    <section className="relative py-10 sm:py-14 bg-white  overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6 sm:mb-8">
           <span className="text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-[0.15em]">
@@ -24,8 +24,8 @@ export default function TrustedBy() {
         </div>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-white dark:from-slate-900 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-white dark:from-slate-900 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-white  to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-white  to-transparent z-10 pointer-events-none" />
 
           <div className="overflow-hidden">
             <motion.div
@@ -37,7 +37,7 @@ export default function TrustedBy() {
             >
               {loopPartners.map((name, i) => (
                 <div key={`${name}-${i}`} className="flex items-center gap-2.5 shrink-0">
-                  <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-lg bg-slate-100  border border-slate-200  flex items-center justify-center">
                     <span className="text-xs font-bold text-slate-400">
                       {name.split(" ").map((w) => w[0]).slice(0, 2).join("")}
                     </span>
@@ -64,7 +64,7 @@ export default function TrustedBy() {
               transition={{ duration: 0.4, delay: i * 0.08 }}
               className="text-center"
             >
-              <div className="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-100">{stat.value}</div>
+              <div className="text-lg sm:text-xl font-bold text-slate-800 ">{stat.value}</div>
               <div className="text-[10px] sm:text-[11px] text-slate-400 font-medium">{stat.label}</div>
             </motion.div>
           ))}

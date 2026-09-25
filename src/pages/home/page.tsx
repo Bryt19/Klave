@@ -30,19 +30,19 @@ function SectionDivider({ variant = "light" }: { variant?: "light" | "analytics-
   if (variant === "analytics-enter") {
     // Transition from light-section bg into the dark analytics panel
     return (
-      <div className="h-20 bg-gradient-to-b from-white dark:from-slate-900 to-slate-950 dark:to-slate-950 pointer-events-none" />
+      <div className="h-20 bg-gradient-to-b from-white  to-slate-950  pointer-events-none" />
     );
   }
   if (variant === "analytics-exit") {
     // Transition from dark analytics panel back to light sections
     return (
-      <div className="h-20 bg-gradient-to-b from-slate-950 dark:from-slate-950 to-white dark:to-slate-900 pointer-events-none" />
+      <div className="h-20 bg-gradient-to-b from-slate-950  to-white  pointer-events-none" />
     );
   }
 
   // Generic thin divider line — background matches surrounding sections
   return (
-    <div className="relative bg-white dark:bg-slate-900 transition-colors duration-300">
+    <div className="relative bg-white  transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative py-3">
           <div
@@ -102,7 +102,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300 selection:bg-emerald-100 selection:text-emerald-900 dark:selection:bg-emerald-900/40 dark:selection:text-emerald-200">
+    <div className="min-h-screen bg-white  transition-colors duration-300 selection:bg-emerald-100 selection:text-emerald-900  ">
       <SEO 
         title="Home | Klavora - Pharmacy Inventory Management" 
         description="Klavora is the leading pharmacy inventory management and FEFO automated dispensing software for pharmacies in Ghana and West Africa. Get sub-20ms sync." 

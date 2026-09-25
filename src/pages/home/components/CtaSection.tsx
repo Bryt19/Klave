@@ -37,7 +37,7 @@ export default function CtaSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <AnimatedCTA
               href="https://app.klavora.store"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold bg-white dark:bg-slate-800 text-teal-800 dark:text-teal-100 rounded-full hover:bg-teal-50 dark:hover:bg-slate-700 transition-colors duration-200 shadow-xl shadow-black/10 cta-ripple group"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold bg-white  text-teal-800  rounded-full hover:bg-teal-50  transition-colors duration-200 shadow-xl shadow-black/10 cta-ripple group"
             >
               Get Started Free
               <i className="ri-arrow-right-line text-teal-600 group-hover:translate-x-0.5 transition-transform" />

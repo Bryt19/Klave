@@ -67,7 +67,7 @@ function SalesChart({ data }: { data: typeof analyticsData.dailySales }) {
         <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} className="w-full h-full" onMouseLeave={() => setHoveredIdx(null)}>
           {/* Grid lines */}
           {[0, 0.25, 0.5, 0.75, 1].map((pct) => (
-            <line key={pct} x1={padX} y1={padY + innerH * (1 - pct)} x2={chartWidth - padX} y2={padY + innerH * (1 - pct)} stroke="currentColor" className="text-slate-200 dark:text-slate-700" strokeWidth="1" />
+            <line key={pct} x1={padX} y1={padY + innerH * (1 - pct)} x2={chartWidth - padX} y2={padY + innerH * (1 - pct)} stroke="currentColor" className="text-slate-200 " strokeWidth="1" />
           ))}
 
           {/* Area fill */}

@@ -32,7 +32,7 @@ export default function AnimatedCTA({ href, className, children }: AnimatedCTAPr
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[9999] flex items-center justify-center bg-white/95 dark:bg-slate-950/95 backdrop-blur-md"
+              className="fixed inset-0 z-[9999] flex items-center justify-center bg-white/95  backdrop-blur-md"
             >
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
@@ -44,7 +44,7 @@ export default function AnimatedCTA({ href, className, children }: AnimatedCTAPr
                   <motion.div 
                     animate={{ rotate: 360 }} 
                     transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-                    className="absolute inset-0 rounded-full border-4 border-emerald-100 dark:border-emerald-900/50" 
+                    className="absolute inset-0 rounded-full border-4 border-emerald-100 " 
                   />
                   <motion.div 
                     animate={{ rotate: 360 }} 
@@ -64,10 +64,10 @@ export default function AnimatedCTA({ href, className, children }: AnimatedCTAPr
                   </motion.div>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-2">
+                  <h3 className="text-2xl font-bold tracking-tight text-slate-900  mb-2">
                     Opening Dashboard
                   </h3>
-                  <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                  <p className="text-sm font-medium text-slate-500 ">
                     Preparing your secure workspace...
                   </p>
                 </div>

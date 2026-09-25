@@ -7,13 +7,13 @@ export default function Testimonials() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="about" className="relative py-14 sm:py-20 lg:py-28 bg-slate-50 dark:bg-slate-800/50 dark:bg-slate-900 overflow-hidden">
+    <section id="about" className="relative py-14 sm:py-20 lg:py-28 bg-slate-50   overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="max-w-3xl mb-8 sm:mb-10 text-center mx-auto">
           <Reveal>
-            <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+            <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900  leading-[1.1]">
               Trusted by pharmacy <br className="hidden sm:block" />
               <span className="gradient-text-emerald">leaders across Africa.</span>
             </h2>
@@ -31,7 +31,7 @@ export default function Testimonials() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -16 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-white dark:bg-slate-800/80 border border-slate-100 dark:border-slate-700/50 shadow-sm card-hover-glow"
+                  className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-white  border border-slate-100  shadow-sm card-hover-glow"
                 >
                   {/* Decorative quote mark */}
                   <div className="absolute top-6 right-8 sm:top-8 sm:right-10 text-emerald-100 pointer-events-none select-none">
@@ -54,20 +54,20 @@ export default function Testimonials() {
                   </div>
 
                   {/* Quote */}
-                  <blockquote className="text-base sm:text-lg lg:text-xl text-slate-800 dark:text-slate-100 font-medium leading-relaxed mb-8 relative z-10">
+                  <blockquote className="text-base sm:text-lg lg:text-xl text-slate-800  font-medium leading-relaxed mb-8 relative z-10">
                     &ldquo;{testimonials[active].quote}&rdquo;
                   </blockquote>
 
                   {/* Metrics */}
-                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-emerald-50/80 dark:from-emerald-900/20 to-transparent border border-emerald-100 dark:border-emerald-800/40 mb-6">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center shrink-0">
-                      <i className="ri-line-chart-line text-emerald-600 dark:text-emerald-400 text-lg" />
+                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-emerald-50/80  to-transparent border border-emerald-100  mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-100  flex items-center justify-center shrink-0">
+                      <i className="ri-line-chart-line text-emerald-600  text-lg" />
                     </div>
                     <div>
-                      <div className="text-[10px] text-slate-400 dark:text-slate-500 font-medium uppercase tracking-wider">
+                      <div className="text-[10px] text-slate-400  font-medium uppercase tracking-wider">
                         {testimonials[active].metrics.label}
                       </div>
-                      <div className="text-lg font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">
+                      <div className="text-lg font-bold text-emerald-600  mt-0.5">
                         {testimonials[active].metrics.value}
                       </div>
                     </div>
@@ -75,14 +75,14 @@ export default function Testimonials() {
 
                   {/* Author */}
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center text-xs font-bold text-emerald-700 dark:text-emerald-400">
+                    <div className="w-10 h-10 rounded-full bg-emerald-100  flex items-center justify-center text-xs font-bold text-emerald-700 ">
                       {testimonials[active].initials}
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-slate-900 dark:text-white">
+                      <div className="text-xs font-bold text-slate-900 ">
                         {testimonials[active].name}
                       </div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                      <div className="text-[11px] text-slate-500 ">
                         {testimonials[active].role} · {testimonials[active].company}
                       </div>
                     </div>
@@ -101,8 +101,8 @@ export default function Testimonials() {
                 whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }}
                 className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                   active === i
-                    ? "bg-emerald-500 dark:bg-emerald-400 w-6"
-                    : "bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 w-2"
+                    ? "bg-emerald-500  w-6"
+                    : "bg-slate-200  hover:bg-slate-300 w-2"
                 }`}
                 aria-label={`View testimonial ${i + 1}`}
               />

@@ -34,9 +34,9 @@ function EcoStatCounter({ value, suffix, label, delay }: {
 
   return (
     <motion.div ref={ref} initial={{ opacity: 0, y: 14 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }}
-      className="text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50">
-      <div className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white"><span ref={displayRef}>0{suffix}</span></div>
-      <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium mt-1">{label}</div>
+      className="text-center p-4 rounded-xl bg-slate-50  border border-slate-100 ">
+      <div className="text-xl sm:text-2xl font-bold text-slate-900 "><span ref={displayRef}>0{suffix}</span></div>
+      <div className="text-[10px] text-slate-500  font-medium mt-1">{label}</div>
     </motion.div>
   );
 }
@@ -69,16 +69,16 @@ export default function Ecosystem() {
   };
 
   return (
-    <section ref={sectionRef} id="ecosystem" className="relative py-14 sm:py-20 lg:py-28 bg-white dark:bg-slate-900 overflow-hidden">
+    <section ref={sectionRef} id="ecosystem" className="relative py-14 sm:py-20 lg:py-28 bg-white  overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div style={{ y: headerY }} className="max-w-3xl mb-14 sm:mb-16 text-center mx-auto">
           <Reveal>
-            <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-5">
+            <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900  leading-[1.1] mb-5">
               The Klavora{" "}
               <span className="text-emerald-600">ecosystem.</span>
             </h2>
-            <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 leading-relaxed max-w-xl mx-auto">
+            <p className="text-sm sm:text-base text-slate-500  leading-relaxed max-w-xl mx-auto">
               Every module connects seamlessly. Click any module to learn more.
             </p>
           </Reveal>
@@ -240,12 +240,12 @@ export default function Ecosystem() {
                           className={`flex items-center gap-2 px-4 py-2.5 rounded-full border transition-all duration-150 cursor-pointer whitespace-nowrap ${
                             isSelected
                               ? "bg-emerald-600 border-emerald-500 text-white shadow-[0_4px_20px_rgba(16,185,129,0.35)]"
-                              : "bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-700/50 shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:shadow-[0_4px_16px_rgba(16,185,129,0.12)] hover:border-emerald-200"
+                              : "bg-white  border-slate-100  shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:shadow-[0_4px_16px_rgba(16,185,129,0.12)] hover:border-emerald-200"
                           }`}>
-                          <div className={`w-7 h-7 rounded-lg flex items-center justify-center transition-colors duration-150 ${isSelected ? "bg-white/20" : "bg-emerald-50 dark:bg-emerald-900/30"}`}>
+                          <div className={`w-7 h-7 rounded-lg flex items-center justify-center transition-colors duration-150 ${isSelected ? "bg-white/20" : "bg-emerald-50 "}`}>
                             <i className={`${node.icon} ${isSelected ? "text-white" : "text-emerald-600"} text-sm`} />
                           </div>
-                          <span className={`text-xs font-semibold ${isSelected ? "text-white" : "text-slate-700 dark:text-slate-300"}`}>
+                          <span className={`text-xs font-semibold ${isSelected ? "text-white" : "text-slate-700 "}`}>
                             {node.label}
                             {node.label === "Drug Finder" && <span className="text-[9px] text-emerald-500 ml-1">(Coming Soon)</span>}
                           </span>
@@ -261,21 +261,21 @@ export default function Ecosystem() {
                               className={`absolute top-1/2 -translate-y-1/2 w-52 sm:w-60 z-30 ${
                                 popupSide === "right" ? "left-full ml-3" : "right-full mr-3"
                               }`}>
-                              <div className="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-emerald-100 dark:border-emerald-800/40 shadow-[0_8px_32px_rgba(0,0,0,0.12),0_0_0_1px_rgba(16,185,129,0.08)]">
+                              <div className="p-4 rounded-2xl bg-white  border border-emerald-100  shadow-[0_8px_32px_rgba(0,0,0,0.12),0_0_0_1px_rgba(16,185,129,0.08)]">
                                 <div className="flex items-center gap-2.5 mb-2.5">
-                                  <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center shrink-0">
+                                  <div className="w-8 h-8 rounded-lg bg-emerald-50  flex items-center justify-center shrink-0">
                                     <i className={`${node.icon} text-emerald-600 text-sm`} />
                                   </div>
                                   <div>
-                                    <div className="text-xs font-bold text-slate-900 dark:text-white">{node.label}</div>
+                                    <div className="text-xs font-bold text-slate-900 ">{node.label}</div>
                                     <div className="text-[9px] text-emerald-600 font-medium">Klavora Module</div>
                                   </div>
                                 </div>
-                                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">{node.description}</p>
+                                <p className="text-[11px] text-slate-500  leading-relaxed">{node.description}</p>
                                 <button onClick={(e) => { e.stopPropagation(); setSelectedIdx(null); }}
-                                  className="mt-2.5 text-[10px] text-emerald-600 font-semibold hover:text-emerald-700 dark:text-emerald-400 transition-colors">Close</button>
+                                  className="mt-2.5 text-[10px] text-emerald-600 font-semibold hover:text-emerald-700  transition-colors">Close</button>
                               </div>
-                              <div className={`absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 rotate-45 ${
+                              <div className={`absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white  border-slate-200  rotate-45 ${
                                 popupSide === "right" ? "-left-1.5 border-l border-b" : "-right-1.5 border-r border-t"
                               }`} />
                             </motion.div>
@@ -307,19 +307,19 @@ export default function Ecosystem() {
                 const isSel = selectedIdx === originalIdx;
                 return (
                   <motion.div key={node.label} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.04 }}>
-                    <button onClick={() => setSelectedIdx(isSel ? null : originalIdx)} className={`w-full text-left flex items-center gap-2.5 px-3 py-2.5 rounded-xl border transition-all duration-150 ${isSel ? "bg-emerald-600 border-emerald-500 text-white" : "bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-700/50 shadow-sm hover:border-emerald-200"}`}>
-                      <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${isSel ? "bg-white/20" : "bg-emerald-50 dark:bg-emerald-900/30"}`}>
+                    <button onClick={() => setSelectedIdx(isSel ? null : originalIdx)} className={`w-full text-left flex items-center gap-2.5 px-3 py-2.5 rounded-xl border transition-all duration-150 ${isSel ? "bg-emerald-600 border-emerald-500 text-white" : "bg-white  border-slate-100  shadow-sm hover:border-emerald-200"}`}>
+                      <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${isSel ? "bg-white/20" : "bg-emerald-50 "}`}>
                         <i className={`${node.icon} ${isSel ? "text-white" : "text-emerald-600"} text-xs`} />
                       </div>
-                      <span className={`text-[11px] font-semibold ${isSel ? "text-white" : "text-slate-700 dark:text-slate-300"}`}>
+                      <span className={`text-[11px] font-semibold ${isSel ? "text-white" : "text-slate-700 "}`}>
                         {node.label}
                       </span>
                     </button>
                     <AnimatePresence>
                       {isSel && (
                         <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.2 }} className="overflow-hidden">
-                          <div className="mt-2 p-3 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-100 dark:border-emerald-800/40">
-                            <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">{node.description}</p>
+                          <div className="mt-2 p-3 rounded-xl bg-emerald-50  border border-emerald-100 ">
+                            <p className="text-[11px] text-slate-600  leading-relaxed">{node.description}</p>
                             <button onClick={() => setSelectedIdx(null)} className="mt-1.5 text-[10px] text-emerald-600 font-semibold">Close</button>
                           </div>
                         </motion.div>
@@ -336,11 +336,11 @@ export default function Ecosystem() {
                 return (
                   <motion.div key="drug-finder-mobile" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: 0.24 }} className="col-span-2 flex justify-center">
                     <div className="w-1/2">
-                      <button onClick={() => setSelectedIdx(isSel ? null : drugIdx)} className={`w-full text-left flex items-center gap-2.5 px-3 py-2.5 rounded-xl border transition-all duration-150 ${isSel ? "bg-emerald-600 border-emerald-500 text-white" : "bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-700/50 shadow-sm hover:border-emerald-200"}`}>
-                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${isSel ? "bg-white/20" : "bg-emerald-50 dark:bg-emerald-900/30"}`}>
+                      <button onClick={() => setSelectedIdx(isSel ? null : drugIdx)} className={`w-full text-left flex items-center gap-2.5 px-3 py-2.5 rounded-xl border transition-all duration-150 ${isSel ? "bg-emerald-600 border-emerald-500 text-white" : "bg-white  border-slate-100  shadow-sm hover:border-emerald-200"}`}>
+                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${isSel ? "bg-white/20" : "bg-emerald-50 "}`}>
                           <i className={`${node.icon} ${isSel ? "text-white" : "text-emerald-600"} text-xs`} />
                         </div>
-                        <span className={`text-[11px] font-semibold ${isSel ? "text-white" : "text-slate-700 dark:text-slate-300"}`}>
+                        <span className={`text-[11px] font-semibold ${isSel ? "text-white" : "text-slate-700 "}`}>
                           {node.label}
                           <span className="text-[9px] text-emerald-500 ml-1">(Coming Soon)</span>
                         </span>
@@ -348,8 +348,8 @@ export default function Ecosystem() {
                       <AnimatePresence>
                         {isSel && (
                           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.2 }} className="overflow-hidden">
-                            <div className="mt-2 p-3 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-100 dark:border-emerald-800/40">
-                              <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">{node.description}</p>
+                            <div className="mt-2 p-3 rounded-xl bg-emerald-50  border border-emerald-100 ">
+                              <p className="text-[11px] text-slate-600  leading-relaxed">{node.description}</p>
                               <button onClick={() => setSelectedIdx(null)} className="mt-1.5 text-[10px] text-emerald-600 font-semibold">Close</button>
                             </div>
                           </motion.div>

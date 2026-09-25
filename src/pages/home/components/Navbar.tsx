@@ -12,12 +12,8 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const observerRef = useRef<IntersectionObserver | null>(null);
-  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Initialize dark mode state
-    setIsDark(document.documentElement.classList.contains("dark"));
-
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll, { passive: true });
     
@@ -26,16 +22,6 @@ export default function Navbar() {
     
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const toggleDarkMode = () => {
-    if (isDark) {
-      document.documentElement.classList.remove("dark");
-      setIsDark(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      setIsDark(true);
-    }
-  };
 
   useEffect(() => {
     const sections = navLinks
@@ -86,7 +72,7 @@ export default function Navbar() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           className={`mx-auto pointer-events-auto transition-all duration-[450ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
             scrolled
-              ? "max-w-5xl rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200/60 dark:border-slate-700/60 shadow-[0_4px_32px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.02)] dark:shadow-[0_4px_32px_rgba(0,0,0,0.4)]"
+              ? "max-w-5xl rounded-full bg-white/90  backdrop-blur-xl border border-slate-200/60  shadow-[0_4px_32px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.02)] (0,0,0,0.4)]"
               : "max-w-7xl rounded-none bg-transparent border-transparent shadow-none"
           }`}
         >
@@ -99,7 +85,7 @@ export default function Navbar() {
                   <rect x="2" y="10" width="28" height="12" rx="4" fill="#3B82F6"/>
                   <rect x="10" y="10" width="12" height="12" rx="2" fill="#0EA5E9" opacity="0.85"/>
                 </svg>
-                <span className="text-lg font-bold tracking-tight text-slate-800 dark:text-white transition-colors">
+                <span className="text-lg font-bold tracking-tight text-slate-800  transition-colors">
                   Klavora<span className="text-emerald-500">.</span>
                 </span>
               </Link>
@@ -113,12 +99,12 @@ export default function Navbar() {
                   <a key={link.label} href={link.href}
                     onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
                     className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
-                      isActive ? "text-emerald-700 dark:text-emerald-300" : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white"
+                      isActive ? "text-emerald-700 " : "text-slate-500  hover:text-slate-800 "
                     }`}
                   >
                     {isActive && (
                       <motion.div layoutId="nav-pill"
-                        className="absolute inset-0 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-500/20 rounded-full"
+                        className="absolute inset-0 bg-emerald-50  border border-emerald-100  rounded-full"
                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
                     )}
@@ -131,14 +117,6 @@ export default function Navbar() {
             {/* Right CTAs & Mobile Hamburger */}
             <div className="flex md:flex-1 justify-end items-center gap-2">
               <div className="hidden md:flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={toggleDarkMode}
-                  className="flex items-center justify-center w-9 h-9 rounded-full text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors mr-1"
-                  aria-label="Toggle dark mode"
-                >
-                  <i className={`text-lg ${isDark ? "ri-sun-line" : "ri-moon-line"}`} />
-                </button>
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                   <AnimatedCTA href={DEMO_URL}
                     className="px-5 py-2 text-sm font-semibold rounded-full bg-emerald-600 text-white hover:bg-emerald-700 transition-all duration-200 shadow-sm shadow-emerald-500/20"
@@ -150,7 +128,7 @@ export default function Navbar() {
 
               {/* Mobile hamburger */}
               <button type="button"
-                className="flex md:hidden w-8 h-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
+                className="flex md:hidden w-8 h-8 items-center justify-center rounded-full bg-slate-100  text-slate-600 "
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Toggle menu"
               >
@@ -166,25 +144,15 @@ export default function Navbar() {
         {mobileOpen && (
           <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }} className="fixed top-16 left-4 right-4 z-50 md:hidden">
-            <div className="bg-white/90 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/60 shadow-[0_8px_32px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.5)] px-3 py-2">
+            <div className="bg-white/90  backdrop-blur-xl rounded-2xl border border-slate-200/60  shadow-[0_8px_32px_rgba(0,0,0,0.1)] (0,0,0,0.5)] px-3 py-2">
               
-              <div className="flex justify-end mb-2 px-2 pt-2">
-                <button
-                  type="button"
-                  onClick={toggleDarkMode}
-                  className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
-                >
-                  <i className={isDark ? "ri-sun-line" : "ri-moon-line"} />
-                </button>
-              </div>
-
               {navLinks.map((link) => (
                 <a key={link.label} href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className="block px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white dark:hover:text-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-800/50 rounded-xl transition-colors"
+                  className="block px-4 py-3 text-base font-medium text-slate-600  hover:text-slate-900   hover:bg-slate-50   rounded-xl transition-colors"
                 >{link.label}</a>
               ))}
-              <div className="pt-2 mt-1 border-t border-slate-100 dark:border-slate-800 flex gap-2">
+              <div className="pt-2 mt-1 border-t border-slate-100  flex gap-2">
                 <AnimatedCTA href={DEMO_URL}
                   className="flex-1 text-center py-3 text-base font-semibold bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition-colors"
                 >Get Started</AnimatedCTA>
