@@ -325,9 +325,9 @@ const sections: { title: string; body: ReactNode }[] = [
 ];
 
 const contactInfo = [
-  { label: "Email", value: "legal@klavora.com" },
+  { label: "Email", value: "info@klavora.store" },
   { label: "Mail", value: "EliTech CreaTives Limited, Legal Department" },
-  { label: "Website", value: "klavora.com" },
+  { label: "Website", value: "klavora.store" },
 ];
 
 export default function Terms() {
