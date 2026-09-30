@@ -80,7 +80,7 @@ The platform is a cloud-hosted SaaS product. No software needs to be installed o
 
 ## Company
 
-Klavora is a product of **EliTech CreaTives Limited**, a technology company focused on building practical digital infrastructure for African businesses. Klavora was founded in response to a clear gap: most pharmacy management software available in Ghana was either imported, expensive, poorly suited to local workflows, or required expensive hardware. EliTech CreaTives set out to build a product that works the way Ghanaian pharmacies actually work — with local payment methods, Ghana Cedis, offline capability, and a design that is approachable for staff who are not technology experts. The mission is to make enterprise-grade pharmacy management accessible to every retail pharmacy in Ghana and, over time, across the African continent.
+Klavora is a product developed by a team of students and young engineers. It is a student-led project currently being built from the ground up to make pharmacy operations simpler, faster, and more reliable. The project is still evolving, and the team is committed to building practical, hands-on solutions for Ghanaian pharmacies — with local payment methods, Ghana Cedis, offline capability, and a design that is approachable for staff who are not technology experts.
 
 ---
 
