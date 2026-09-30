@@ -1,6 +1,6 @@
 # Klavora - Full Context for AI Agents
 
-Klavora is a modern Pharmacy Inventory Management and FEFO (First Expired, First Out) Automated Dispensing software engineered by EliTech CreaTives Limited. It is designed to modernize pharmacies in Ghana and across West Africa.
+Klavora is a student-led project, currently being developed from the ground up to make pharmacy operations simpler, faster and more reliable. It is a modern Pharmacy Inventory Management and FEFO (First Expired, First Out) Automated Dispensing software designed to modernize pharmacies in Ghana and across West Africa.
 
 ## Core Features
 1. Point-of-Sale Counter Register

@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Marquee from "./components/Marquee";
+// import Marquee from "./components/Marquee";
 import ScrollToTop from "./components/ScrollToTop";
 import SEO from "@/components/SEO";
 
@@ -62,7 +62,7 @@ export default function Home() {
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "EliTech CreaTives Limited",
+      "name": "Klavora",
       "url": "https://klavora.store"
     },
     {
@@ -72,15 +72,15 @@ export default function Home() {
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "All",
       "url": "https://klavora.store",
-      "publisher": { "@type": "Organization", "name": "EliTech CreaTives Limited" }
+      "publisher": { "@type": "Organization", "name": "Klavora" }
     },
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
       "itemListElement": [
-        { "@type": "Person", "name": "Richard Elikem Amenorpe", "jobTitle": "Founder & CEO", "worksFor": { "@type": "Organization", "name": "EliTech CreaTives Limited" } },
-        { "@type": "Person", "name": "Bright Akoto", "worksFor": { "@type": "Organization", "name": "EliTech CreaTives Limited" } },
-        { "@type": "Person", "name": "Andy Nkrumah", "worksFor": { "@type": "Organization", "name": "EliTech CreaTives Limited" } }
+        { "@type": "Person", "name": "Richard Elikem Amenorpe", "jobTitle": "Founder & CEO", "worksFor": { "@type": "Organization", "name": "Klavora" } },
+        { "@type": "Person", "name": "Bright Akoto", "worksFor": { "@type": "Organization", "name": "Klavora" } },
+        { "@type": "Person", "name": "Andy Nkrumah", "worksFor": { "@type": "Organization", "name": "Klavora" } }
       ]
     },
     {
@@ -112,7 +112,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Marquee />
+        {/* <Marquee /> */}
         <Suspense fallback={<SectionSpinner />}>
           <SectionDivider />
           <ProblemSection />
