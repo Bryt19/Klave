@@ -84,6 +84,6 @@ Klavora is a product developed by a team of students and young engineers. It is 
 
 ---
 
-**Contact:** support@klavora.co  
-**Website:** klavora.co  
-**App:** app.klavora.co
+**Contact:** info@klavora.store  
+**Website:** klavora.store  
+**App:** app.klavora.store
