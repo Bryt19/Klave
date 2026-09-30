@@ -220,7 +220,7 @@ const sections: { title: string; body: ReactNode }[] = [
 
 const contactInfo = [
   { label: "Email", value: "info@klavora.store" },
-  { label: "Mail", value: "EliTech CreaTives Limited, Privacy Team" },
+  { label: "Mail", value: "support@klavora.store" },
   { label: "Response Time", value: "Within 30 days of receiving your request" },
 ];
 
@@ -265,7 +265,7 @@ export default function Privacy() {
               Effective Date: August 21, 2026 &nbsp;·&nbsp; Last Updated: August 21, 2026
             </p>
             <p className="text-sm text-slate-500 mt-2">
-              This Privacy Policy describes how EliTech CreaTives Limited ("Klavora," "we," "our," or "us") collects, uses, and protects your information when you use our pharmacy operations platform and related services.
+              This Privacy Policy describes how Klavora ("we," "our," or "us") collects, uses, and protects your information when you use our pharmacy operations platform and related services.
             </p>
           </div>
 
@@ -307,7 +307,7 @@ export default function Privacy() {
       <footer className="border-t border-slate-100 py-8">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
           <div>
-            © {new Date().getFullYear()} Klavora (EliTech CreaTives Limited). All rights reserved.
+            © {new Date().getFullYear()} Klavora. All rights reserved.
           </div>
           <div className="flex items-center gap-4">
             <Link to="/privacy" className="hover:text-slate-600 transition-colors">Privacy Policy</Link>

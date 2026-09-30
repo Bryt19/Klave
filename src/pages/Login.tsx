@@ -284,7 +284,7 @@ export default function Login() {
 
         {/* Footer */}
         <footer className="px-6 py-5 text-center text-[11px] text-slate-400 border-t border-slate-100">
-          © {new Date().getFullYear()} Klavora · EliTech CreaTives Limited · All rights reserved
+          © {new Date().getFullYear()} Klavora · All rights reserved
         </footer>
       </div>
     </div>

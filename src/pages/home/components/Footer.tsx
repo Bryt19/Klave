@@ -28,8 +28,8 @@ const footerLegal = [
 export default function Footer() {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [email, setEmail] = useState("");
-  
-  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const isValidEmail = /^[^\s@]+@[^\s@]+\\.[^\s@]+$/.test(email);
 
   const showToast = (message: string) => {
     setToastMessage(message);
@@ -37,8 +37,6 @@ export default function Footer() {
       setToastMessage(null);
     }, 3000);
   };
-
-
 
   return (
     <footer className="relative bg-slate-950 text-white overflow-hidden">
@@ -184,7 +182,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="py-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-600 ">
-          <div>&copy; {new Date().getFullYear()} Klavora (EliTech CreaTives Limited). All rights reserved.</div>
+          <div>&copy; {new Date().getFullYear()} Klavora. All rights reserved.</div>
           <div className="flex items-center gap-5">
             <Link to="/privacy" className="hover:text-slate-400 transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-slate-400 transition-colors">Terms</Link>

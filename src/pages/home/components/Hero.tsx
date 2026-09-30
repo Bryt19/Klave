@@ -1,50 +1,6 @@
-import { useEffect, useRef } from "react";
-import { motion, useMotionValue, useSpring, useInView, useTransform } from "framer-motion";
-import { heroStats } from "@/mocks/homeContent";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import React from "react";
 import AnimatedCTA from "@/components/AnimatedCTA";
-
-/* ── Animated number counter ───────────────────────────────── */
-function AnimatedStat({ value, label, delay }: { value: string; label: string; delay: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  const match = value.match(/^([\d.]+)(.*)$/);
-  const numericEnd = match ? parseFloat(match[1]) : 0;
-  const suffix = match ? match[2] : value;
-  const isDecimal = match ? match[1].includes(".") : false;
-  const motionVal = useMotionValue(0);
-  const spring = useSpring(motionVal, { stiffness: 35, damping: 20 });
-  const displayRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    if (inView) motionVal.set(numericEnd);
-  }, [inView, motionVal, numericEnd]);
-
-  useEffect(() => {
-    const unsub = spring.on("change", (latest: number) => {
-      if (displayRef.current) {
-        const formatted = isDecimal ? latest.toFixed(1) : Math.round(latest).toString();
-        displayRef.current.textContent = formatted + suffix;
-      }
-    });
-    return () => unsub();
-  }, [spring, suffix, isDecimal]);
-
-  return (
-    <div ref={ref}>
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }}
-      >
-        <div className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold tracking-tight text-slate-900  leading-none">
-          <span ref={displayRef}>0{suffix}</span>
-        </div>
-        <div className="text-[11px] sm:text-xs text-slate-500  font-medium mt-1.5">{label}</div>
-      </motion.div>
-    </div>
-  );
-}
 
 /* ── Main Hero ─────────────────────────────────────────────── */
 export default function Hero() {
@@ -148,7 +104,7 @@ export default function Hero() {
             >
               <AnimatedCTA
                 href="https://app.klavora.store"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-full transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold bg-emerald-600 text-white rounded-full transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30"
               >
                 Get Started
                 <i className="ri-arrow-right-line text-emerald-200 text-xs" />
@@ -225,7 +181,8 @@ export default function Hero() {
         </div>
 
         {/* ── Stats strip ────────────────────────────────────── */}
-        <motion.div
+        {/* Hidden for now — stats section is only shown in our-numbers page */}
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
@@ -238,7 +195,7 @@ export default function Hero() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

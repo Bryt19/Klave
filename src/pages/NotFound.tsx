@@ -120,7 +120,7 @@ export default function NotFound() {
           <rect x="2" y="10" width="28" height="12" rx="4" fill="#3B82F6" opacity="0.4" />
           <rect x="10" y="10" width="12" height="12" rx="2" fill="#0EA5E9" opacity="0.3" />
         </svg>
-        <span>Klavora · EliTech CreaTives Limited</span>
+        <span>Klavora · All rights reserved</span>
       </motion.div>
     </div>
   );

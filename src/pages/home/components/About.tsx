@@ -4,8 +4,8 @@ export default function About() {
   return (
     <section id="about" className="relative py-24 md:py-32 bg-white  transition-colors duration-300">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-16 md:mb-20">
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Text */}
           <div className="lg:col-span-6">
             <Reveal>
@@ -13,19 +13,22 @@ export default function About() {
                 Our Story
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900  leading-[1.12] mb-4">
-                Built by engineers who <br />
+                Built by students who <br />
                 watch pharmacies work.
               </h2>
               <p className="text-sm text-slate-500  leading-relaxed max-w-xl mb-6">
-                We started with a simple observation: pharmacy teams deserve better tools. Here’s how Klavora came to be.
+                Klavora is a student-led project, currently being developed from the ground up to make pharmacy operations simpler, faster and more reliable.
               </p>
-              
+
               <div className="space-y-4 text-sm sm:text-base text-slate-600  leading-relaxed max-w-xl">
                 <p>
-                  Klavora was engineered by <strong className="text-slate-900  font-semibold">EliTech CreaTives Limited</strong> out of direct observation of how modern dispensary counters struggle with slow paper logs, stock expiry blindspots, and disjointed systems.
+                  We&apos;re a group of students and young engineers who kept noticing the same problems in the pharmacies around us: workflows that felt scattered, manual stock tracking and teams juggling too many disconnected tools just to keep the counter running.
                 </p>
                 <p>
-                  We built Klavora from the ground up as a unified operations layer: combining secure digital script intake, batch-level FEFO stock tracking, and instant clinical screening.
+                  So we started building Klavora as a practical, hands-on project. We&apos;re not pretending to be a large, established company. We&apos;re a small, growing team still learning, still iterating and still building something we actually believe in.
+                </p>
+                <p>
+                  Every feature we ship is driven by real feedback from pharmacy teams and a genuine desire to make day-to-day operations smoother. The project is still evolving and we&apos;re building it the way we wish our own workflows had been.
                 </p>
               </div>
             </Reveal>
@@ -52,7 +55,7 @@ export default function About() {
                       Richard Elikem Amenorpe
                     </p>
                     <p className="text-xs text-slate-500 ">
-                      Founder &amp; CEO &middot; EliTech CreaTives Ltd
+                      Founder &amp; Vision Lead
                     </p>
                   </div>
                   <a
@@ -73,7 +76,7 @@ export default function About() {
                 </blockquote>
 
                 <div className="pt-4 border-t border-slate-200  text-xs text-slate-400">
-                  Registered in Ghana &middot; Built in Accra &middot; Engineered for Global Health Systems
+                  A student-led project &middot; Built in Accra &middot; Still evolving
                 </div>
               </div>
             </Reveal>
@@ -81,7 +84,7 @@ export default function About() {
         </div>
 
         {/* Team — Bright & Andy */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-12 md:mt-16">
           <Reveal delay={0.15}>
             <div className="subtle-card rounded-2xl p-5 bg-white  border border-slate-200 ">
               <div className="flex items-start gap-4">

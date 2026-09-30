@@ -162,7 +162,7 @@ export default function DocsIndex() {
       <footer className="border-t border-slate-100 py-8 mt-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
           <div>
-            © {new Date().getFullYear()} Klavora (EliTech CreaTives Limited). All rights reserved.
+            © {new Date().getFullYear()} Klavora. All rights reserved.
           </div>
           <div className="flex items-center gap-4">
             <Link to="/privacy" className="hover:text-slate-600 transition-colors">Privacy Policy</Link>

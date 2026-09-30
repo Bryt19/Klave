@@ -48,7 +48,7 @@ const sections: { title: string; body: ReactNode }[] = [
       <>
         <p>
           By accessing or using the Klavora platform ("Service") provided by
-          EliTech CreaTives Limited ("Klavora," "we," "our," or "us"), you
+          "Klavora," "we," "our," or "us"), you
           agree to be bound by these Terms of Service ("Terms"). If you are
           using the Service on behalf of a pharmacy or organization, you
           represent that you have the authority to bind that entity to these
@@ -326,7 +326,7 @@ const sections: { title: string; body: ReactNode }[] = [
 
 const contactInfo = [
   { label: "Email", value: "info@klavora.store" },
-  { label: "Mail", value: "EliTech CreaTives Limited, Legal Department" },
+  { label: "Mail", value: "legal@klavora.store" },
   { label: "Website", value: "klavora.store" },
 ];
 
@@ -371,7 +371,7 @@ export default function Terms() {
               Effective Date: August 21, 2026 &nbsp;·&nbsp; Last Updated: August 21, 2026
             </p>
             <p className="text-sm text-slate-500 mt-2">
-              These Terms of Service ("Terms") govern your access to and use of the Klavora platform and services provided by EliTech CreaTives Limited. Please read them carefully.
+              These Terms of Service ("Terms") govern your access to and use of the Klavora platform and services provided by Klavora. Please read them carefully.
             </p>
           </div>
 
@@ -413,7 +413,7 @@ export default function Terms() {
       <footer className="border-t border-slate-100 py-8">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
           <div>
-            © {new Date().getFullYear()} Klavora (EliTech CreaTives Limited). All rights reserved.
+            © {new Date().getFullYear()} Klavora. All rights reserved.
           </div>
           <div className="flex items-center gap-4">
             <Link to="/privacy" className="hover:text-slate-600 transition-colors">Privacy Policy</Link>

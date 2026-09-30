@@ -246,7 +246,7 @@ export default function Contact() {
 
       <footer className="border-t border-slate-100 py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
-          <div>&copy; {new Date().getFullYear()} Klavora (EliTech CreaTives Limited). All rights reserved.</div>
+          <div>&copy; {new Date().getFullYear()} Klavora. All rights reserved.</div>
           <div className="flex items-center gap-4">
             <Link to="/privacy" className="hover:text-slate-600 transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-slate-600 transition-colors">Terms</Link>

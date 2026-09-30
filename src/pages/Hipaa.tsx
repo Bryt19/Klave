@@ -321,7 +321,7 @@ export default function Hipaa() {
                 </div>
                 <div>
                   <div className="text-xs font-semibold text-slate-500 mb-1">Mailing Address</div>
-                  <div className="font-semibold">EliTech CreaTives Limited</div>
+                  <div className="font-semibold">Klavora Team</div>
                 </div>
               </div>
             </div>
@@ -333,7 +333,7 @@ export default function Hipaa() {
       <footer className="border-t border-slate-100 py-8">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
           <div>
-            © {new Date().getFullYear()} Klavora (EliTech CreaTives Limited). All rights reserved.
+            © {new Date().getFullYear()} Klavora. All rights reserved.
           </div>
           <div className="flex items-center gap-4">
             <Link to="/privacy" className="hover:text-slate-600 transition-colors">Privacy Policy</Link>
